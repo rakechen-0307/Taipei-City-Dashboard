@@ -2,6 +2,7 @@
 /node_modules
 /dist
 /public/mapData
+/public/._mapData
 
 # local env files
 .env.production
