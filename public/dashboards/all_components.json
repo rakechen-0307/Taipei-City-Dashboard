@@ -4098,6 +4098,56 @@
 				"https://data.taipei/dataset/detail?id=9ee72240-f9b3-42a7-bcbe-e1bb1a28a2dc"
 			],
 			"contributors": ["tuic"]
+		},
+		"301": {
+			"id": 301,
+			"index": "baby_care",
+			"chart_config": {
+				"types": ["MindMap"],
+				"unit": "家",
+				"color": [
+					"#d74f52",
+					"#d68d35",
+					"#d6b059",
+					"#89aa71",
+					"#479f86",
+					"#4f8b8a",
+					"#58748c",
+					"#6d4774"
+				],
+				"map_filter": [
+					"category",
+					[
+						"居家托育服務中心",
+						"社區公共托育家園",
+						"兒童托育資源中心",
+						"親子館",
+						"育兒友善園",
+						"定點臨托",
+						"公辦民營托嬰中心",
+						"私立托嬰中心"
+					]
+				]
+			},
+			"name": "嬰幼兒照護服務",
+			"source": "社會局",
+			"time_from": "2023-11-16T00:00:00+08:00",
+			"time_to": null,
+			"short_desc": "",
+			"long_desc": "展示嬰幼兒相關照護服務，這些資訊由台北市社會局提供",
+			"use_case": "此組件整合了所有嬰幼兒相關照護服務，方便需要者查詢",
+			"tags": [],
+			"links": [
+				"https://data.taipei/dataset/detail?id=41c729ce-c848-492a-b7a6-db468f06c17c",
+				"https://data.taipei/dataset/detail?id=7c66efcd-d073-401c-b18a-7a46728776c4",
+				"https://data.taipei/dataset/detail?id=01ac5a1d-dfc3-44c7-84a7-6d76bcb2879b",
+				"https://data.taipei/dataset/detail?id=fd4779d0-827d-4ab3-8f65-2a356abad6d9",
+				"https://data.taipei/dataset/detail?id=7262cdae-18e7-4d33-a842-4978cbc84d43",
+				"https://data.taipei/dataset/detail?id=a7462972-0380-4987-99fb-2071e798ce66",
+				"https://data.taipei/dataset/detail?id=9c9a3f77-8340-48d8-bc0e-f9155521b758",
+				"https://data.taipei/dataset/detail?id=081df75e-85c7-464c-b125-546920911c5c"
+			],
+			"contributors": ["tuic"]
 		}
 	}
 }
