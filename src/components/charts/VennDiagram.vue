@@ -155,7 +155,7 @@ function handleDataSelection(index) {
 <template>
 	<div v-if="activeChart === 'VennDiagram'" class="venndiagram">
 		<div class="venndiagram-title">
-			<h6>總機構數量</h6>
+			<h5>總機構數量</h5>
 			<h6>{{ VennData.sum }} {{ chart_config.unit }}</h6>
 		</div>
 		<div class="venndiagram-chart">
