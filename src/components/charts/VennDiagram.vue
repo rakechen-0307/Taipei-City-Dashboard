@@ -75,47 +75,8 @@ const tooltipPosition = computed(() => {
 		top: `${mousePosition.value.y - 54}px`,
 	};
 });
-
-function toggleActive(len) {
-	const mouseX = refMousePosition.value.x;
-	const mouseY = refMousePosition.value.y;
-	if (len === 2) {
-		const c1 = [200, 275];
-		const c2 = [350, 275];
-		const d1 = ((mouseX - c1[0]) ** 2 + (mouseY - c1[1]) ** 2) ** 0.5;
-		const d2 = ((mouseX - c2[0]) ** 2 + (mouseY - c2[1]) ** 2) ** 0.5;
-		if ((d1 <= 150) & (d2 <= 150)) {
-			targetArea.value = "2";
-		} else if ((d1 <= 150) & (d2 > 150)) {
-			targetArea.value = "0";
-		} else if ((d1 > 150) & (d2 <= 150)) {
-			targetArea.value = "1";
-		}
-	} else if (len === 3) {
-		const c1 = [275, 200];
-		const c2 = [188.3975, 350];
-		const c3 = [361.6025, 350];
-		const d1 = ((mouseX - c1[0]) ** 2 + (mouseY - c1[1]) ** 2) ** 0.5;
-		const d2 = ((mouseX - c2[0]) ** 2 + (mouseY - c2[1]) ** 2) ** 0.5;
-		const d3 = ((mouseX - c3[0]) ** 2 + (mouseY - c3[1]) ** 2) ** 0.5;
-		if ((d1 <= 150) & (d2 <= 150) & (d3 <= 150)) {
-			targetArea.value = "6";
-		} else if ((d1 <= 150) & (d2 > 150) & (d3 > 150)) {
-			targetArea.value = "0";
-		} else if ((d1 > 150) & (d2 <= 150) & (d3 > 150)) {
-			targetArea.value = "1";
-		} else if ((d1 > 150) & (d2 > 150) & (d3 <= 150)) {
-			targetArea.value = "2";
-		} else if ((d1 <= 150) & (d2 <= 150) & (d3 > 150)) {
-			targetArea.value = "3";
-		} else if ((d1 <= 150) & (d2 > 150) & (d3 <= 150)) {
-			targetArea.value = "4";
-		} else if ((d1 > 150) & (d2 <= 150) & (d3 <= 150)) {
-			targetArea.value = "5";
-		} else {
-			targetArea.value = null;
-		}
-	}
+function toggleActive(e) {
+	targetArea.value = e.target.dataset.name;
 }
 function toggleActiveToNull() {
 	targetArea.value = null;
@@ -164,30 +125,60 @@ function handleDataSelection(index) {
 					class="svg"
 					xmlns="http://www.w3.org/2000/svg"
 				>
-					<g transform="translate(350 275)">
-						<circle
-							cx="0"
-							cy="0"
-							r="150"
-							fill="#D74F52"
-							opacity="0.6"
-							@mouseenter="toggleActive"
-							@mousemove="updateMouseLocation"
-							@mouseleave="toggleActiveToNull"
-						/>
-					</g>
-					<g transform="translate(200 275)">
-						<circle
-							cx="0"
-							cy="0"
-							r="150"
-							fill="#764C7F"
-							opacity="0.6"
-							@mouseenter="toggleActive"
-							@mousemove="updateMouseLocation"
-							@mouseleave="toggleActiveToNull"
-						/>
-					</g>
+					<path
+						data-name="0"
+						fill="#D74F52"
+						stroke="none"
+						:class="{
+							'active-block':
+								targetArea === '0' || selectedIndex === 0,
+						}"
+						d="M 275 145.09618943233
+						 A 150 150 0 1 1 275 404.90381056767
+						 A 150 150 0 0 0 275 145.09618943233
+						 z
+						"
+						@mouseenter="toggleActive"
+						@mousemove="updateMouseLocation"
+						@mouseleave="toggleActiveToNull"
+						@click="handleDataSelection(0)"
+					/>
+					<path
+						data-name="1"
+						fill="#764C7F"
+						stroke="none"
+						:class="{
+							'active-block':
+								targetArea === '1' || selectedIndex === 1,
+						}"
+						d="M 275 145.09618943233
+						 A 150 150 0 1 0 275 404.90381056767
+						 A 150 150 0 0 1 275 145.09618943233
+						 z
+						"
+						@mouseenter="toggleActive"
+						@mousemove="updateMouseLocation"
+						@mouseleave="toggleActiveToNull"
+						@click="handleDataSelection(1)"
+					/>
+					<path
+						data-name="2"
+						fill="#483299"
+						stroke="none"
+						:class="{
+							'active-block':
+								targetArea === '2' || selectedIndex === 2,
+						}"
+						d="M 275 145.09618943233
+						 A 150 150 0 0 0 275 404.90381056767
+						 A 150 150 0 0 0 275 145.09618943233
+						 z
+						"
+						@mouseenter="toggleActive"
+						@mousemove="updateMouseLocation"
+						@mouseleave="toggleActiveToNull"
+						@click="handleDataSelection(2)"
+					/>
 				</svg>
 			</div>
 			<div v-if="VennData.len === 3" class="circle">
@@ -195,13 +186,11 @@ function handleDataSelection(index) {
 					viewBox="0 0 550 550"
 					class="svg"
 					xmlns="http://www.w3.org/2000/svg"
-					@mousemove="
-						updateMouseLocation($event);
-						toggleActive(3);
-					"
+					@mousemove="updateMouseLocation"
 					@mouseleave="toggleActiveToNull"
 				>
 					<path
+						data-name="0"
 						fill="#80E3D4"
 						stroke="none"
 						:class="{
@@ -214,9 +203,13 @@ function handleDataSelection(index) {
 						 A 150 150 0 1 0 125.6327126328 213.76275643042
 						 z
 						"
+						@mouseenter="toggleActive"
+						@mousemove="updateMouseLocation"
+						@mouseleave="toggleActiveToNull"
 						@click="handleDataSelection(0)"
 					/>
 					<path
+						data-name="1"
 						fill="#8CAE65"
 						stroke="none"
 						:class="{
@@ -229,9 +222,13 @@ function handleDataSelection(index) {
 						 A 150 150 0 1 1 125.6327126328 213.76275643042
 						 z
 						"
+						@mouseenter="toggleActive"
+						@mousemove="updateMouseLocation"
+						@mouseleave="toggleActiveToNull"
 						@click="handleDataSelection(1)"
 					/>
 					<path
+						data-name="2"
 						fill="#D6B059"
 						stroke="none"
 						:class="{
@@ -244,10 +241,14 @@ function handleDataSelection(index) {
 						 A 150 150 0 1 0 424.3672873672 213.76275643042
 						 z
 						"
+						@mouseenter="toggleActive"
+						@mousemove="updateMouseLocation"
+						@mouseleave="toggleActiveToNull"
 						@click="handleDataSelection(2)"
 					/>
 
 					<path
+						data-name="3"
 						fill="#D6B059"
 						stroke="none"
 						:class="{
@@ -260,9 +261,13 @@ function handleDataSelection(index) {
 						 A 150 150 0 0 1 125.6327126328 213.76275643042
 						 z
 						"
+						@mouseenter="toggleActive"
+						@mousemove="updateMouseLocation"
+						@mouseleave="toggleActiveToNull"
 						@click="handleDataSelection(3)"
 					/>
 					<path
+						data-name="4"
 						fill="#8CAE65"
 						stroke="none"
 						:class="{
@@ -275,9 +280,13 @@ function handleDataSelection(index) {
 						 A 150 150 0 0 0 275 227.52551286084
 						 z
 						"
+						@mouseenter="toggleActive"
+						@mousemove="updateMouseLocation"
+						@mouseleave="toggleActiveToNull"
 						@click="handleDataSelection(4)"
 					/>
 					<path
+						data-name="5"
 						fill="#80E3D4"
 						stroke="none"
 						:class="{
@@ -290,9 +299,13 @@ function handleDataSelection(index) {
 						 A 150 150 0 0 1 212.23525301124 336.23724356958
 						 z
 						"
+						@mouseenter="toggleActive"
+						@mousemove="updateMouseLocation"
+						@mouseleave="toggleActiveToNull"
 						@click="handleDataSelection(5)"
 					/>
 					<path
+						data-name="6"
 						fill="#eee"
 						stroke="none"
 						:class="{
@@ -305,6 +318,9 @@ function handleDataSelection(index) {
 						 A 150 150 0 0 0 275 227.52551286084
 						 z
 						"
+						@mouseenter="toggleActive"
+						@mousemove="updateMouseLocation"
+						@mouseleave="toggleActiveToNull"
 						@click="handleDataSelection(6)"
 					/>
 				</svg>
