@@ -4081,10 +4081,73 @@
 		"300": {
 			"id": 300,
 			"index": "maternity_subsidy_hospital",
+			"map_config": [
+				{
+					"index": "welfare_hospitals",
+					"type": "circle",
+					"paint": {
+						"circle-color": [
+							"match",
+							["get", "婚後孕前健康檢查"],
+							"V",
+							[
+								"match",
+								["get", "初期孕婦唐氏症篩檢"],
+								"V",
+								[
+									"match",
+									["get", "中期孕婦唐氏症篩檢"],
+									"V",
+									"#fff",
+									"#ddd"
+								],
+								[
+									"match",
+									["get", "中期孕婦唐氏症篩檢"],
+									"V",
+									"#bbb",
+									"#999"
+								]
+							],
+							[
+								"match",
+								["get", "初期孕婦唐氏症篩檢"],
+								"V",
+								[
+									"match",
+									["get", "中期孕婦唐氏症篩檢"],
+									"V",
+									"#777",
+									"#555"
+								],
+								[
+									"match",
+									["get", "中期孕婦唐氏症篩檢"],
+									"V",
+									"#333",
+									"#111"
+								]
+							]
+						],
+						"circle-radius": 5
+					},
+					"property": [
+						{
+							"key": "醫療機構",
+							"name": "醫療機構"
+						},
+						{
+							"key": "地址",
+							"name": "地址"
+						}
+					],
+					"title": "生育補助合約醫院"
+				}
+			],
 			"chart_config": {
 				"types": ["VennDiagram"],
 				"unit": "家",
-				"map_filter": ["category", ["0", "1", "2", "3", "4", "5", "6"]]
+				"map_filter": ["category", [0, 1, 2, 3, 4, 5, 6]]
 			},
 			"name": "生育補助合約醫院",
 			"source": "衛生局",
