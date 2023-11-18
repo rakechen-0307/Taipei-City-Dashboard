@@ -4369,7 +4369,8 @@
 			"links": [
 				"https://data.taipei/dataset/detail?id=9fb2914a-7934-45a2-9a47-99873ea5e4f4"
 			],
-			"tags": [],
+			"tags": []
+		},
 		"302": {
 			"id": 302,
 			"index": "newborn_screening",
