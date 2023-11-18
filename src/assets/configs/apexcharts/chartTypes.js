@@ -14,4 +14,5 @@ export const chartTypes = {
 	VennDiagram: "文氏圖",
 	MindMap: "心智圖",
 	CustomGaugeChart: "儀錶板圖",
+	RadialHistogram: "輻射長條圖",
 };
