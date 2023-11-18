@@ -22,6 +22,8 @@ const districtData = computed(() => {
 	let output = {};
 	let highest = 0;
 	let sum = 0;
+	let breakException = {};
+
 	if (props.series.length === 1) {
 		props.series[0].data.forEach((item) => {
 			output[item.x] = item.y;
@@ -31,14 +33,29 @@ const districtData = computed(() => {
 			sum += item.y;
 		});
 	} else {
-		props.series.forEach((serie) => {
-			for (let i = 0; i < 12; i++) {
-				if (!output[props.chart_config.categories[i]]) {
-					output[props.chart_config.categories[i]] = 0;
+		try {
+			props.series.forEach((serie) => {
+				if (serie.name === null) {
+					// eslint-disable-next-line no-console
+					console.log("break");
+					throw breakException;
 				}
-				output[props.chart_config.categories[i]] += +serie.data[i];
+				for (let i = 0; i < 12; i++) {
+					if (!output[props.chart_config.categories[i]]) {
+						output[props.chart_config.categories[i]] = 0;
+					}
+					// eslint-disable-next-line no-console
+					console.log(serie.data[i]);
+					output[props.chart_config.categories[i]] += +serie.data[i];
+				}
+			});
+		} catch (e) {
+			if (e !== breakException) {
+				throw e;
 			}
-		});
+		}
+		// eslint-disable-next-line no-console
+		console.log(output);
 		highest = Object.values(output).sort(function (a, b) {
 			return b - a;
 		})[0];

@@ -21,9 +21,15 @@ const mapStore = useMapStore();
 const VennData = computed(() => {
 	let readData = {};
 	let count = {};
-	const sum = props.series.length;
+	let sum = 0;
 
-	let len = props.series[0].data.length;
+	let i = 0;
+	while (props.series[i].name !== null) {
+		i++;
+	}
+	i++;
+
+	let len = props.series[i].data.length;
 	if (len === 2) {
 		for (let i = 0; i < 3; i++) {
 			count[i.toString()] = 0;
@@ -34,7 +40,8 @@ const VennData = computed(() => {
 		}
 	}
 
-	for (let i = 0; i < props.series.length; i++) {
+	while (i < props.series.length) {
+		sum++;
 		const item = props.series[i];
 		const dat = item.data;
 		readData[item.name] = dat;
@@ -63,6 +70,7 @@ const VennData = computed(() => {
 				count["5"]++;
 			}
 		}
+		i++;
 	}
 
 	const output = { sum: sum, len: len, readData: readData, count: count };
@@ -99,8 +107,8 @@ function handleDataSelection(index) {
 	if (index !== selectedIndex.value) {
 		mapStore.addLayerFilter(
 			`${props.map_config[0].index}-${props.map_config[0].type}`,
-			props.chart_config.map_filter[0],
-			props.chart_config.map_filter[1][index]
+			props.chart_config.map_filter[2],
+			props.chart_config.map_filter[3][index]
 		);
 		selectedIndex.value = index;
 	} else {
@@ -125,60 +133,62 @@ function handleDataSelection(index) {
 					class="svg"
 					xmlns="http://www.w3.org/2000/svg"
 				>
-					<path
-						data-name="0"
-						fill="#D74F52"
-						stroke="none"
-						:class="{
-							'active-block':
-								targetArea === '0' || selectedIndex === 0,
-						}"
-						d="M 275 145.09618943233
-						 A 150 150 0 1 1 275 404.90381056767
-						 A 150 150 0 0 0 275 145.09618943233
-						 z
-						"
-						@mouseenter="toggleActive"
-						@mousemove="updateMouseLocation"
-						@mouseleave="toggleActiveToNull"
-						@click="handleDataSelection(0)"
-					/>
-					<path
-						data-name="1"
-						fill="#764C7F"
-						stroke="none"
-						:class="{
-							'active-block':
-								targetArea === '1' || selectedIndex === 1,
-						}"
-						d="M 275 145.09618943233
-						 A 150 150 0 1 0 275 404.90381056767
-						 A 150 150 0 0 1 275 145.09618943233
-						 z
-						"
-						@mouseenter="toggleActive"
-						@mousemove="updateMouseLocation"
-						@mouseleave="toggleActiveToNull"
-						@click="handleDataSelection(1)"
-					/>
-					<path
-						data-name="2"
-						fill="#483299"
-						stroke="none"
-						:class="{
-							'active-block':
-								targetArea === '2' || selectedIndex === 2,
-						}"
-						d="M 275 145.09618943233
-						 A 150 150 0 0 0 275 404.90381056767
-						 A 150 150 0 0 0 275 145.09618943233
-						 z
-						"
-						@mouseenter="toggleActive"
-						@mousemove="updateMouseLocation"
-						@mouseleave="toggleActiveToNull"
-						@click="handleDataSelection(2)"
-					/>
+					<g transform="translate(0 50)">
+						<path
+							data-name="0"
+							fill="#D74F52"
+							stroke="none"
+							:class="{
+								'active-block':
+									targetArea === '0' || selectedIndex === 0,
+							}"
+							d="M 275 145.09618943233
+							A 150 150 0 1 1 275 404.90381056767
+							A 150 150 0 0 0 275 145.09618943233
+							z
+							"
+							@mouseenter="toggleActive"
+							@mousemove="updateMouseLocation"
+							@mouseleave="toggleActiveToNull"
+							@click="handleDataSelection(0)"
+						/>
+						<path
+							data-name="1"
+							fill="#764C7F"
+							stroke="none"
+							:class="{
+								'active-block':
+									targetArea === '1' || selectedIndex === 1,
+							}"
+							d="M 275 145.09618943233
+							A 150 150 0 1 0 275 404.90381056767
+							A 150 150 0 0 1 275 145.09618943233
+							z
+							"
+							@mouseenter="toggleActive"
+							@mousemove="updateMouseLocation"
+							@mouseleave="toggleActiveToNull"
+							@click="handleDataSelection(1)"
+						/>
+						<path
+							data-name="2"
+							fill="#483299"
+							stroke="none"
+							:class="{
+								'active-block':
+									targetArea === '2' || selectedIndex === 2,
+							}"
+							d="M 275 145.09618943233
+							A 150 150 0 0 0 275 404.90381056767
+							A 150 150 0 0 0 275 145.09618943233
+							z
+							"
+							@mouseenter="toggleActive"
+							@mousemove="updateMouseLocation"
+							@mouseleave="toggleActiveToNull"
+							@click="handleDataSelection(2)"
+						/>
+					</g>
 				</svg>
 			</div>
 			<div v-if="VennData.len === 3" class="circle">
@@ -189,140 +199,142 @@ function handleDataSelection(index) {
 					@mousemove="updateMouseLocation"
 					@mouseleave="toggleActiveToNull"
 				>
-					<path
-						data-name="0"
-						fill="#80E3D4"
-						stroke="none"
-						:class="{
-							'active-block':
-								targetArea === '0' || selectedIndex === 0,
-						}"
-						d="M 125.6327126328 213.76275643042
-						 A 150 150 0 0 1 275 227.52551286084
-						 A 150 150 0 0 1 424.3672873672 213.76275643042
-						 A 150 150 0 1 0 125.6327126328 213.76275643042
-						 z
-						"
-						@mouseenter="toggleActive"
-						@mousemove="updateMouseLocation"
-						@mouseleave="toggleActiveToNull"
-						@click="handleDataSelection(0)"
-					/>
-					<path
-						data-name="1"
-						fill="#8CAE65"
-						stroke="none"
-						:class="{
-							'active-block':
-								targetArea === '1' || selectedIndex === 1,
-						}"
-						d="M 125.6327126328 213.76275643042
-						 A 150 150 0 0 0 212.23525301124 336.23724356958
-						 A 150 150 0 0 0 275 472.47448713916
-						 A 150 150 0 1 1 125.6327126328 213.76275643042
-						 z
-						"
-						@mouseenter="toggleActive"
-						@mousemove="updateMouseLocation"
-						@mouseleave="toggleActiveToNull"
-						@click="handleDataSelection(1)"
-					/>
-					<path
-						data-name="2"
-						fill="#D6B059"
-						stroke="none"
-						:class="{
-							'active-block':
-								targetArea === '2' || selectedIndex === 2,
-						}"
-						d="M 424.3672873672 213.76275643042
-						 A 150 150 0 0 1 337.76474698876 336.23724356958
-						 A 150 150 0 0 1 275 472.47448713916
-						 A 150 150 0 1 0 424.3672873672 213.76275643042
-						 z
-						"
-						@mouseenter="toggleActive"
-						@mousemove="updateMouseLocation"
-						@mouseleave="toggleActiveToNull"
-						@click="handleDataSelection(2)"
-					/>
+					<g transform="translate(0 50)">
+						<path
+							data-name="0"
+							fill="#80E3D4"
+							stroke="none"
+							:class="{
+								'active-block':
+									targetArea === '0' || selectedIndex === 0,
+							}"
+							d="M 125.6327126328 213.76275643042
+							A 150 150 0 0 1 275 227.52551286084
+							A 150 150 0 0 1 424.3672873672 213.76275643042
+							A 150 150 0 1 0 125.6327126328 213.76275643042
+							z
+							"
+							@mouseenter="toggleActive"
+							@mousemove="updateMouseLocation"
+							@mouseleave="toggleActiveToNull"
+							@click="handleDataSelection(0)"
+						/>
+						<path
+							data-name="1"
+							fill="#8CAE65"
+							stroke="none"
+							:class="{
+								'active-block':
+									targetArea === '1' || selectedIndex === 1,
+							}"
+							d="M 125.6327126328 213.76275643042
+							A 150 150 0 0 0 212.23525301124 336.23724356958
+							A 150 150 0 0 0 275 472.47448713916
+							A 150 150 0 1 1 125.6327126328 213.76275643042
+							z
+							"
+							@mouseenter="toggleActive"
+							@mousemove="updateMouseLocation"
+							@mouseleave="toggleActiveToNull"
+							@click="handleDataSelection(1)"
+						/>
+						<path
+							data-name="2"
+							fill="#D6B059"
+							stroke="none"
+							:class="{
+								'active-block':
+									targetArea === '2' || selectedIndex === 2,
+							}"
+							d="M 424.3672873672 213.76275643042
+							A 150 150 0 0 1 337.76474698876 336.23724356958
+							A 150 150 0 0 1 275 472.47448713916
+							A 150 150 0 1 0 424.3672873672 213.76275643042
+							z
+							"
+							@mouseenter="toggleActive"
+							@mousemove="updateMouseLocation"
+							@mouseleave="toggleActiveToNull"
+							@click="handleDataSelection(2)"
+						/>
 
-					<path
-						data-name="3"
-						fill="#D6B059"
-						stroke="none"
-						:class="{
-							'active-block':
-								targetArea === '3' || selectedIndex === 3,
-						}"
-						d="M 125.6327126328 213.76275643042
-						 A 150 150 0 0 1 275 227.52551286084
-						 A 150 150 0 0 0 212.23525301124 336.23724356958
-						 A 150 150 0 0 1 125.6327126328 213.76275643042
-						 z
-						"
-						@mouseenter="toggleActive"
-						@mousemove="updateMouseLocation"
-						@mouseleave="toggleActiveToNull"
-						@click="handleDataSelection(3)"
-					/>
-					<path
-						data-name="4"
-						fill="#8CAE65"
-						stroke="none"
-						:class="{
-							'active-block':
-								targetArea === '4' || selectedIndex === 4,
-						}"
-						d="M 275 227.52551286084
-						 A 150 150 0 0 1 424.3672873672 213.76275643042
-						 A 150 150 0 0 1 337.76474698876 336.23724356958
-						 A 150 150 0 0 0 275 227.52551286084
-						 z
-						"
-						@mouseenter="toggleActive"
-						@mousemove="updateMouseLocation"
-						@mouseleave="toggleActiveToNull"
-						@click="handleDataSelection(4)"
-					/>
-					<path
-						data-name="5"
-						fill="#80E3D4"
-						stroke="none"
-						:class="{
-							'active-block':
-								targetArea === '5' || selectedIndex === 5,
-						}"
-						d="M 212.23525301124 336.23724356958
-						 A 150 150 0 0 0 337.76474698876 336.23724356958
-						 A 150 150 0 0 1 275 472.47448713916
-						 A 150 150 0 0 1 212.23525301124 336.23724356958
-						 z
-						"
-						@mouseenter="toggleActive"
-						@mousemove="updateMouseLocation"
-						@mouseleave="toggleActiveToNull"
-						@click="handleDataSelection(5)"
-					/>
-					<path
-						data-name="6"
-						fill="#eee"
-						stroke="none"
-						:class="{
-							'active-block':
-								targetArea === '6' || selectedIndex === 6,
-						}"
-						d="M 275 227.52551286084
-						 A 150 150 0 0 0 212.23525301124 336.23724356958
-						 A 150 150 0 0 0 337.76474698876 336.23724356958
-						 A 150 150 0 0 0 275 227.52551286084
-						 z
-						"
-						@mouseenter="toggleActive"
-						@mousemove="updateMouseLocation"
-						@mouseleave="toggleActiveToNull"
-						@click="handleDataSelection(6)"
-					/>
+						<path
+							data-name="3"
+							fill="#D6B059"
+							stroke="none"
+							:class="{
+								'active-block':
+									targetArea === '3' || selectedIndex === 3,
+							}"
+							d="M 125.6327126328 213.76275643042
+							A 150 150 0 0 1 275 227.52551286084
+							A 150 150 0 0 0 212.23525301124 336.23724356958
+							A 150 150 0 0 1 125.6327126328 213.76275643042
+							z
+							"
+							@mouseenter="toggleActive"
+							@mousemove="updateMouseLocation"
+							@mouseleave="toggleActiveToNull"
+							@click="handleDataSelection(3)"
+						/>
+						<path
+							data-name="4"
+							fill="#8CAE65"
+							stroke="none"
+							:class="{
+								'active-block':
+									targetArea === '4' || selectedIndex === 4,
+							}"
+							d="M 275 227.52551286084
+							A 150 150 0 0 1 424.3672873672 213.76275643042
+							A 150 150 0 0 1 337.76474698876 336.23724356958
+							A 150 150 0 0 0 275 227.52551286084
+							z
+							"
+							@mouseenter="toggleActive"
+							@mousemove="updateMouseLocation"
+							@mouseleave="toggleActiveToNull"
+							@click="handleDataSelection(4)"
+						/>
+						<path
+							data-name="5"
+							fill="#80E3D4"
+							stroke="none"
+							:class="{
+								'active-block':
+									targetArea === '5' || selectedIndex === 5,
+							}"
+							d="M 212.23525301124 336.23724356958
+							A 150 150 0 0 0 337.76474698876 336.23724356958
+							A 150 150 0 0 1 275 472.47448713916
+							A 150 150 0 0 1 212.23525301124 336.23724356958
+							z
+							"
+							@mouseenter="toggleActive"
+							@mousemove="updateMouseLocation"
+							@mouseleave="toggleActiveToNull"
+							@click="handleDataSelection(5)"
+						/>
+						<path
+							data-name="6"
+							fill="#eee"
+							stroke="none"
+							:class="{
+								'active-block':
+									targetArea === '6' || selectedIndex === 6,
+							}"
+							d="M 275 227.52551286084
+							A 150 150 0 0 0 212.23525301124 336.23724356958
+							A 150 150 0 0 0 337.76474698876 336.23724356958
+							A 150 150 0 0 0 275 227.52551286084
+							z
+							"
+							@mouseenter="toggleActive"
+							@mousemove="updateMouseLocation"
+							@mouseleave="toggleActiveToNull"
+							@click="handleDataSelection(6)"
+						/>
+					</g>
 				</svg>
 			</div>
 			<Teleport to="body">

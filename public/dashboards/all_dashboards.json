@@ -45,8 +45,14 @@
 		{
 			"name": "測試組件",
 			"index": "testing",
-			"components": ["301", "1000", "117", "118", "61", "74", "300"],
+			"components": ["117", "118", "61", "74"],
 			"icon": "bug_report"
+		},
+		{
+			"name": "祝您好孕",
+			"index": "pregnancy",
+			"components": ["300", "301", "1000"],
+			"icon": "handshake"
 		},
 		{
 			"name": "收藏組件",
