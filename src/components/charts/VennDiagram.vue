@@ -142,6 +142,7 @@ function handleDataSelection(index) {
 							:class="{
 								'active-block':
 									targetArea === '0' || selectedIndex === 0,
+								'initial-animation-3': true,
 							}"
 							d="M 275 145.09618943233
 							A 150 150 0 1 1 275 404.90381056767
@@ -161,6 +162,7 @@ function handleDataSelection(index) {
 							:class="{
 								'active-block':
 									targetArea === '1' || selectedIndex === 1,
+								'initial-animation-2': true,
 							}"
 							d="M 275 145.09618943233
 							A 150 150 0 1 0 275 404.90381056767
@@ -180,6 +182,7 @@ function handleDataSelection(index) {
 							:class="{
 								'active-block':
 									targetArea === '2' || selectedIndex === 2,
+								'initial-animation-1': true,
 							}"
 							d="M 275 145.09618943233
 							A 150 150 0 0 0 275 404.90381056767
@@ -211,6 +214,7 @@ function handleDataSelection(index) {
 							:class="{
 								'active-block':
 									targetArea === '0' || selectedIndex === 0,
+								'initial-animation-5': true,
 							}"
 							d="M 125.6327126328 213.76275643042
 							A 150 150 0 0 1 275 227.52551286084
@@ -231,6 +235,7 @@ function handleDataSelection(index) {
 							:class="{
 								'active-block':
 									targetArea === '1' || selectedIndex === 1,
+								'initial-animation-6': true,
 							}"
 							d="M 125.6327126328 213.76275643042
 							A 150 150 0 0 0 212.23525301124 336.23724356958
@@ -251,6 +256,7 @@ function handleDataSelection(index) {
 							:class="{
 								'active-block':
 									targetArea === '2' || selectedIndex === 2,
+								'initial-animation-7': true,
 							}"
 							d="M 424.3672873672 213.76275643042
 							A 150 150 0 0 1 337.76474698876 336.23724356958
@@ -272,6 +278,7 @@ function handleDataSelection(index) {
 							:class="{
 								'active-block':
 									targetArea === '3' || selectedIndex === 3,
+								'initial-animation-2': true,
 							}"
 							d="M 125.6327126328 213.76275643042
 							A 150 150 0 0 1 275 227.52551286084
@@ -292,6 +299,7 @@ function handleDataSelection(index) {
 							:class="{
 								'active-block':
 									targetArea === '4' || selectedIndex === 4,
+								'initial-animation-4': true,
 							}"
 							d="M 275 227.52551286084
 							A 150 150 0 0 1 424.3672873672 213.76275643042
@@ -312,6 +320,7 @@ function handleDataSelection(index) {
 							:class="{
 								'active-block':
 									targetArea === '5' || selectedIndex === 5,
+								'initial-animation-3': true,
 							}"
 							d="M 212.23525301124 336.23724356958
 							A 150 150 0 0 0 337.76474698876 336.23724356958
@@ -332,6 +341,7 @@ function handleDataSelection(index) {
 							:class="{
 								'active-block':
 									targetArea === '6' || selectedIndex === 6,
+								'initial-animation-1': true,
 							}"
 							d="M 275 227.52551286084
 							A 150 150 0 0 0 212.23525301124 336.23724356958
@@ -438,7 +448,7 @@ function handleDataSelection(index) {
 		}
 	}
 }
-@keyframes ease-in {
+@keyframes move {
 	0% {
 		transform: translateY(0px);
 	}
@@ -447,8 +457,29 @@ function handleDataSelection(index) {
 		transform: translateY(-7px);
 	}
 }
+
+@keyframes ease-in {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@for $i from 1 to 10 {
+	.initial-animation-#{$i} {
+		animation-name: ease-in;
+		animation-duration: 0.3s;
+		animation-delay: 0.2s * ($i - 1);
+		animation-timing-function: linear;
+		animation-fill-mode: forwards;
+		opacity: 0;
+	}
+}
 .active-block {
-	animation-name: ease-in;
+	animation-name: move;
 	animation-duration: 0.1s;
 	animation-delay: 0.05s;
 	animation-timing-function: linear;
