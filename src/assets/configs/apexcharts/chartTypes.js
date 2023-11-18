@@ -13,4 +13,5 @@ export const chartTypes = {
 	HeatmapChart: "熱力圖",
 	VennDiagram: "文氏圖",
 	MindMap: "心智圖",
+	ColumnChartWithRange: "滑桿式縱向長條圖",
 };

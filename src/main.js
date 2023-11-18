@@ -36,7 +36,7 @@ import MetroChart from "./components/charts/MetroChart.vue";
 import HeatmapChart from "./components/charts/HeatmapChart.vue";
 import VennDiagram from "./components/charts/VennDiagram.vue";
 import MindMap from "./components/charts/MindMap.vue";
-
+import ColumnChartWithRange from "./components/charts/ColumnChartWithRange.vue";
 const app = createApp(App);
 
 // Add Core Packages: Vue-Router, Pinia, Apexcharts
@@ -60,5 +60,6 @@ app.component("MetroChart", MetroChart);
 app.component("HeatmapChart", HeatmapChart);
 app.component("VennDiagram", VennDiagram);
 app.component("MindMap", MindMap);
+app.component("ColumnChartWithRange", ColumnChartWithRange);
 
 app.mount("#app");
