@@ -14,7 +14,8 @@ const targetArea = ref(null);
 // const AreaColor = ref(props.chart_config.color[0]);
 const mousePosition = ref({ x: null, y: null });
 const refMousePosition = ref({ x: null, y: null });
-// const selectedIndex = ref(null);
+const selectedIndex = ref(null);
+const mapStore = useMapStore();
 
 // Parse Venn Diagram Data
 const VennData = computed(() => {
@@ -130,7 +131,6 @@ function updateMouseLocation(e) {
 	mousePosition.value.y = e.pageY;
 }
 
-/*
 function handleDataSelection(index) {
 	if (!props.chart_config.map_filter) {
 		return;
@@ -149,7 +149,6 @@ function handleDataSelection(index) {
 		selectedIndex.value = null;
 	}
 }
-*/
 </script>
 
 <template>
@@ -202,33 +201,112 @@ function handleDataSelection(index) {
 					"
 					@mouseleave="toggleActiveToNull"
 				>
-					<g transform="translate(275 200)">
-						<circle
-							cx="0"
-							cy="0"
-							r="150"
-							fill="#80E3D4"
-							opacity="0.6"
-						/>
-					</g>
-					<g transform="translate(188.3975 350)">
-						<circle
-							cx="0"
-							cy="0"
-							r="150"
-							fill="#8CAE65"
-							opacity="0.6"
-						/>
-					</g>
-					<g transform="translate(361.6025 350)">
-						<circle
-							cx="0"
-							cy="0"
-							r="150"
-							fill="#D6B059"
-							opacity="0.6"
-						/>
-					</g>
+					<path
+						fill="#80E3D4"
+						stroke="none"
+						:class="{
+							'active-block':
+								targetArea === '0' || selectedIndex === 0,
+						}"
+						d="M 125.6327126328 213.76275643042
+						 A 150 150 0 0 1 275 227.52551286084
+						 A 150 150 0 0 1 424.3672873672 213.76275643042
+						 A 150 150 0 1 0 125.6327126328 213.76275643042
+						 z
+						"
+						@click="handleDataSelection(0)"
+					/>
+					<path
+						fill="#8CAE65"
+						stroke="none"
+						:class="{
+							'active-block':
+								targetArea === '1' || selectedIndex === 1,
+						}"
+						d="M 125.6327126328 213.76275643042
+						 A 150 150 0 0 0 212.23525301124 336.23724356958
+						 A 150 150 0 0 0 275 472.47448713916
+						 A 150 150 0 1 1 125.6327126328 213.76275643042
+						 z
+						"
+						@click="handleDataSelection(1)"
+					/>
+					<path
+						fill="#D6B059"
+						stroke="none"
+						:class="{
+							'active-block':
+								targetArea === '2' || selectedIndex === 2,
+						}"
+						d="M 424.3672873672 213.76275643042
+						 A 150 150 0 0 1 337.76474698876 336.23724356958
+						 A 150 150 0 0 1 275 472.47448713916
+						 A 150 150 0 1 0 424.3672873672 213.76275643042
+						 z
+						"
+						@click="handleDataSelection(2)"
+					/>
+
+					<path
+						fill="#D6B059"
+						stroke="none"
+						:class="{
+							'active-block':
+								targetArea === '3' || selectedIndex === 3,
+						}"
+						d="M 125.6327126328 213.76275643042
+						 A 150 150 0 0 1 275 227.52551286084
+						 A 150 150 0 0 0 212.23525301124 336.23724356958
+						 A 150 150 0 0 1 125.6327126328 213.76275643042
+						 z
+						"
+						@click="handleDataSelection(3)"
+					/>
+					<path
+						fill="#8CAE65"
+						stroke="none"
+						:class="{
+							'active-block':
+								targetArea === '4' || selectedIndex === 4,
+						}"
+						d="M 275 227.52551286084
+						 A 150 150 0 0 1 424.3672873672 213.76275643042
+						 A 150 150 0 0 1 337.76474698876 336.23724356958
+						 A 150 150 0 0 0 275 227.52551286084
+						 z
+						"
+						@click="handleDataSelection(4)"
+					/>
+					<path
+						fill="#80E3D4"
+						stroke="none"
+						:class="{
+							'active-block':
+								targetArea === '5' || selectedIndex === 5,
+						}"
+						d="M 212.23525301124 336.23724356958
+						 A 150 150 0 0 0 337.76474698876 336.23724356958
+						 A 150 150 0 0 1 275 472.47448713916
+						 A 150 150 0 0 1 212.23525301124 336.23724356958
+						 z
+						"
+						@click="handleDataSelection(5)"
+					/>
+					<path
+						fill="#eee"
+						stroke="none"
+						:class="{
+							'active-block':
+								targetArea === '6' || selectedIndex === 6,
+						}"
+						d="M 275 227.52551286084
+						 A 150 150 0 0 0 212.23525301124 336.23724356958
+						 A 150 150 0 0 0 337.76474698876 336.23724356958
+						 A 150 150 0 0 0 275 227.52551286084
+						 z
+						"
+						@click="handleDataSelection(6)"
+					/>
 				</svg>
 			</div>
 			<Teleport to="body">
@@ -321,5 +399,21 @@ function handleDataSelection(index) {
 			z-index: 20;
 		}
 	}
+}
+@keyframes ease-in {
+	0% {
+		transform: translateY(0px);
+	}
+
+	100% {
+		transform: translateY(-7px);
+	}
+}
+.active-block {
+	animation-name: ease-in;
+	animation-duration: 0.1s;
+	animation-delay: 0.05s;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
 }
 </style>
