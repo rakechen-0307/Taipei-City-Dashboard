@@ -8,37 +8,27 @@ const props = defineProps([
 	"series",
 	"map_config",
 ]);
-// const mapStore = useMapStore();
+const mapStore = useMapStore();
 
 const targetCategory = ref(null);
 // const AreaColor = ref(props.chart_config.color[0]);
 const mousePosition = ref({ x: null, y: null });
-// const selectedIndex = ref(null);
+const selectedIndex = ref(null);
 
 // Parse Mind Map Data
 const MindData = computed(() => {
-	let count = 0;
+	let sum = 0;
 	let typeCount = {};
-	const sum = props.series[0].data.length;
-	let type = props.series[0].data[0]["機構類型"];
-	let num = 0;
+	const count = props.series[0].data.length;
 	let config = [];
 
-	for (let i = 0; i < sum; i++) {
-		if (props.series[0].data[i]["機構類型"] !== type) {
-			typeCount[type] = num;
-			count++;
-			num = 1;
-			type = props.series[0].data[i]["機構類型"];
-		} else {
-			num++;
-		}
+	for (let i = 0; i < count; i++) {
+		typeCount[props.series[0].data[i].x] = props.series[0].data[i].y;
+		sum = sum + props.series[0].data[i].y;
 	}
-	typeCount[type] = num;
-	count++;
 
 	const rad = (2 * Math.PI) / count;
-	let x1, x2, y1, y2, cx, cy, color, name;
+	let x1, x2, y1, y2, cx, cy, tx, ty, color, name;
 	for (let i = 0; i < count; i++) {
 		x1 = 90 * Math.cos(rad * i);
 		y1 = 90 * Math.sin(rad * i);
@@ -46,9 +36,11 @@ const MindData = computed(() => {
 		y2 = 150 * Math.sin(rad * i);
 		cx = 195 * Math.cos(rad * i);
 		cy = 195 * Math.sin(rad * i);
+		tx = 300 * Math.cos(rad * i);
+		ty = 300 * Math.sin(rad * i);
 		color = props.chart_config.color[i];
 		name = props.chart_config.map_filter[1][i];
-		config.push([x1, y1, x2, y2, cx, cy, color, name]);
+		config.push([x1, y1, x2, y2, cx, cy, tx, ty, color, name, i]);
 	}
 
 	const output = {
@@ -78,8 +70,8 @@ function updateMouseLocation(e) {
 	mousePosition.value.y = e.pageY;
 }
 
-/*
 function handleDataSelection(index) {
+	// eslint-disable-next-line no-console
 	if (!props.chart_config.map_filter) {
 		return;
 	}
@@ -97,7 +89,6 @@ function handleDataSelection(index) {
 		selectedIndex.value = null;
 	}
 }
-*/
 </script>
 
 <template>
@@ -108,7 +99,7 @@ function handleDataSelection(index) {
 				class="svg"
 				xmlns="http://www.w3.org/2000/svg"
 			>
-				<g transform="translate(250 275)">
+				<g transform="translate(250 335)">
 					<circle
 						cx="0"
 						cy="0"
@@ -143,22 +134,25 @@ function handleDataSelection(index) {
 						:x2="p[2]"
 						:y2="p[3]"
 						style="stroke: #767575; stroke-width: 2"
+						class="line-animation"
 						v-for="p in MindData.config"
 						:key="p"
 					></line>
 					<circle
-						:data-name="p[7]"
+						:data-name="p[9]"
 						:cx="p[4]"
 						:cy="p[5]"
 						r="50"
 						stroke="#767575"
 						stroke-width="5"
-						:fill="p[6]"
-						v-for="p in MindData.config"
-						:key="p"
+						:fill="p[8]"
+						class="circle-animation"
 						@mouseenter="toggleActive"
 						@mouseleave="toggleActiveToNull"
 						@mousemove="updateMouseLocation"
+						@click="handleDataSelection(p[10])"
+						v-for="p in MindData.config"
+						:key="p"
 					></circle>
 				</g>
 			</svg>
@@ -252,5 +246,21 @@ function handleDataSelection(index) {
 			z-index: 20;
 		}
 	}
+}
+
+@keyframes ease-in {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+.circle-animation {
+	animation-name: ease-in;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
 }
 </style>
