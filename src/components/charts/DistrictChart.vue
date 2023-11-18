@@ -36,16 +36,12 @@ const districtData = computed(() => {
 		try {
 			props.series.forEach((serie) => {
 				if (serie.name === null) {
-					// eslint-disable-next-line no-console
-					console.log("break");
 					throw breakException;
 				}
 				for (let i = 0; i < 12; i++) {
 					if (!output[props.chart_config.categories[i]]) {
 						output[props.chart_config.categories[i]] = 0;
 					}
-					// eslint-disable-next-line no-console
-					console.log(serie.data[i]);
 					output[props.chart_config.categories[i]] += +serie.data[i];
 				}
 			});

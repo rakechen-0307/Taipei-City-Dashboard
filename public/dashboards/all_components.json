@@ -4081,6 +4081,7 @@
 		"300": {
 			"id": 300,
 			"index": "maternity_subsidy_hospital",
+			"history_data": true,
 			"map_config": [
 				{
 					"index": "welfare_hospitals",
@@ -4369,12 +4370,66 @@
 				"https://data.taipei/dataset/detail?id=9fb2914a-7934-45a2-9a47-99873ea5e4f4"
 			],
 			"tags": [],
+		"302": {
+			"id": 302,
+			"index": "newborn_screening",
+			"history_data": false,
+			"chart_config": {
+				"categories": [
+					"北投區",
+					"士林區",
+					"內湖區",
+					"南港區",
+					"松山區",
+					"信義區",
+					"中山區",
+					"大同區",
+					"中正區",
+					"萬華區",
+					"大安區",
+					"文山區"
+				],
+				"types": ["VennDiagram", "DistrictChart"],
+				"unit": "家",
+				"color": ["#479F86"],
+				"map_filter": [
+					"行政區",
+					[
+						"北投區",
+						"士林區",
+						"內湖區",
+						"南港區",
+						"松山區",
+						"信義區",
+						"中山區",
+						"大同區",
+						"中正區",
+						"萬華區",
+						"大安區",
+						"文山區"
+					],
+					"category",
+					[0, 1, 2]
+				]
+			},
+			"name": "新生兒篩檢醫院",
+			"source": "衛生局",
+			"time_from": "2023-11-18T00:00:00+08:00",
+			"time_to": null,
+			"short_desc": "",
+			"long_desc": "展示新生兒篩檢相關醫療機構，這些資訊由台北市衛生局提供",
+			"use_case": "新生兒篩檢醫院將協助您了解有提供新生兒相關篩檢的醫療機構，方便需要的親子查詢與前往",
+			"tags": [],
+			"links": [
+				"https://data.taipei/dataset/detail?id=5d95c90f-9a1f-481b-ae44-03b917a8d167",
+				"https://data.taipei/dataset/detail?id=1cb14177-3e11-4932-a49e-72f7b960fc58"
+			],
 			"contributors": ["tuic"]
 		},
 		"1000": {
 			"id": 1000,
 			"index": "birth_rate_history",
-			"history_data": false,
+			"history_data": true,
 			"chart_config": {
 				"categories": [
 					"103年",

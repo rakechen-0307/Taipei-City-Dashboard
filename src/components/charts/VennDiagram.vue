@@ -136,8 +136,9 @@ function handleDataSelection(index) {
 					<g transform="translate(0 50)">
 						<path
 							data-name="0"
-							fill="#D74F52"
-							stroke="none"
+							fill="#4574a1"
+							stroke="#4f4f4f"
+							stroke-width="2"
 							:class="{
 								'active-block':
 									targetArea === '0' || selectedIndex === 0,
@@ -154,8 +155,9 @@ function handleDataSelection(index) {
 						/>
 						<path
 							data-name="1"
-							fill="#764C7F"
-							stroke="none"
+							fill="#9c54ab"
+							stroke="#4f4f4f"
+							stroke-width="2"
 							:class="{
 								'active-block':
 									targetArea === '1' || selectedIndex === 1,
@@ -172,8 +174,9 @@ function handleDataSelection(index) {
 						/>
 						<path
 							data-name="2"
-							fill="#483299"
-							stroke="none"
+							fill="#7164a6"
+							stroke="#4f4f4f"
+							stroke-width="2"
 							:class="{
 								'active-block':
 									targetArea === '2' || selectedIndex === 2,
@@ -202,8 +205,9 @@ function handleDataSelection(index) {
 					<g transform="translate(0 50)">
 						<path
 							data-name="0"
-							fill="#80E3D4"
-							stroke="none"
+							fill="#519a98"
+							stroke="#828282"
+							stroke-width="2"
 							:class="{
 								'active-block':
 									targetArea === '0' || selectedIndex === 0,
@@ -221,8 +225,9 @@ function handleDataSelection(index) {
 						/>
 						<path
 							data-name="1"
-							fill="#8CAE65"
-							stroke="none"
+							fill="#93bb77"
+							stroke="#828282"
+							stroke-width="2"
 							:class="{
 								'active-block':
 									targetArea === '1' || selectedIndex === 1,
@@ -240,8 +245,9 @@ function handleDataSelection(index) {
 						/>
 						<path
 							data-name="2"
-							fill="#D6B059"
-							stroke="none"
+							fill="#D6A059"
+							stroke="#828282"
+							stroke-width="2"
 							:class="{
 								'active-block':
 									targetArea === '2' || selectedIndex === 2,
@@ -260,8 +266,9 @@ function handleDataSelection(index) {
 
 						<path
 							data-name="3"
-							fill="#D6B059"
-							stroke="none"
+							fill="#72ab88"
+							stroke="#828282"
+							stroke-width="2"
 							:class="{
 								'active-block':
 									targetArea === '3' || selectedIndex === 3,
@@ -279,8 +286,9 @@ function handleDataSelection(index) {
 						/>
 						<path
 							data-name="4"
-							fill="#8CAE65"
-							stroke="none"
+							fill="#949d79"
+							stroke="#828282"
+							stroke-width="2"
 							:class="{
 								'active-block':
 									targetArea === '4' || selectedIndex === 4,
@@ -298,8 +306,9 @@ function handleDataSelection(index) {
 						/>
 						<path
 							data-name="5"
-							fill="#80E3D4"
-							stroke="none"
+							fill="#b5b068"
+							stroke="#828282"
+							stroke-width="2"
 							:class="{
 								'active-block':
 									targetArea === '5' || selectedIndex === 5,
@@ -317,8 +326,9 @@ function handleDataSelection(index) {
 						/>
 						<path
 							data-name="6"
-							fill="#eee"
-							stroke="none"
+							fill="#93a678"
+							stroke="#828282"
+							stroke-width="2"
 							:class="{
 								'active-block':
 									targetArea === '6' || selectedIndex === 6,

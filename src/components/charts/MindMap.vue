@@ -18,6 +18,7 @@ const selectedIndex = ref(null);
 // Parse Mind Map Data
 const MindData = computed(() => {
 	let sum = 0;
+	let highest = 0;
 	let typeCount = {};
 	const count = props.series[0].data.length;
 	let config = [];
@@ -25,22 +26,28 @@ const MindData = computed(() => {
 	for (let i = 0; i < count; i++) {
 		typeCount[props.series[0].data[i].x] = props.series[0].data[i].y;
 		sum = sum + props.series[0].data[i].y;
+		if (props.series[0].data[i].y > highest) {
+			highest = props.series[0].data[i].y;
+		}
 	}
 
 	const rad = (2 * Math.PI) / count;
-	let x1, x2, y1, y2, cx, cy, tx, ty, color, name;
+	let x1, x2, y1, y2, r, cx, cy, tx, ty, color, name;
 	for (let i = 0; i < count; i++) {
 		x1 = 90 * Math.cos(rad * i);
 		y1 = 90 * Math.sin(rad * i);
 		x2 = 150 * Math.cos(rad * i);
 		y2 = 150 * Math.sin(rad * i);
-		cx = 195 * Math.cos(rad * i);
-		cy = 195 * Math.sin(rad * i);
+		r = 35 + 10 * Math.log10(props.series[0].data[i].y);
+		// eslint-disable-next-line no-console
+		console.log(r);
+		cx = (150 + r) * Math.cos(rad * i);
+		cy = (150 + r) * Math.sin(rad * i);
 		tx = 300 * Math.cos(rad * i);
 		ty = 300 * Math.sin(rad * i);
 		color = props.chart_config.color[i];
 		name = props.chart_config.map_filter[1][i];
-		config.push([x1, y1, x2, y2, cx, cy, tx, ty, color, name, i]);
+		config.push([x1, y1, x2, y2, r, cx, cy, tx, ty, color, name, i]);
 	}
 
 	const output = {
@@ -134,23 +141,23 @@ function handleDataSelection(index) {
 						:x2="p[2]"
 						:y2="p[3]"
 						style="stroke: #767575; stroke-width: 2"
-						class="line-animation"
+						:class="'animation-' + (2 * p[11] + 1)"
 						v-for="p in MindData.config"
 						:key="p"
 					></line>
 					<circle
-						:data-name="p[9]"
-						:cx="p[4]"
-						:cy="p[5]"
-						r="50"
+						:data-name="p[10]"
+						:cx="p[5]"
+						:cy="p[6]"
+						:r="p[4]"
 						stroke="#767575"
 						stroke-width="5"
-						:fill="p[8]"
-						class="circle-animation"
+						:fill="p[9]"
+						:class="'animation-' + (2 * p[11] + 2)"
 						@mouseenter="toggleActive"
 						@mouseleave="toggleActiveToNull"
 						@mousemove="updateMouseLocation"
-						@click="handleDataSelection(p[10])"
+						@click="handleDataSelection(p[11])"
 						v-for="p in MindData.config"
 						:key="p"
 					></circle>
@@ -257,10 +264,14 @@ function handleDataSelection(index) {
 		opacity: 1;
 	}
 }
-.circle-animation {
-	animation-name: ease-in;
-	animation-duration: 0.5s;
-	animation-timing-function: linear;
-	animation-fill-mode: forwards;
+@for $i from 1 through 40 {
+	.animation-#{$i} {
+		animation-name: ease-in;
+		animation-duration: 0.25s;
+		animation-delay: 0.15s * ($i - 1);
+		animation-timing-function: linear;
+		animation-fill-mode: forwards;
+		opacity: 0;
+	}
 }
 </style>
