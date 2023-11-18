@@ -13,4 +13,5 @@ export const chartTypes = {
 	HeatmapChart: "熱力圖",
 	VennDiagram: "文氏圖",
 	MindMap: "心智圖",
+	CustomGaugeChart: "儀錶板圖",
 };

@@ -36,6 +36,7 @@ import MetroChart from "./components/charts/MetroChart.vue";
 import HeatmapChart from "./components/charts/HeatmapChart.vue";
 import VennDiagram from "./components/charts/VennDiagram.vue";
 import MindMap from "./components/charts/MindMap.vue";
+import CustomGaugeChart from "./components/charts/CustomGaugeChart.vue";
 
 const app = createApp(App);
 
@@ -60,5 +61,6 @@ app.component("MetroChart", MetroChart);
 app.component("HeatmapChart", HeatmapChart);
 app.component("VennDiagram", VennDiagram);
 app.component("MindMap", MindMap);
+app.component("CustomGaugeChart", CustomGaugeChart);
 
 app.mount("#app");
