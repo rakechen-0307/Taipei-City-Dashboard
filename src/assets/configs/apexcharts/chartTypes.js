@@ -15,4 +15,5 @@ export const chartTypes = {
 	MindMap: "心智圖",
 	CustomGaugeChart: "儀錶板圖",
 	RadialHistogram: "輻射長條圖",
+	DistrictChartWithRangeControl: "行政區圖(有滑桿)",
 };

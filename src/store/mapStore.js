@@ -122,6 +122,8 @@ export const useMapStore = defineStore("map", {
 				"bike_green",
 				"bike_orange",
 				"bike_red",
+				"handshake",
+				"handshake_red",
 			];
 			images.forEach((element) => {
 				this.map.loadImage(
@@ -466,6 +468,17 @@ export const useMapStore = defineStore("map", {
 				return;
 			}
 			this.map.setFilter(layer_id, ["==", ["get", property], key]);
+		},
+		addCustomLayer(layer_id, property, key, map_config) {
+			const dialogStore = useDialogStore();
+			if (!this.map || dialogStore.dialogs.moreInfo) {
+				return;
+			}
+			this.map.setFilter(layer_id, [
+				"all",
+				["<=", ["/", ["to-number", ["get", property]], 10000], key],
+				[">=", ["%", ["to-number", ["get", property]], 10000], key],
+			]);
 		},
 		// Remove any filters on a map layer
 		clearLayerFilter(layer_id, map_config) {
