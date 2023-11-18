@@ -21,6 +21,7 @@ const mapStore = useMapStore();
 const VennData = computed(() => {
 	let readData = {};
 	let count = {};
+	let category = [];
 	let sum = 0;
 
 	let i = 0;
@@ -39,6 +40,13 @@ const VennData = computed(() => {
 			count[i.toString()] = 0;
 		}
 	}
+
+	// eslint-disable-next-line no-console
+	console.log(props.series[i]);
+	for (let k = 0; k < len; k++) {
+		category.push(props.series[i].data[k]);
+	}
+	i++;
 
 	while (i < props.series.length) {
 		sum++;
@@ -73,7 +81,13 @@ const VennData = computed(() => {
 		i++;
 	}
 
-	const output = { sum: sum, len: len, readData: readData, count: count };
+	const output = {
+		sum: sum,
+		len: len,
+		readData: readData,
+		count: count,
+		category: category,
+	};
 	return output;
 });
 
@@ -129,11 +143,11 @@ function handleDataSelection(index) {
 		<div class="venndiagram-chart">
 			<div v-if="VennData.len === 2" class="circle">
 				<svg
-					viewBox="0 0 550 550"
+					viewBox="0 0 650 650"
 					class="svg"
 					xmlns="http://www.w3.org/2000/svg"
 				>
-					<g transform="translate(0 50)">
+					<g transform="translate(50 50)">
 						<path
 							data-name="0"
 							fill="#4574a1"
@@ -196,16 +210,28 @@ function handleDataSelection(index) {
 						/>
 					</g>
 				</svg>
+				<div class="text">
+					<div class="text-2 text-3">
+						<div class="square-1"></div>
+						<p>&nbsp;&nbsp;</p>
+						<h6 class="text-color">{{ VennData.category[0] }}</h6>
+					</div>
+					<div class="text-2 text-3">
+						<div class="square-2"></div>
+						<p>&nbsp;&nbsp;</p>
+						<h6 class="text-color">{{ VennData.category[1] }}</h6>
+					</div>
+				</div>
 			</div>
 			<div v-if="VennData.len === 3" class="circle">
 				<svg
-					viewBox="0 0 550 550"
+					viewBox="0 0 650 650"
 					class="svg"
 					xmlns="http://www.w3.org/2000/svg"
 					@mousemove="updateMouseLocation"
 					@mouseleave="toggleActiveToNull"
 				>
-					<g transform="translate(0 50)">
+					<g transform="translate(50 50)">
 						<path
 							data-name="0"
 							fill="#519a98"
@@ -356,6 +382,29 @@ function handleDataSelection(index) {
 						/>
 					</g>
 				</svg>
+				<div class="text">
+					<div class="text-1">
+						<div class="text-2">
+							<div class="square-3"></div>
+							<p>&nbsp;&nbsp;</p>
+							<h6 class="text-color">
+								{{ VennData.category[0] }}
+							</h6>
+						</div>
+						<div class="text-2">
+							<div class="square-4"></div>
+							<p>&nbsp;&nbsp;</p>
+							<h6 class="text-color">
+								{{ VennData.category[1] }}
+							</h6>
+						</div>
+					</div>
+					<div class="text-2 text-3">
+						<div class="square-5"></div>
+						<p>&nbsp;&nbsp;</p>
+						<h6 class="text-color">{{ VennData.category[2] }}</h6>
+					</div>
+				</div>
 			</div>
 			<Teleport to="body">
 				<!-- The class "chart-tooltip" could be edited in /assets/styles/chartStyles.css -->
@@ -448,14 +497,69 @@ function handleDataSelection(index) {
 		}
 	}
 }
-@keyframes move {
-	0% {
-		transform: translateY(0px);
-	}
 
-	100% {
-		transform: translateY(-7px);
-	}
+.text {
+	display: flex;
+	flex-direction: column;
+	transform: translateY(-20px);
+}
+
+.text-1 {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+.text-2 {
+	display: flex;
+	flex-direction: row;
+}
+
+.text-3 {
+	transform: translateX(25%);
+}
+
+.text-color {
+	color: #828282;
+}
+
+.square-1 {
+	width: 10px;
+	height: 10px;
+	border-radius: 3px;
+	background-color: #9450a2;
+	transform: translateY(3px);
+}
+
+.square-2 {
+	width: 10px;
+	height: 10px;
+	border-radius: 3px;
+	background-color: #44729e;
+	transform: translateY(3px);
+}
+
+.square-3 {
+	width: 10px;
+	height: 10px;
+	border-radius: 3px;
+	background-color: #519a98;
+	transform: translateY(3px);
+}
+
+.square-4 {
+	width: 10px;
+	height: 10px;
+	border-radius: 3px;
+	background-color: #93bb77;
+	transform: translateY(3px);
+}
+
+.square-5 {
+	width: 10px;
+	height: 10px;
+	border-radius: 3px;
+	background-color: #d6a059;
+	transform: translateY(3px);
 }
 
 @keyframes ease-in {
@@ -479,10 +583,6 @@ function handleDataSelection(index) {
 	}
 }
 .active-block {
-	animation-name: move;
-	animation-duration: 0.1s;
-	animation-delay: 0.05s;
-	animation-timing-function: linear;
-	animation-fill-mode: forwards;
+	transform: translateY(-7px);
 }
 </style>

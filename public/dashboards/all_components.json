@@ -4427,6 +4427,142 @@
 			],
 			"contributors": ["tuic"]
 		},
+		"303": {
+			"id": 303,
+			"index": "pregnancy_badge",
+			"history_data": false,
+			"map_config": [
+				{
+					"index": "pregnancy_badge_MRTLine",
+					"paint": {
+						"line-color": [
+							"match",
+							["get", "機構名稱"],
+							"板橋線",
+							"#0070bd",
+							"內湖線",
+							"#c48c31",
+							"小南門線",
+							"#008659",
+							"信義線",
+							"#e3002c",
+							"淡水線",
+							"#e3002c",
+							"蘆洲線",
+							"#f8b61c",
+							"中和線",
+							"#f8b61c",
+							"新店線",
+							"#008659",
+							"碧潭支線",
+							"#74ba4f",
+							"新莊線",
+							"#f8b61c",
+							"木柵線",
+							"#c48c31",
+							"南港線",
+							"#0070bd",
+							"松山線",
+							"#008659",
+							"#505050"
+						]
+					},
+					"property": [
+						{
+							"key": "機構名稱",
+							"name": "機構名稱"
+						},
+						{
+							"key": "category",
+							"name": "類別"
+						}
+					],
+					"title": "捷運路線",
+					"type": "line"
+				},
+				{
+					"index": "pregnancy_badge_station",
+					"paint": {
+						"circle-color": "#b86ccb",
+						"circle-radius": 4
+					},
+					"title": "領取站",
+					"type": "circle"
+				},
+				{
+					"index": "pregnancy_badge_MRT_yes",
+					"paint": {
+						"text-color": "#5ba960"
+					},
+					"property": [
+						{
+							"key": "機構名稱",
+							"name": "機構名稱"
+						}
+					],
+					"type": "symbol",
+					"size": null,
+					"icon": "metro-density",
+					"title": "可以領取的車站"
+				},
+				{
+					"index": "pregnancy_badge_MRT_no",
+					"paint": {
+						"text-color": "#8c8c8c"
+					},
+					"property": [
+						{
+							"key": "機構名稱",
+							"name": "機構名稱"
+						}
+					],
+					"type": "symbol",
+					"size": null,
+					"icon": "metro-density",
+					"title": "不能領取的車站"
+				},
+				{
+					"index": "pregnancy_badge_near_one",
+					"paint": {
+						"arc-color": ["37b14d", "#47d3d9", "#d800f5"],
+						"arc-width": 3
+					},
+					"type": "arc",
+					"title": "最近站點"
+				}
+			],
+			"chart_config": {
+				"categories": [
+					"北投區",
+					"士林區",
+					"內湖區",
+					"南港區",
+					"松山區",
+					"信義區",
+					"中山區",
+					"大同區",
+					"中正區",
+					"萬華區",
+					"大安區",
+					"文山區"
+				],
+				"types": ["DistrictChart", "BarChart"],
+				"unit": "家",
+				"color": ["#ba4fa7"]
+			},
+			"name": "好孕胸章領取地點",
+			"source": "衛生局",
+			"time_from": "2023-11-19T00:00:00+08:00",
+			"time_to": null,
+			"short_desc": "",
+			"long_desc": "展示可以領取好運胸章的地點，這些資訊由台北市衛生局提供",
+			"use_case": "好運胸章領取地點將協助孕婦得知可以領取好運胸章的地點，方便需要的孕婦查詢並前往領取",
+			"tags": [],
+			"links": [
+				"https://data.taipei/dataset/detail?id=e9a28a2d-eb6c-4127-8f7e-1ef6204baf1a"
+			],
+			"contributors": ["tuic"]
+		},
 		"1000": {
 			"id": 1000,
 			"index": "birth_rate_history",
