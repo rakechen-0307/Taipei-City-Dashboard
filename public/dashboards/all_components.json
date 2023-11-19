@@ -4609,7 +4609,7 @@
 				],
 				"types": ["DistrictChart", "BarChart"],
 				"unit": "家",
-				"color": ["#cf4daf"]
+				"color": ["#b86ccb"]
 			},
 			"name": "好孕胸章領取地點",
 			"source": "衛生局",

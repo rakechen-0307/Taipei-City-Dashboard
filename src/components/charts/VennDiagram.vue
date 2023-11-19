@@ -41,8 +41,6 @@ const VennData = computed(() => {
 		}
 	}
 
-	// eslint-disable-next-line no-console
-	console.log(props.series[i]);
 	for (let k = 0; k < len; k++) {
 		category.push(props.series[i].data[k]);
 	}
@@ -115,8 +113,6 @@ function updateMouseLocation(e) {
 }
 
 function handleDataSelection(index) {
-	// eslint-disable-next-line no-console
-	console.log(index);
 	if (!props.chart_config.map_filter) {
 		return;
 	}

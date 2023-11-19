@@ -39,8 +39,6 @@ const MindData = computed(() => {
 		x2 = 150 * Math.cos(rad * i);
 		y2 = 150 * Math.sin(rad * i);
 		r = 35 + 10 * Math.log10(props.series[0].data[i].y);
-		// eslint-disable-next-line no-console
-		console.log(r);
 		cx = (150 + r) * Math.cos(rad * i);
 		cy = (150 + r) * Math.sin(rad * i);
 		tx = 300 * Math.cos(rad * i);
@@ -78,7 +76,6 @@ function updateMouseLocation(e) {
 }
 
 function handleDataSelection(index) {
-	// eslint-disable-next-line no-console
 	if (!props.chart_config.map_filter) {
 		return;
 	}
