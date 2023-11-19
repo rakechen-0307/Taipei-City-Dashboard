@@ -143,7 +143,7 @@ function handleDataSelection(index) {
 				class="svg"
 				xmlns="http://www.w3.org/2000/svg"
 			>
-				<g transform="translate(250 335)">
+				<g transform="translate(320 335)">
 					<text
 						x="0"
 						y="-20"
@@ -260,9 +260,11 @@ function handleDataSelection(index) {
 
 		svg {
 			width: 75%;
-			-webkit-transform: translateX(10%);
-			-ms-transform: translateX(10%);
-			transform: translateX(10%);
+
+			polygon {
+				transition: transform 0.2s;
+				opacity: 0;
+			}
 		}
 
 		&-info {

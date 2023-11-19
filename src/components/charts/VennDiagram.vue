@@ -145,7 +145,7 @@ function handleDataSelection(index) {
 					class="svg"
 					xmlns="http://www.w3.org/2000/svg"
 				>
-					<g transform="translate(50 50)">
+					<g transform="translate(125 50)">
 						<path
 							data-name="1"
 							fill="#4574a1"
@@ -229,7 +229,7 @@ function handleDataSelection(index) {
 					@mousemove="updateMouseLocation"
 					@mouseleave="toggleActiveToNull"
 				>
-					<g transform="translate(50 50)">
+					<g transform="translate(125 50)">
 						<path
 							data-name="0"
 							fill="#519a98"
@@ -484,9 +484,11 @@ function handleDataSelection(index) {
 
 		svg {
 			width: 80%;
-			-webkit-transform: translateX(10%);
-			-ms-transform: translateX(10%);
-			transform: translateX(10%);
+
+			path {
+				transition: transform 0.2s;
+				opacity: 0;
+			}
 		}
 
 		&-info {

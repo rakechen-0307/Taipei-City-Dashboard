@@ -366,6 +366,8 @@ function handleControl(e) {
 		/>
 		<div class="output">
 			<h6>&nbsp;&nbsp;</h6>
+			<h6>時間 :</h6>
+			<h6>&nbsp;&nbsp;</h6>
 			<p>
 				{{
 					isNaN(sliderValue)
@@ -503,7 +505,7 @@ input[type="range"]::-webkit-slider-runnable-track {
 	cursor: pointer;
 	animate: 0.2s;
 	box-shadow: 1px 1px 1px #000000;
-	background: #74a9d8;
+	background: #265487;
 	border-radius: 1px;
 	border: 0px solid #010101;
 }
@@ -519,14 +521,14 @@ input[type="range"]::-webkit-slider-thumb {
 	margin-top: -8px;
 }
 input[type="range"]:focus::-webkit-slider-runnable-track {
-	background: #74a9d8;
+	background: #265487;
 }
 input[type="range"]::-moz-range-track {
 	width: 100%;
 	height: 11px;
 	cursor: pointer;
 	box-shadow: 1px 1px 1px #000000;
-	background: #74a9d8;
+	background: #265487;
 	border-radius: 1px;
 	border: 0px solid #010101;
 }
@@ -548,13 +550,13 @@ input[type="range"]::-ms-track {
 	color: transparent;
 }
 input[type="range"]::-ms-fill-lower {
-	background: #74a9d8;
+	background: #265487;
 	border: 0px solid #010101;
 	border-radius: 2px;
 	box-shadow: 1px 1px 1px #000000;
 }
 input[type="range"]::-ms-fill-upper {
-	background: #74a9d8;
+	background: #265487;
 	border: 0px solid #010101;
 	border-radius: 2px;
 	box-shadow: 1px 1px 1px #000000;
@@ -570,9 +572,9 @@ input[type="range"]::-ms-thumb {
 	cursor: pointer;
 }
 input[type="range"]:focus::-ms-fill-lower {
-	background: #74a9d8;
+	background: #265487;
 }
 input[type="range"]:focus::-ms-fill-upper {
-	background: #74a9d8;
+	background: #265487;
 }
 </style>
