@@ -281,6 +281,7 @@ function handleDataSelection(index) {
 		opacity: 1;
 	}
 }
+
 @for $i from 1 through 40 {
 	.animation-#{$i} {
 		animation-name: ease-in;
@@ -290,5 +291,42 @@ function handleDataSelection(index) {
 		animation-fill-mode: forwards;
 		opacity: 0;
 	}
+}
+
+.animation-2:hover {
+	transform: scale(1.2);
+}
+.animation-4:hover {
+	transform: scale(1.2);
+}
+.animation-6:hover {
+	transform: scale(1.2);
+}
+.animation-8:hover {
+	transform: scale(1.2);
+}
+.animation-10:hover {
+	transform: scale(1.2);
+}
+.animation-12:hover {
+	transform: scale(1.2);
+}
+.animation-14:hover {
+	transform: scale(1.2);
+}
+.animation-16:hover {
+	transform: scale(1.2);
+}
+.animation-18:hover {
+	transform: scale(1.2);
+}
+.animation-20:hover {
+	transform: scale(1.2);
+}
+.animation-22:hover {
+	transform: scale(1.2);
+}
+.animation-24:hover {
+	transform: scale(1.2);
 }
 </style>
