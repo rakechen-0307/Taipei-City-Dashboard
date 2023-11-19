@@ -4192,8 +4192,8 @@
 			"time_from": "2023-11-15T00:00:00+08:00",
 			"time_to": null,
 			"short_desc": "",
-			"long_desc": "展示生育篩檢補助合約醫療機構，這些資訊由台北市衛生局提供",
-			"use_case": "生育篩檢補助合約醫院將協助您了解有提供生育相關篩檢補助的醫療機構，方便需要的產婦查詢與前往",
+			"long_desc": "展示與本市簽訂生育篩檢補助合約的各個醫療機構，這些資訊由台北市衛生局提供",
+			"use_case": "本組件致力於協助您快速了解提供各種生育篩檢補助的醫院。各位準父母可以透過文氏圖篩選，輕鬆查詢和前往最適合您需求的醫療機構，並呈現各行政區簽約狀況作為施政參考。",
 			"tags": [],
 			"links": [
 				"https://data.taipei/dataset/detail?id=9ee72240-f9b3-42a7-bcbe-e1bb1a28a2dc"
@@ -4284,8 +4284,8 @@
 			"time_from": "2023-11-16T00:00:00+08:00",
 			"time_to": null,
 			"short_desc": "",
-			"long_desc": "展示嬰幼兒相關照護服務，這些資訊由台北市社會局提供",
-			"use_case": "此組件整合了所有嬰幼兒相關照護服務，方便需要者查詢",
+			"long_desc": "展示各類嬰幼兒相關照護服務，這些資訊由台北市社會局提供",
+			"use_case": "此組件整合展示本市八類嬰幼兒照護服務，提供需要者查詢各類嬰幼兒服務資源與建設成果",
 			"tags": [],
 			"links": [
 				"https://data.taipei/dataset/detail?id=41c729ce-c848-492a-b7a6-db468f06c17c",
@@ -4353,7 +4353,7 @@
 				"types": ["CustomGaugeChart", "ColumnChart"],
 				"standards": [0, 1.3, 1.5, 2.1, 10],
 				"percent": [0, 20, 25, 40, 100],
-				"color": ["#2e999b"],
+				"color": ["#ecc455"],
 				"grad_color": ["#ed5050", "#f59f00", "#fcc419", "#47bd5d"],
 				"name": "總生育率",
 				"unit": "‰"
@@ -4363,9 +4363,9 @@
 			"time_from": "2023-07-28T00:00:00+08:00",
 			"update_freq": null,
 			"update_freq_unit": null,
-			"short_desc": "顯示近年來各年齡層女性的生育率變化",
-			"long_desc": "顯示近年來各年齡層女性的生育率變化，資料來源為data.taipei，不定期更新。",
-			"use_case": "透過這些點位資訊...........",
+			"short_desc": "顯示近年來我國生育率變化",
+			"long_desc": "以儀錶板直觀呈現近年我國生育率變化，資料來源為主計處，不定期更新。",
+			"use_case": "我們透過儀錶板生動呈現台灣近年來生育率變化。當指標偏左、顏色趨近紅黃色系即代表生育率低於人口替代率2.1，此設計簡潔直觀地為社會發展提供即時且清晰的參考，使施政者與研究人員得以迅速掌握生育率數據。",
 			"links": [
 				"https://data.taipei/dataset/detail?id=9fb2914a-7934-45a2-9a47-99873ea5e4f4"
 			],
@@ -4462,7 +4462,7 @@
 			"time_to": null,
 			"short_desc": "",
 			"long_desc": "展示新生兒篩檢相關醫療機構，這些資訊由台北市衛生局提供",
-			"use_case": "新生兒篩檢醫院將協助您了解有提供新生兒相關篩檢的醫療機構，方便需要的親子查詢與前往",
+			"use_case": "新生兒篩檢醫院將協助您了解有提供新生兒相關篩檢的醫療機構，以文氏圖更清晰地符合家長選擇，方便需要的親子查詢與前往",
 			"tags": [],
 			"links": [
 				"https://data.taipei/dataset/detail?id=5d95c90f-9a1f-481b-ae44-03b917a8d167",
@@ -4609,7 +4609,7 @@
 				],
 				"types": ["DistrictChart", "BarChart"],
 				"unit": "家",
-				"color": ["#ba4fa7"]
+				"color": ["#cf4daf"]
 			},
 			"name": "好孕胸章領取地點",
 			"source": "衛生局",
@@ -4617,7 +4617,7 @@
 			"time_to": null,
 			"short_desc": "",
 			"long_desc": "展示可以領取好運胸章的地點，這些資訊由台北市衛生局提供",
-			"use_case": "好運胸章領取地點將協助孕婦得知可以領取好運胸章的地點，方便需要的孕婦查詢並前往領取",
+			"use_case": "此組件將協助孕婦得知可以領取好運胸章的地點，並透過點選每一站捷運展示最近的領取地點，方便需要的孕婦查詢並前往領取",
 			"tags": [],
 			"links": [
 				"https://data.taipei/dataset/detail?id=e9a28a2d-eb6c-4127-8f7e-1ef6204baf1a"
@@ -4656,8 +4656,8 @@
 			"update_freq": null,
 			"update_freq_unit": null,
 			"short_desc": "顯示近年來各年齡層女性的生育率變化",
-			"long_desc": "顯示近年來各年齡層女性的生育率變化，資料來源為data.taipei，不定期更新。",
-			"use_case": "透過這些點位資訊...........",
+			"long_desc": "顯示近年來各年齡層女性的生育率變化，資料來源為主計處，不定期更新。",
+			"use_case": "此組件為探索生育趨勢的簡便途徑！我們呈現了一個直觀的統計圖表，展示了近年來各年齡層女性的生育率變化，讓您能快速了解不同年齡層間生育率的變動，助力未來的社會政策制定與研究者參考。",
 			"links": [
 				"https://data.taipei/dataset/detail?id=9fb2914a-7934-45a2-9a47-99873ea5e4f4"
 			],
@@ -4759,9 +4759,9 @@
 			"source": "社會局",
 			"time_from": "2023-11-16T00:00:00+08:00",
 			"time_to": null,
-			"short_desc": "",
-			"long_desc": "展示嬰幼兒相關照護服務，這些資訊由台北市社會局提供",
-			"use_case": "此組件整合了所有嬰幼兒相關照護服務，方便需要者查詢",
+			"short_desc": "展示優良托嬰中心機構",
+			"long_desc": "展示最近一年評鑑優良的托嬰中心，這些資訊由台北市社會局提供",
+			"use_case": "此組件展示本市各托嬰中心最近一年評鑑級數，方便家長迅速掌握優良的托嬰中心，並呈現各行政區甲等以上托嬰機構數量作為施政與研究者參考",
 			"tags": [],
 			"links": [
 				"https://data.taipei/dataset/detail?id=e7b45593-9d44-469c-97fa-f1a52c69ebaa"
@@ -4771,7 +4771,7 @@
 		"188": {
 			"id": 188,
 			"index": "Breeding_Room",
-			"history_data": true,
+			"history_data": false,
 			"map_config": [
 				{
 					"index": "breeding_room",
@@ -4818,16 +4818,16 @@
 				]
 			},
 			"name": "哺集乳室",
-			"source": "工務局",
-			"time_from": "2023-06-02T00:00:00+08:00",
+			"source": "衛生局",
+			"time_from": "2023-03-22T11:29:29+08:00",
 			"time_to": null,
 			"update_freq": 10,
 			"update_freq_unit": "minute",
-			"short_desc": "顯示當前全市道路施工的數量統計",
-			"long_desc": "顯示當前全市道路施工的數量統計，資料來源為工務局，每10分鐘更新。",
-			"use_case": "圖表僅呈現行政區的施工數量統計，若要得知更具體的施工位置資訊，可透過地圖模式查詢。",
+			"short_desc": "顯示全市哺集乳室的分布與數量統計",
+			"long_desc": "顯示全市哺集乳室的分布與數量統計，資料來源為衛生局，不定期更新。",
+			"use_case": "此組件展示全市哺集乳室的分布與數量統計，並在地圖上透過時間軸拉選，使用者可以迅速得知當下有開放的哺集乳室",
 			"links": [
-				"https://data.taipei/dataset/detail?id=c208dabd-2da0-4e6d-8dbd-a004b9782b0a"
+				"https://data.taipei/dataset/detail?id=5d1d34d8-1b81-4162-87b6-05e0896af958"
 			],
 			"tags": [],
 			"contributors": ["tuic"]
