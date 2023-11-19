@@ -4651,11 +4651,11 @@
 			"index": "baby_care",
 			"map_config": [
 				{
-					"index": "baby_care",
+					"index": "babysit_eval",
 					"paint": {
 						"circle-color": [
 							"match",
-							["get", "機構類型"],
+							["get", "行政區"],
 							"松山區",
 							"#d74f52",
 							"信義區",
@@ -4685,20 +4685,16 @@
 					},
 					"property": [
 						{
-							"key": "機構類型",
-							"name": "機構類型"
-						},
-						{
 							"key": "機構名稱",
 							"name": "機構名稱"
 						},
 						{
-							"key": "地址",
-							"name": "地址"
+							"key": "最新評鑑結果",
+							"name": "評鑑結果"
 						},
 						{
-							"key": "電話",
-							"name": "電話"
+							"key": "地址",
+							"name": "地址"
 						}
 					],
 					"type": "circle",
@@ -4724,7 +4720,7 @@
 					"#D74FC5"
 				],
 				"map_filter": [
-					"機構類型",
+					"行政區",
 					[
 						"松山區",
 						"信義區",
@@ -4752,6 +4748,70 @@
 			"links": [
 				"https://data.taipei/dataset/detail?id=e7b45593-9d44-469c-97fa-f1a52c69ebaa"
 			],
+			"contributors": ["tuic"]
+		},
+		"188": {
+			"id": 188,
+			"index": "Breeding_Room",
+			"history_data": true,
+			"map_config": [
+				{
+					"index": "breeding_room",
+					"property": [
+						{
+							"key": "機構名稱",
+							"name": "機構名稱"
+						},
+						{
+							"key": "開放時間",
+							"name": "開放時間"
+						},
+						{
+							"key": "地址",
+							"name": "地址"
+						},
+						{
+							"key": "優良哺集乳室認證效期",
+							"name": "認證效期"
+						}
+					],
+					"type": "symbol",
+					"icon": "handshake",
+					"title": "哺集乳室"
+				}
+			],
+			"chart_config": {
+				"color": ["#2f9ca1"],
+				"types": ["DistrictChartWithRangeControl"],
+				"unit": "件",
+				"categories": [
+					"北投區",
+					"士林區",
+					"內湖區",
+					"南港區",
+					"松山區",
+					"信義區",
+					"中山區",
+					"大同區",
+					"中正區",
+					"萬華區",
+					"大安區",
+					"文山區"
+				]
+			},
+			"name": "哺集乳室",
+			"source": "工務局",
+			"time_from": "2023-06-02T00:00:00+08:00",
+			"time_to": null,
+			"update_freq": 10,
+			"update_freq_unit": "minute",
+			"short_desc": "顯示當前全市道路施工的數量統計",
+			"long_desc": "顯示當前全市道路施工的數量統計，資料來源為工務局，每10分鐘更新。",
+			"use_case": "圖表僅呈現行政區的施工數量統計，若要得知更具體的施工位置資訊，可透過地圖模式查詢。",
+			"links": [
+				"https://data.taipei/dataset/detail?id=c208dabd-2da0-4e6d-8dbd-a004b9782b0a"
+			],
+			"tags": [],
 			"contributors": ["tuic"]
 		}
 	}
