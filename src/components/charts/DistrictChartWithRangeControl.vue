@@ -356,7 +356,7 @@ function handleControl(e) {
 			</Teleport>
 		</div>
 	</div>
-	<div>
+	<div class="input">
 		<input
 			type="range"
 			v-model="sliderValue"
@@ -364,13 +364,16 @@ function handleControl(e) {
 			:max="24"
 			@change="handleControl"
 		/>
-		<p>
-			{{
-				isNaN(sliderValue)
-					? "00:00"
-					: parseInt(sliderValue).toString() + ":00"
-			}}
-		</p>
+		<div class="output">
+			<h6>&nbsp;&nbsp;</h6>
+			<p>
+				{{
+					isNaN(sliderValue)
+						? "00:00"
+						: parseInt(sliderValue).toString() + ":00"
+				}}
+			</p>
+		</div>
 	</div>
 </template>
 
@@ -472,5 +475,104 @@ function handleControl(e) {
 		animation-timing-function: linear;
 		animation-fill-mode: forwards;
 	}
+}
+
+.input {
+	display: flex;
+	flex-direction: row;
+	transform: translateY(15px);
+}
+.output {
+	display: flex;
+	flex-direction: row;
+	transform: translateY(10px);
+}
+
+input[type="range"] {
+	height: 5px;
+	-webkit-appearance: none;
+	margin: 10px 0;
+	width: 50%;
+}
+input[type="range"]:focus {
+	outline: none;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+	width: 100%;
+	height: 11px;
+	cursor: pointer;
+	animate: 0.2s;
+	box-shadow: 1px 1px 1px #000000;
+	background: #74a9d8;
+	border-radius: 1px;
+	border: 0px solid #010101;
+}
+input[type="range"]::-webkit-slider-thumb {
+	box-shadow: 1px 1px 1px #000031;
+	border: 1px solid #00001e;
+	height: 26px;
+	width: 26px;
+	border-radius: 15px;
+	background: #ffffff;
+	cursor: pointer;
+	-webkit-appearance: none;
+	margin-top: -8px;
+}
+input[type="range"]:focus::-webkit-slider-runnable-track {
+	background: #74a9d8;
+}
+input[type="range"]::-moz-range-track {
+	width: 100%;
+	height: 11px;
+	cursor: pointer;
+	box-shadow: 1px 1px 1px #000000;
+	background: #74a9d8;
+	border-radius: 1px;
+	border: 0px solid #010101;
+}
+input[type="range"]::-moz-range-thumb {
+	box-shadow: 1px 1px 1px #000031;
+	border: 1px solid #00001e;
+	height: 26px;
+	width: 26px;
+	border-radius: 15px;
+	background: #ffffff;
+	cursor: pointer;
+}
+input[type="range"]::-ms-track {
+	width: 100%;
+	height: 11px;
+	cursor: pointer;
+	background: transparent;
+	border-color: transparent;
+	color: transparent;
+}
+input[type="range"]::-ms-fill-lower {
+	background: #74a9d8;
+	border: 0px solid #010101;
+	border-radius: 2px;
+	box-shadow: 1px 1px 1px #000000;
+}
+input[type="range"]::-ms-fill-upper {
+	background: #74a9d8;
+	border: 0px solid #010101;
+	border-radius: 2px;
+	box-shadow: 1px 1px 1px #000000;
+}
+input[type="range"]::-ms-thumb {
+	margin-top: 1px;
+	box-shadow: 1px 1px 1px #000031;
+	border: 1px solid #00001e;
+	height: 26px;
+	width: 26px;
+	border-radius: 15px;
+	background: #ffffff;
+	cursor: pointer;
+}
+input[type="range"]:focus::-ms-fill-lower {
+	background: #74a9d8;
+}
+input[type="range"]:focus::-ms-fill-upper {
+	background: #74a9d8;
 }
 </style>

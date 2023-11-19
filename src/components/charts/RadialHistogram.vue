@@ -286,7 +286,7 @@ function handleDataSelection(index) {
 	.animation-#{$i} {
 		animation-name: ease-in;
 		animation-duration: 0.25s;
-		animation-delay: 0.15s * ($i - 1);
+		animation-delay: 0.1s * ($i - 1);
 		animation-timing-function: linear;
 		animation-fill-mode: forwards;
 		opacity: 0;

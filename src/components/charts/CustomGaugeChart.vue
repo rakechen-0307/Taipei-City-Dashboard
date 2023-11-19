@@ -38,7 +38,6 @@ function calGradComp(chart_config) {
 			).toString() + "%",
 		]);
 	}
-	console.log(res);
 	return res;
 }
 function calAngle(percentvalue) {
@@ -184,7 +183,7 @@ function handleTable(list) {
 					</tspan>
 				</text>
 				<text
-					:x="Rx"
+					:x="Rx - 10"
 					:y="Ry - 35"
 					dominant-baseline="start"
 					text-anchor="middle"
@@ -241,7 +240,7 @@ function handleTable(list) {
 	fill: #ddd;
 }
 .heavy {
-	font: 75px sans-serif;
+	font: 60px sans-serif;
 	fill: #ddd;
 }
 .tablediv {
