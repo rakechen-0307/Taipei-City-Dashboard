@@ -4651,11 +4651,11 @@
 			"index": "baby_care",
 			"map_config": [
 				{
-					"index": "baby_care",
+					"index": "babysit_eval",
 					"paint": {
 						"circle-color": [
 							"match",
-							["get", "機構類型"],
+							["get", "行政區"],
 							"松山區",
 							"#d74f52",
 							"信義區",
@@ -4685,20 +4685,16 @@
 					},
 					"property": [
 						{
-							"key": "機構類型",
-							"name": "機構類型"
-						},
-						{
 							"key": "機構名稱",
 							"name": "機構名稱"
 						},
 						{
-							"key": "地址",
-							"name": "地址"
+							"key": "最新評鑑結果",
+							"name": "評鑑結果"
 						},
 						{
-							"key": "電話",
-							"name": "電話"
+							"key": "地址",
+							"name": "地址"
 						}
 					],
 					"type": "circle",
@@ -4724,7 +4720,7 @@
 					"#D74FC5"
 				],
 				"map_filter": [
-					"機構類型",
+					"行政區",
 					[
 						"松山區",
 						"信義區",
@@ -4803,7 +4799,7 @@
 					"文山區"
 				]
 			},
-			"name": "Breeding Room",
+			"name": "哺集乳室",
 			"source": "工務局",
 			"time_from": "2023-06-02T00:00:00+08:00",
 			"time_to": null,
