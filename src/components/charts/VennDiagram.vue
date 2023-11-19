@@ -115,6 +115,8 @@ function updateMouseLocation(e) {
 }
 
 function handleDataSelection(index) {
+	// eslint-disable-next-line no-console
+	console.log(index);
 	if (!props.chart_config.map_filter) {
 		return;
 	}
@@ -149,13 +151,13 @@ function handleDataSelection(index) {
 				>
 					<g transform="translate(50 50)">
 						<path
-							data-name="0"
+							data-name="1"
 							fill="#4574a1"
 							stroke="#4f4f4f"
 							stroke-width="2"
 							:class="{
 								'active-block':
-									targetArea === '0' || selectedIndex === 0,
+									targetArea === '1' || selectedIndex === 1,
 								'initial-animation-3': true,
 							}"
 							d="M 275 145.09618943233
@@ -166,16 +168,16 @@ function handleDataSelection(index) {
 							@mouseenter="toggleActive"
 							@mousemove="updateMouseLocation"
 							@mouseleave="toggleActiveToNull"
-							@click="handleDataSelection(0)"
+							@click="handleDataSelection(1)"
 						/>
 						<path
-							data-name="1"
+							data-name="0"
 							fill="#9c54ab"
 							stroke="#4f4f4f"
 							stroke-width="2"
 							:class="{
 								'active-block':
-									targetArea === '1' || selectedIndex === 1,
+									targetArea === '0' || selectedIndex === 0,
 								'initial-animation-2': true,
 							}"
 							d="M 275 145.09618943233
@@ -186,7 +188,7 @@ function handleDataSelection(index) {
 							@mouseenter="toggleActive"
 							@mousemove="updateMouseLocation"
 							@mouseleave="toggleActiveToNull"
-							@click="handleDataSelection(1)"
+							@click="handleDataSelection(0)"
 						/>
 						<path
 							data-name="2"

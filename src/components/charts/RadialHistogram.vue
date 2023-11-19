@@ -32,7 +32,20 @@ const RadialHist = computed(() => {
 	}
 
 	const rad = (2 * Math.PI) / count;
-	let dist, density, s1_x, s1_y, s2_x, s2_y, d, e1_x, e1_y, e2_x, e2_y, color, ponits_str, name;
+	let dist,
+		density,
+		s1_x,
+		s1_y,
+		s2_x,
+		s2_y,
+		d,
+		e1_x,
+		e1_y,
+		e2_x,
+		e2_y,
+		color,
+		ponits_str,
+		name;
 	for (let i = 0; i < count; i++) {
 		dist = 85;
 		density = 2 / 8;
@@ -41,7 +54,7 @@ const RadialHist = computed(() => {
 		s2_x = dist * Math.cos(rad * (i + density / 1.5));
 		s2_y = dist * Math.sin(rad * (i + density / 1.5));
 		// d = 20 + 100 * Math.log10(props.series[0].data[i].y);
-		d = 1200 * (props.series[0].data[i].y / sum)
+		d = 1200 * (props.series[0].data[i].y / sum);
 		e2_x = (dist + d) * Math.cos(rad * (i - density / 1.2));
 		e2_y = (dist + d) * Math.sin(rad * (i - density / 1.2));
 		e1_x = (dist + d) * Math.cos(rad * (i + density / 1.2));
@@ -56,7 +69,22 @@ const RadialHist = computed(() => {
 		color = props.chart_config.color[i];
 		name = props.chart_config.map_filter[1][i];
 		// config.push([x1, y1, x2, y2, r, cx, cy, tx, ty, color, name, i]);
-		ponits_str = s1_x.toString() + "," + s1_y.toString() + " " + s2_x.toString() + "," + s2_y.toString() + " " + e1_x.toString() + "," + e1_y.toString() + " " + e2_x.toString() + "," + e2_y.toString();
+		ponits_str =
+			s1_x.toString() +
+			"," +
+			s1_y.toString() +
+			" " +
+			s2_x.toString() +
+			"," +
+			s2_y.toString() +
+			" " +
+			e1_x.toString() +
+			"," +
+			e1_y.toString() +
+			" " +
+			e2_x.toString() +
+			"," +
+			e2_y.toString();
 		config.push([ponits_str, name, color, i]);
 	}
 
@@ -88,7 +116,6 @@ function updateMouseLocation(e) {
 }
 
 function handleDataSelection(index) {
-	// eslint-disable-next-line no-console
 	if (!props.chart_config.map_filter) {
 		return;
 	}
@@ -139,9 +166,9 @@ function handleDataSelection(index) {
 					</text>
 					<polygon
 						:data-name="p[1]"
-						:points=p[0]
+						:points="p[0]"
 						stroke="#767575"
-						stroke-width="5"
+						stroke-width="3"
 						:fill="p[2]"
 						:class="'animation-' + (2 * p[3] + 2)"
 						@mouseenter="toggleActive"
