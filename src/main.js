@@ -39,6 +39,7 @@ import MindMap from "./components/charts/MindMap.vue";
 import CustomGaugeChart from "./components/charts/CustomGaugeChart.vue";
 import RadialHistogram from "./components/charts/RadialHistogram.vue";
 import DistrictChartWithRangeControl from "./components/charts/DistrictChartWithRangeControl.vue";
+import ColumnChartWithRange from "./components/charts/ColumnChartWithRange.vue";
 
 const app = createApp(App);
 
@@ -66,5 +67,6 @@ app.component("MindMap", MindMap);
 app.component("CustomGaugeChart", CustomGaugeChart);
 app.component("RadialHistogram", RadialHistogram);
 app.component("DistrictChartWithRangeControl", DistrictChartWithRangeControl);
+app.component("ColumnChartWithRange", ColumnChartWithRange);
 
 app.mount("#app");

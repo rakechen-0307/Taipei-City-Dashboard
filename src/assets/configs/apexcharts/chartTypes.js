@@ -16,4 +16,5 @@ export const chartTypes = {
 	CustomGaugeChart: "儀錶板圖",
 	RadialHistogram: "輻射長條圖",
 	DistrictChartWithRangeControl: "行政區圖(有滑桿)",
+	ColumnChartWithRange: "滑桿式縱向長條圖",
 };
