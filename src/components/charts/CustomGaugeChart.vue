@@ -38,6 +38,7 @@ function calGradComp(chart_config) {
 			).toString() + "%",
 		]);
 	}
+	// console.log(res);
 	return res;
 }
 function calAngle(percentvalue) {
@@ -52,17 +53,18 @@ function calLine(angle, length) {
 	return { x: length * Math.cos(rad), y: length * Math.sin(rad) };
 }
 function calTri(value, chart_config) {
+	const getvalue = value.y ?? value;
 	const standards = chart_config["standards"];
 	const percents = chart_config["percent"];
 
 	let percentvalue = 0;
-	if (value <= standards[0]) percentvalue = 0;
-	else if (value >= standards[standards.length - 1]) percentvalue = 180;
+	if (getvalue <= standards[0]) percentvalue = 0;
+	else if (getvalue >= standards[standards.length - 1]) percentvalue = 180;
 	else {
 		let idx = 0;
-		while (standards[idx] < value) idx += 1;
+		while (standards[idx] < getvalue) idx += 1;
 		percentvalue =
-			((value - standards[idx - 1]) /
+			((getvalue - standards[idx - 1]) /
 				(standards[idx] - standards[idx - 1])) *
 				(percents[idx] - percents[idx - 1]) +
 			percents[idx - 1];
@@ -122,11 +124,13 @@ function CheckpathD(startpercent, endpercent, chart_config) {
 	return res;
 }
 function handleTable(list) {
+	console.log(list);
 	let res = [[], []];
 	// 2 by N/2
-	for (let i = 0; i <= list.length / 2; i++) {
-		res[0].push([2 * i, list[2 * i]]);
-		if (2 * i + 1 < list.length) res[1].push([2 * i + 1, list[2 * i + 1]]);
+	for (let i = 0; i <= (list.length - 1) / 2; i++) {
+		res[0].push([2 * i, list[2 * i].x ?? list[2 * i]]);
+		if (2 * i + 1 < list.length)
+			res[1].push([2 * i + 1, list[2 * i + 1].x ?? list[2 * i + 1]]);
 	}
 	return res;
 }
@@ -177,7 +181,8 @@ function handleTable(list) {
 						{{
 							chart_config.name +
 							" (" +
-							chart_config.categories[targetvalue] +
+							(series[0].data[targetvalue].x ??
+								chart_config.categories[targetvalue]) +
 							")"
 						}}
 					</tspan>
@@ -189,7 +194,10 @@ function handleTable(list) {
 					text-anchor="middle"
 					class="heavy"
 				>
-					{{ series[0].data[targetvalue] }}
+					{{
+						series[0].data[targetvalue].y ??
+						series[0].data[targetvalue]
+					}}
 				</text>
 				<text
 					:x="Rx + 90"
@@ -206,7 +214,9 @@ function handleTable(list) {
 					<tbody>
 						<tr
 							v-for="subTable in handleTable(
-								chart_config.categories
+								series[0].data[0].x
+									? series[0].data
+									: chart_config.categories
 							)"
 						>
 							<td

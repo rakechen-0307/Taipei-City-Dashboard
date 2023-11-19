@@ -4721,7 +4721,7 @@
 				}
 			],
 			"chart_config": {
-				"types": ["RadialHistogram", "BarChart"],
+				"types": ["RadialHistogram", "BarChart", "CustomGaugeChart"],
 				"unit": "家",
 				"color": [
 					"#d74f52",
@@ -4737,6 +4737,10 @@
 					"#A54FD7",
 					"#D74FC5"
 				],
+				"grad_color": ["#dc6654", "#ab9807", "#33d322"],
+				"standards": [0, 20, 70, 500],
+				"percent": [0, 30, 50, 100],
+				"name": "優良托嬰中心",
 				"map_filter": [
 					"行政區",
 					[
