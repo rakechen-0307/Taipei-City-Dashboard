@@ -469,7 +469,7 @@ export const useMapStore = defineStore("map", {
 			}
 			this.map.setFilter(layer_id, ["==", ["get", property], key]);
 		},
-		addCustomLayer(layer_id, property, key, map_config) {
+		addCustomLayer(layer_id, property, key) {
 			const dialogStore = useDialogStore();
 			if (!this.map || dialogStore.dialogs.moreInfo) {
 				return;

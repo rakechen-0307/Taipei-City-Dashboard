@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+// eslint-disable-next-line no-unused-vars
 const props = defineProps([
 	"chart_config",
 	"activeChart",
@@ -12,7 +13,6 @@ const Ry = 240;
 const Llength = 15;
 const mousePosition = ref({ x: null, y: null });
 let targetvalue = ref(0);
-let selectedvalue = ref(0);
 
 function toggleActive(e) {
 	targetvalue.value = e.target.dataset.name;
@@ -20,11 +20,13 @@ function toggleActive(e) {
 function toggleActiveToNull() {
 	// targetvalue.value = 0;
 }
+// eslint-disable-next-line no-unused-vars
 function updateMouseLocation(e) {
 	mousePosition.value.x = e.pageX;
 	mousePosition.value.y = e.pageY;
 }
 function calGradComp(chart_config) {
+	// eslint-disable-next-line prefer-destructuring
 	const percent = chart_config["percent"];
 	const color = chart_config["grad_color"];
 	const res = [];
@@ -54,6 +56,7 @@ function calLine(angle, length) {
 }
 function calTri(value, chart_config) {
 	const getvalue = value.y ?? value;
+	// eslint-disable-next-line prefer-destructuring
 	const standards = chart_config["standards"];
 	const percents = chart_config["percent"];
 
@@ -124,7 +127,6 @@ function CheckpathD(startpercent, endpercent, chart_config) {
 	return res;
 }
 function handleTable(list) {
-	console.log(list);
 	let res = [[], []];
 	// 2 by N/2
 	for (let i = 0; i <= (list.length - 1) / 2; i++) {
@@ -153,6 +155,7 @@ function handleTable(list) {
 					>
 						<stop
 							v-for="grad in calGradComp(chart_config)"
+							:key="grad"
 							:offset="grad[1]"
 							:style="{
 								'stop-color': grad[0],
@@ -213,14 +216,16 @@ function handleTable(list) {
 				<table>
 					<tbody>
 						<tr
-							v-for="subTable in handleTable(
+							v-for="(subTable, i) in handleTable(
 								series[0].data[0].x
 									? series[0].data
 									: chart_config.categories
 							)"
+							:key="i"
 						>
 							<td
-								v-for="submatter in subTable"
+								v-for="(submatter, i) in subTable"
+								:key="i"
 								:data-name="submatter[0].toString()"
 								@mouseenter="toggleActive"
 								@mouseleave="toggleActiveToNull"
