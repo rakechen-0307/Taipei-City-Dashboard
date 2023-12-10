@@ -13,7 +13,7 @@ export const chartTypes = {
 	HeatmapChart: "熱力圖",
 	VennDiagram: "文氏圖",
 	MindMap: "心智圖",
-	CustomGaugeChart: "儀錶板圖",
+	SpeedometerChart: "儀表板圖",
 	RadialHistogram: "輻射長條圖",
 	DistrictChartWithRangeControl: "行政區圖(有滑桿)",
 	ColumnChartWithRange: "滑桿式縱向長條圖",

@@ -1,32 +1,34 @@
 <script setup>
 import { ref } from "vue";
-// eslint-disable-next-line no-unused-vars
 const props = defineProps([
 	"chart_config",
 	"activeChart",
 	"series",
 	"map_config",
 ]);
+/****************** Parameters definition *******************/
+/*												  			*/
+/*  R: radius of the speedometer	(outer circle)  		*/
+/*  Rx: center x of the speedometer in svg coordinate		*/
+/*  Ry: center y of the speedometer in svg coordinate		*/
+/*  Llength: width of the speedometer arc					*/
+/*												  			*/
+/************************************************************/
 const R = 180;
 const Rx = 275;
 const Ry = 240;
 const Llength = 15;
-const mousePosition = ref({ x: null, y: null });
 let targetvalue = ref(0);
-
+/*  set the target value to the toggled element  */
 function toggleActive(e) {
 	targetvalue.value = e.target.dataset.name;
 }
 function toggleActiveToNull() {
 	// targetvalue.value = 0;
 }
-// eslint-disable-next-line no-unused-vars
-function updateMouseLocation(e) {
-	mousePosition.value.x = e.pageX;
-	mousePosition.value.y = e.pageY;
-}
+/******************* Calculate Gradient Combination ******************/
+/*  Returns the array for <linearGradient> to render speedometer arc */
 function calGradComp(chart_config) {
-	// eslint-disable-next-line prefer-destructuring
 	const percent = chart_config["percent"];
 	const color = chart_config["grad_color"];
 	const res = [];
@@ -34,57 +36,76 @@ function calGradComp(chart_config) {
 	for (let i = 0; i < percent.length - 1; i++) {
 		res.push([
 			color[i],
+			// Uses average percent of endpoints as the color
 			(
 				(parseFloat(percent[i]) + parseFloat(percent[i + 1])) /
 				2
 			).toString() + "%",
 		]);
 	}
-	// console.log(res);
 	return res;
 }
+/*  Calculate the Angle for given percentage  */
 function calAngle(percentvalue) {
 	return percentvalue * 1.8;
 }
+/*  Calculate the point(in svg coordinates) for given angle and radius
+	with respect to the center of the speedometer  */
 function calPt(angle, radius) {
 	const rad = (angle * Math.PI) / 180;
 	return { x: Rx - radius * Math.cos(rad), y: Ry - radius * Math.sin(rad) };
 }
+/*  Calculate the line endpt for given angle and length  */
 function calLine(angle, length) {
 	const rad = (angle * Math.PI) / 180;
 	return { x: length * Math.cos(rad), y: length * Math.sin(rad) };
 }
+/********** Calculate Triangle(pointer) Path **********/
 function calTri(value, chart_config) {
 	const getvalue = value.y ?? value;
-	// eslint-disable-next-line prefer-destructuring
 	const standards = chart_config["standards"];
 	const percents = chart_config["percent"];
-
+	// calculate the percentage of the value (based on standards & percent ranges)
 	let percentvalue = 0;
+	// if the value exceeds min or max standards
 	if (getvalue <= standards[0]) percentvalue = 0;
-	else if (getvalue >= standards[standards.length - 1]) percentvalue = 180;
+	else if (getvalue >= standards[standards.length - 1]) percentvalue = 100;
 	else {
 		let idx = 0;
 		while (standards[idx] < getvalue) idx += 1;
+		// calculate by proportion in the chosen range
 		percentvalue =
 			((getvalue - standards[idx - 1]) /
 				(standards[idx] - standards[idx - 1])) *
 				(percents[idx] - percents[idx - 1]) +
 			percents[idx - 1];
 	}
-	// console.log(percentvalue, value);
 	let triAngle = calAngle(percentvalue);
+	// this is the coord. of the top vertex of the triangle
 	let triPt = calPt(triAngle, R - Llength);
+	/***** Render logic *****/
+	/* 1. left side edge    */
+	/* 2. bottom edge		*/
+	/* 3. close the area	*/
+	/************************/
 	let res = "";
+	// the "half" of the top angle of the triangle(pointer)
+	// in this case, top angle = 40 deg
 	let topAngle = 20;
+	// the side length (both sides) of the triangle
+	// it is an isosceles triangle
 	let sideLength = 30;
+	// start pt
 	res += "M " + triPt.x + " " + triPt.y + "\n";
+	// left side edge
 	res +=
 		"l " +
 		calLine(triAngle + topAngle, sideLength).x +
 		" " +
 		calLine(triAngle + topAngle, sideLength).y +
 		"\n";
+	// bottom edge (perpendicular to the radius line)
+	// utilitizes simple trigonometric relations
 	res +=
 		"l " +
 		calLine(
@@ -97,22 +118,33 @@ function calTri(value, chart_config) {
 			2 * sideLength * Math.sin((topAngle * Math.PI) / 180)
 		).y +
 		"\n";
-	// res += "z\n";
+	res += "z\n";
 	return res;
 }
+/***** Calculate Speedometer Arc Path *****/
 function CheckpathD(startpercent, endpercent, chart_config) {
 	let startAngle = calAngle(startpercent, chart_config);
 	let endAngle = calAngle(endpercent, chart_config);
-
+	// coord. of startPt (outer circle) with respect to the svg coord.
 	let startPt = calPt(startAngle, R);
 	let endPt = calPt(endAngle, R);
+	// coord. of startPt (inner circle)
 	let startbotPt = calPt(startAngle, R - Llength);
+	// the line to close outer & inner circle at endPt
 	let line = calLine(endAngle, Llength);
-
+	/***************** Render logic *****************/
+	/* 1. outer circle      						*/
+	/* 2. the line to close outer & innter circle	*/
+	/* 3. inner circle								*/
+	/* 4. close the area							*/
+	/************************************************/
 	let res = "";
 	res += "M " + startPt.x + " " + startPt.y + "\n";
+	// outer circle
 	res += "A " + R + " " + R + " 0 0 1 " + endPt.x + " " + endPt.y + "\n";
+	// the line to close
 	res += "l " + line.x + " " + line.y + "\n";
+	// inner circle
 	res +=
 		"A " +
 		(R - Llength) +
@@ -123,9 +155,11 @@ function CheckpathD(startpercent, endpercent, chart_config) {
 		" " +
 		startbotPt.y +
 		"\n";
+	// close
 	res += "z\n";
 	return res;
 }
+/* Handles the format of the blocks under speedometer */
 function handleTable(list) {
 	let res = [[], []];
 	// 2 by N/2
@@ -138,13 +172,14 @@ function handleTable(list) {
 }
 </script>
 <template>
-	<div v-if="activeChart === 'CustomGaugeChart'" class="air">
+	<div v-if="activeChart === 'SpeedometerChart'" class="speedometer">
 		<g>
 			<svg
 				viewBox="0 0 550 260"
 				xmlns="http://www.w3.org/2000/svg"
 				class="initial-animation-1"
 			>
+				<!-- Color Gradient -->
 				<defs>
 					<linearGradient
 						:id="'grad1-' + chart_config.name"
@@ -164,10 +199,12 @@ function handleTable(list) {
 						/>
 					</linearGradient>
 				</defs>
+				<!-- Render Speedometer arc -->
 				<path
 					:fill="'url(#grad1-' + chart_config.name + ')'"
 					:d="CheckpathD(0, 100, chart_config)"
 				/>
+				<!-- Render pointer -->
 				<path
 					fill="#ddd"
 					stroke="#ddd"
@@ -180,6 +217,7 @@ function handleTable(list) {
 					text-anchor="middle"
 					class="small"
 				>
+					<!-- Render the name of the dataset and the specific data title -->
 					<tspan>
 						{{
 							chart_config.name +
@@ -190,6 +228,7 @@ function handleTable(list) {
 						}}
 					</tspan>
 				</text>
+				<!-- Render the value -->
 				<text
 					:x="Rx - 10"
 					:y="Ry - 35"
@@ -202,6 +241,7 @@ function handleTable(list) {
 						series[0].data[targetvalue]
 					}}
 				</text>
+				<!-- Render the unit of the data type -->
 				<text
 					:x="Rx + 90"
 					:y="Ry - 30"
@@ -215,6 +255,7 @@ function handleTable(list) {
 			<div class="tablediv">
 				<table>
 					<tbody>
+						<!-- Table size: 2 * ceil(N/2) -->
 						<tr
 							v-for="(subTable, i) in handleTable(
 								series[0].data[0].x
@@ -231,6 +272,7 @@ function handleTable(list) {
 								@mouseleave="toggleActiveToNull"
 								:class="'initial-animation-' + submatter[0]"
 							>
+								<!-- Value of the data title -->
 								<div class="mattertable">
 									{{ submatter[1] }}
 								</div>
@@ -243,7 +285,7 @@ function handleTable(list) {
 	</div>
 </template>
 <style scoped lang="scss">
-.air {
+.speedometer {
 	user-select: none;
 }
 .small {
