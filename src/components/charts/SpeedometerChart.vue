@@ -28,14 +28,13 @@ function toggleActiveToNull() {
 }
 /******************* Calculate Gradient Combination ******************/
 /*  Returns the array for <linearGradient> to render speedometer arc */
-function calGradComp(chart_config) {
-	const percent = chart_config["percent"];
-	const color = chart_config["grad_color"];
+function calGradComp() {
+	const { percent, grad_color } = props.chart_config;
 	const res = [];
-	res.push([color[0], "0%"]);
+	res.push([grad_color[0], "0%"]);
 	for (let i = 0; i < percent.length - 1; i++) {
 		res.push([
-			color[i],
+			grad_color[i],
 			// Uses average percent of endpoints as the color
 			(
 				(parseFloat(percent[i]) + parseFloat(percent[i + 1])) /
@@ -61,10 +60,9 @@ function calLine(angle, length) {
 	return { x: length * Math.cos(rad), y: length * Math.sin(rad) };
 }
 /********** Calculate Triangle(pointer) Path **********/
-function calTri(value, chart_config) {
+function calTri(value) {
 	const getvalue = value.y ?? value;
-	const standards = chart_config["standards"];
-	const percents = chart_config["percent"];
+	const { standards, percent } = props.chart_config;
 	// calculate the percentage of the value (based on standards & percent ranges)
 	let percentvalue = 0;
 	// if the value exceeds min or max standards
@@ -77,8 +75,8 @@ function calTri(value, chart_config) {
 		percentvalue =
 			((getvalue - standards[idx - 1]) /
 				(standards[idx] - standards[idx - 1])) *
-				(percents[idx] - percents[idx - 1]) +
-			percents[idx - 1];
+				(percent[idx] - percent[idx - 1]) +
+			percent[idx - 1];
 	}
 	let triAngle = calAngle(percentvalue);
 	// this is the coord. of the top vertex of the triangle
@@ -122,9 +120,9 @@ function calTri(value, chart_config) {
 	return res;
 }
 /***** Calculate Speedometer Arc Path *****/
-function CheckpathD(startpercent, endpercent, chart_config) {
-	let startAngle = calAngle(startpercent, chart_config);
-	let endAngle = calAngle(endpercent, chart_config);
+function CheckpathD(startpercent, endpercent) {
+	let startAngle = calAngle(startpercent, props.chart_config);
+	let endAngle = calAngle(endpercent, props.chart_config);
 	// coord. of startPt (outer circle) with respect to the svg coord.
 	let startPt = calPt(startAngle, R);
 	let endPt = calPt(endAngle, R);
@@ -189,7 +187,7 @@ function handleTable(list) {
 						y2="0%"
 					>
 						<stop
-							v-for="grad in calGradComp(chart_config)"
+							v-for="grad in calGradComp()"
 							:key="grad"
 							:offset="grad[1]"
 							:style="{
@@ -202,13 +200,13 @@ function handleTable(list) {
 				<!-- Render Speedometer arc -->
 				<path
 					:fill="'url(#grad1-' + chart_config.name + ')'"
-					:d="CheckpathD(0, 100, chart_config)"
+					:d="CheckpathD(0, 100)"
 				/>
 				<!-- Render pointer -->
 				<path
 					fill="#ddd"
 					stroke="#ddd"
-					:d="calTri(series[0].data[targetvalue], chart_config)"
+					:d="calTri(series[0].data[targetvalue])"
 				/>
 				<text
 					:x="Rx"
