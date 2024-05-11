@@ -53,9 +53,6 @@ function handleOpenSettings() {
 			<AddEditDashboards />
 		</div>
 		<div class="downloads">
-			<!-- <span class="material-symbols-outlined">
-		web_asset
-		</span> -->
 			<button @click="dialogStore.showDialog('downloadInfo')">
 				更多防災資訊
 			</button>
