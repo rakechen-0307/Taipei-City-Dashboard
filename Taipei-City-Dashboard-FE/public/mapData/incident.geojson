@@ -1,1 +1,65 @@
-{"features":[{"geometry":{"coordinates":[121.507,25.07],"type":"Point"},"properties":{"描述":"大火","時間":"2024/5/11 下午3:10:11","距離":0.5,"類型":"fire"},"type":"Feature"},{"geometry":{"coordinates":[121.505,25.09],"type":"Point"},"properties":{"描述":"淹水","時間":"2024/5/11 下午3:10:11","距離":1,"類型":"flood"},"type":"Feature"},{"geometry":{"coordinates":[121.504,25.04],"type":"Point"},"properties":{"描述":"道路坍方","時間":"2024/5/11 下午3:10:11","距離":0.5,"類型":"road"},"type":"Feature"},{"geometry":{"coordinates":[121.506,25.04],"type":"Point"},"properties":{"描述":"建物倒塌","時間":"2024/5/11 下午3:10:11","距離":2,"類型":"building"},"type":"Feature"},{"geometry":{"coordinates":[121.505,25.06],"type":"Point"},"properties":{"描述":"其他","時間":"2024/5/11 下午3:10:11","距離":1,"類型":"other"},"type":"Feature"},{"geometry":{"coordinates":[121.512,25.07],"type":"Point"},"properties":{"描述":"火大","時間":"2024/5/11 下午3:10:11","距離":2,"類型":"fire"},"type":"Feature"}],"type":"FeatureCollection"}
+{
+	"features": [
+		{
+			"geometry": { "coordinates": [121.507, 25.07], "type": "Point" },
+			"properties": {
+				"描述": "大火",
+				"時間": "2024/5/11 下午3:10:11",
+				"距離": 0.5,
+				"類型": "fire"
+			},
+			"type": "Feature"
+		},
+		{
+			"geometry": { "coordinates": [121.505, 25.09], "type": "Point" },
+			"properties": {
+				"描述": "淹水",
+				"時間": "2024/5/11 下午3:10:11",
+				"距離": 1,
+				"類型": "flood"
+			},
+			"type": "Feature"
+		},
+		{
+			"geometry": { "coordinates": [121.504, 25.04], "type": "Point" },
+			"properties": {
+				"描述": "道路坍方",
+				"時間": "2024/5/11 下午3:10:11",
+				"距離": 0.5,
+				"類型": "road"
+			},
+			"type": "Feature"
+		},
+		{
+			"geometry": { "coordinates": [121.506, 25.04], "type": "Point" },
+			"properties": {
+				"描述": "建物倒塌",
+				"時間": "2024/5/11 下午3:10:11",
+				"距離": 2,
+				"類型": "building"
+			},
+			"type": "Feature"
+		},
+		{
+			"geometry": { "coordinates": [121.505, 25.06], "type": "Point" },
+			"properties": {
+				"描述": "其他",
+				"時間": "2024/5/11 下午3:10:11",
+				"距離": 1,
+				"類型": "other"
+			},
+			"type": "Feature"
+		},
+		{
+			"geometry": { "coordinates": [121.512, 25.07], "type": "Point" },
+			"properties": {
+				"描述": "火大",
+				"時間": "2024/5/11 下午3:10:11",
+				"距離": 2,
+				"類型": "fire"
+			},
+			"type": "Feature"
+		}
+	],
+	"type": "FeatureCollection"
+}
