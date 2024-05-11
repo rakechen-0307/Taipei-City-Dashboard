@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"net/http"
 
 	"TaipeiCityDashboardBE/app/models"
@@ -113,6 +114,12 @@ func UpdateIncidentType(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"status": "error", "message": err.Error()})
 		return
 	}
+	var tmpinc models.Incident
+	if err := models.DBManager.Table("incidents").Where("id = ?", incident.ID).First(&tmpinc, 1).Error; err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"status": "error", "message": err.Error()})
+		return
+	}
+	fmt.Println(incident.Type)
 	tmpIncident, err := models.UpdateIncidentType(incident.Type)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"status": "error", "message": err.Error()})
