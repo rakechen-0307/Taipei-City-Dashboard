@@ -38,12 +38,8 @@ const linkQuery = computed(() => {
 	return `?index=${query.index}`;
 });
 
-const readGeoJson = () => {
+const updateGeoJson = () => {
 	data.methods.uploadData(updateData);
-};
-
-const showGeoJson = () => {
-	readGeoJson();
 };
 </script>
 
@@ -96,7 +92,7 @@ const showGeoJson = () => {
 			</router-link>
 		</div>
 		<div class="navbar-user">
-			<button @click="showGeoJson">
+			<button @click="updateGeoJson">
 				<span>car_crash</span>
 			</button>
 			<button @click="dialogStore.showDialog('incidentReport')">
