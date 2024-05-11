@@ -55,6 +55,7 @@ func MigrateManagerSchema() {
 
 func InsertDashbaordSampleData() {
 	models.ConnectToDatabases("DASHBOARD")
+	models.DBDashboard.AutoMigrate(&models.IncidentType{})
 	initial.InitSampleCityData()
 	models.CloseConnects("DASHBOARD")
 }
