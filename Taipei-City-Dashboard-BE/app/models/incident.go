@@ -82,7 +82,7 @@ func CreateIncident(incidentType, description string, distance, latitude, longit
 
 func DeleteIncident(id uint) (incident Incident, err error) {
 	
-	if err := DBManager.Where("ID = ?", id).First(&incident, 1).Error; err != nil {
+	if err := DBManager.Where("ID = ?", id).First(&incident).Error; err != nil {
 		// Handle error (e.g., incident not found)
 		fmt.Printf("Incident not found")
 		return Incident{}, err
@@ -91,6 +91,14 @@ func DeleteIncident(id uint) (incident Incident, err error) {
 	// Delete the incident
 	err = DBManager.Delete(&incident).Error
 	return incident, err
+}
+
+func GetAllIncidentType() (types []IncidentType, err error) {
+	tempDB := DBDashboard.Table("incident_types")
+	// Get the incidents
+	err = tempDB.Find(&types).Error
+
+	return types, err
 }
 
 func CreateIncidentType(incidentType string) (newType IncidentType, err error){
