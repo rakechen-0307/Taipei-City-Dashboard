@@ -168,7 +168,7 @@ export const useMapStore = defineStore("map", {
 				"bike_red",
 				"disaster_fire",
 				"disaster_building",
-				"disastr_road",
+				"disaster_road",
 				"disaster_flood",
 				"disaster_others",
 			];
