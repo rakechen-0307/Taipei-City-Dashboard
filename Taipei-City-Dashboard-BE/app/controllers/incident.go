@@ -87,6 +87,15 @@ func DeleteIncident(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"status": "success", "data": tmpIncident})
 }
 
+func GetAllIncidentType(c *gin.Context) {
+	incidentTypes, err := models.GetAllIncidentType()
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"status": "error", "message": err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"status": "success", "data": incidentTypes})
+}
 
 func CreateIncidentType(c *gin.Context) {
 	var incidentType models.IncidentType
@@ -115,7 +124,7 @@ func UpdateIncidentType(c *gin.Context) {
 		return
 	}
 	var tmpinc models.Incident
-	if err := models.DBManager.Table("incidents").Where("id = ?", incident.ID).First(&tmpinc, 1).Error; err != nil {
+	if err := models.DBManager.Table("incidents").Where("id = ?", incident.ID).First(&tmpinc).Error; err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"status": "error", "message": err.Error()})
 		return
 	}
