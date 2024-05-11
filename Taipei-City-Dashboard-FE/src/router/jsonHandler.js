@@ -1,4 +1,5 @@
 import axios from "axios";
+import http from "./axios";
 
 export default {
 	data() {
@@ -26,9 +27,8 @@ export default {
 		},
 		async exportData() {
 			try {
-				console.log(this.modifiedData);
-				const res = await axios.put(
-					"/mapData/incident.geojson",
+				const res = await http.put(
+					"/write/",
 					JSON.stringify(this.modifiedData)
 				);
 				console.log(res);
