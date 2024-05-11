@@ -6,12 +6,11 @@ import (
 	"TaipeiCityDashboardBE/app/middleware"
 	"TaipeiCityDashboardBE/global"
 	"encoding/json"
-	"bytes"
-	"io"
-	"os"
-	"github.com/gin-gonic/gin"
 	"fmt"
 	"net/http"
+	"os"
+
+	"github.com/gin-gonic/gin"
 	"golang.org/x/net/websocket"
 )
 
@@ -36,17 +35,6 @@ func ConfigureRoutes() {
 	configureIncidentRoutes()
 	RouterGroup.GET("/ws", func(c *gin.Context) {
 		serveWs(c.Writer, c.Request)
-	})
-	RouterGroup.POST("/incident", func(c *gin.Context) {
-		var buf bytes.Buffer
-    _, err := io.Copy(&buf, c.Request.Body)
-    if err != nil {
-        // Handle error
-        c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to read request body"})
-        return
-    }
-		fmt.Println(string(buf.String()))
-		c.JSON(http.StatusOK, gin.H{"message": "Hello, welcome to my Gin app!"})
 	})
 	RouterGroup.PUT("/write/", func(c *gin.Context) {
 		var data any
@@ -178,6 +166,7 @@ func configureIncidentRoutes() {
 		incidentRoutes.GET("/", controllers.GetIncident)
 		incidentRoutes.POST("/", controllers.CreateIncident)
 		incidentRoutes.DELETE("/", controllers.DeleteIncident)
+		incidentRoutes.GET("/authorized", controllers.GetAllIncidentType)
 		incidentRoutes.POST("/authorized", controllers.CreateIncidentType)
 		incidentRoutes.PATCH("/authorized", controllers.UpdateIncidentType)
 	}
