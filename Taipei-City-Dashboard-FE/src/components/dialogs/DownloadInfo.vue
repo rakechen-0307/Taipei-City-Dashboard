@@ -62,7 +62,7 @@ const authStore = useAuthStore();
 	top: 0;
 	right: 0;
 	opacity: 1;
-	z-index: 10;
+	z-index: 2;
 
 	&-dialog {
 		width: fit-content;
@@ -75,7 +75,7 @@ const authStore = useAuthStore();
 		border-radius: 5px;
 		background-color: rgb(30, 30, 30);
 		transform: translateY(0);
-		z-index: 2;
+		z-index: 5;
 	}
 
 	&-background {
@@ -86,6 +86,7 @@ const authStore = useAuthStore();
 		top: 0;
 		left: 0;
 		background-color: rgba(0, 0, 0, 0.66);
+		z-index: 4;
 	}
 }
 
@@ -124,6 +125,7 @@ export default {
 			let fileName = '';
 			if (eventType === 'earthquake') {
 				fileURL = 'https://www.eoc.gov.taipei/PropagandaManual/Earthquake/mobile/download/%E3%80%8C%E8%87%BA%E5%8C%97%E9%98%B2%E7%81%BD%E7%AB%8B%E5%8D%B3go%E3%80%8D%E9%98%B2%E7%81%BD%E6%89%8B%E5%86%8A_%E5%9C%B0%E9%9C%87.pdf';
+				// fileURL = '../../assets/infoFiles/「臺北防災立即go」防災手冊_地震.pdf';
 				fileName = '台北防災手冊_地震.pdf';
 			}
 			else if (eventType === 'fire') {
