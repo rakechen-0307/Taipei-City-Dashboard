@@ -15,6 +15,8 @@ const http = axios.create({
 	},
 });
 
+console.log(import.meta.env.VITE_API_URL);
+
 // Request Handler
 http.interceptors.request.use((request) => {
 	const authStore = useAuthStore();
