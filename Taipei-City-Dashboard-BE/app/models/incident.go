@@ -98,26 +98,25 @@ func CreateIncidentType(incidentType string) (newType IncidentType, err error){
 		Type:					incidentType,
 		Count:				0,
 	}
-	if err := DBManager.Where("type = ?", incidentType).Error; err == nil {
-		fmt.Printf("Incident type " + incidentType + " already exists!!")
-		return IncidentType{}, nil
+	var tmpType IncidentType
+	if err := DBDashboard.Where("type = ?", incidentType).First(&tmpType).Error; err != nil {
+		err = DBDashboard.Create(&newType).Error
+		return newType, err
 	}
-
-	tempDB := DBManager.Table("incident_types")
-	err = tempDB.Create(&newType).Error
-	return newType, err
+	// Handle error (e.g., incident not found)
+	fmt.Printf("Incident type " + incidentType + " already exist!!")
+	return IncidentType{}, err
 }
 
 func UpdateIncidentType(incidentType string) (updType IncidentType, err error){
-	if err := DBManager.Where("type = ?", incidentType).First(&updType, 1).Error; err != nil {
+	if err := DBDashboard.Where("type = ?", incidentType).First(&updType).Error; err != nil {
 			// Handle error (e.g., incident not found)
-			fmt.Printf("Incident type" + incidentType + " not found")
+			fmt.Printf("Incident type " + incidentType + " not found")
 			return IncidentType{}, err
 	}
 
 	updType.Count += 1
-	tempDB := DBManager.Table("incident_types")
-	if err := tempDB.Save(&updType).Error; err != nil {
+	if err := DBDashboard.Save(&updType).Error; err != nil {
 		// Handle error
 		fmt.Printf("Failed to update incident type " + incidentType)
 		return IncidentType{}, err
