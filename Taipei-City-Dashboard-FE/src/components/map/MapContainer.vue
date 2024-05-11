@@ -6,6 +6,8 @@ import { useMapStore } from "../../store/mapStore";
 import { useDialogStore } from "../../store/dialogStore";
 import { useContentStore } from "../../store/contentStore";
 import { storeToRefs } from "pinia";
+import mapboxGl from "mapbox-gl";
+import axios from "axios";
 
 import MobileLayers from "../dialogs/MobileLayers.vue";
 
@@ -17,6 +19,9 @@ const districtLayer = ref(false);
 const villageLayer = ref(false);
 const latitude = ref(0);
 const longitude = ref(0);
+
+const location = ref(null);
+const ALS = "advanced_life_support_plc-circle";
 
 // const newSavedLocation = ref("");
 
@@ -35,6 +40,97 @@ function toggleVillageLayer() {
 	mapStore.toggleVillageBoundaries(villageLayer.value);
 }
 
+function calculateDistance(lat1, lon1, lat2, lon2) {
+	const R = 6371; // Radius of the Earth in km
+	const dLat = ((lat2 - lat1) * Math.PI) / 180;
+	const dLon = ((lon2 - lon1) * Math.PI) / 180;
+	const a =
+		Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+		Math.cos((lat1 * Math.PI) / 180) *
+			Math.cos((lat2 * Math.PI) / 180) *
+			Math.sin(dLon / 2) *
+			Math.sin(dLon / 2);
+	const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+	const distance = R * c; // Distance in km
+	return distance;
+}
+
+function findClosestHospital(userLat, userLon, hospitals) {
+	let minDistance = Infinity;
+	let closestHospital = null;
+	console.log("userLat", userLat, "userLon", userLon);
+
+	for (let hospital of hospitals) {
+		const { inform } = hospital.properties;
+		const [lat, lon] = hospital.geometry.coordinates;
+
+		if (inform === "N") {
+			const distance = calculateDistance(userLat, userLon, lat, lon);
+			console.log(hospital.properties.hosP_NAME, distance);
+
+			if (distance < minDistance) {
+				minDistance = distance;
+				closestHospital = hospital;
+			}
+		}
+	}
+
+	return closestHospital;
+}
+
+function toggleFindNearestAdvancedLifeSupportWithRoomAvailable() {
+	try {
+		axios.get(`/mapData/advanced_life_support_plc.geojson`).then((rs) => {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(
+					(position) => {
+						const closestHospital = findClosestHospital(
+							location.value.latitude,
+							location.value.longitude,
+							rs.data.features
+						);
+
+						mapStore.flyToLocation(
+							closestHospital.geometry.coordinates
+						);
+
+						setTimeout(() => {
+							mapStore.manualTriggerPopup();
+						}, 1000);
+					},
+					(error) => {
+						errorMessage.value = error.message;
+					}
+				);
+			} else {
+				errorMessage.value =
+					"Geolocation is not supported by this browser.";
+			}
+		});
+	} catch (e) {
+		console.error(e);
+	}
+}
+
+const getCurrentLocation = () => {
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(
+			(position) => {
+				location.value = {
+					latitude: position.coords.latitude,
+					longitude: position.coords.longitude,
+				};
+			},
+			(error) => {
+				errorMessage.value = error.message;
+			}
+		);
+		console.log(location);
+	} else {
+		errorMessage.value = "Geolocation is not supported by this browser.";
+	}
+};
+
 onMounted(() => {
 	const geoLocate = mapStore.initializeMapBox();
 	geoLocate.on("geolocate", function (position) {
@@ -43,6 +139,7 @@ onMounted(() => {
 		console.log(latitude.value);
 		console.log(longitude.value);
 	});
+	getCurrentLocation();
 });
 
 const showTooltip = ref(false);
@@ -88,6 +185,19 @@ const showTooltip = ref(false);
 					@click="dialogStore.showDialog('mobileLayers')"
 				>
 					<span>layers</span>
+				</button>
+
+				<button
+					v-if="
+						Object.values(mapStore.currentLayers).some(
+							(row) => row === ALS
+						)
+					"
+					@click="
+						toggleFindNearestAdvancedLifeSupportWithRoomAvailable
+					"
+				>
+					<span>YYYY</span>
 				</button>
 			</div>
 			<!-- The key prop informs vue that the component should be updated when switching dashboards -->

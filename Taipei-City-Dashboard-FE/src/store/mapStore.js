@@ -7,7 +7,7 @@ The mapStore controls the map and includes methods to modify it.
 !! PLEASE BE SURE TO REFERENCE THE MAPBOX DOCUMENTATION IF ANYTHING IS UNCLEAR !!
 https://docs.mapbox.com/mapbox-gl-js/guides/
 */
-import { createApp, defineComponent, nextTick, ref, toRaw } from "vue";
+import { createApp, defineComponent, nextTick, ref } from "vue";
 import { defineStore } from "pinia";
 import mapboxGl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -244,6 +244,24 @@ export const useMapStore = defineStore("map", {
 			axios
 				.get(`/mapData/${map_config.index}.geojson`)
 				.then((rs) => {
+					if (map_config.index === "advanced_life_support_plc") {
+						const arrangedData = {
+							...rs.data,
+							features: rs.data.features.map((row) => ({
+								...row,
+								properties: {
+									...row.properties,
+									inform:
+										row.properties.inform === "Y"
+											? "可能沒有空床"
+											: "尙有空床",
+								},
+							})),
+						};
+						this.addGeojsonSource(map_config, arrangedData);
+						return;
+					}
+
 					this.addGeojsonSource(map_config, rs.data);
 				})
 				.catch((e) => console.error(e));
@@ -686,6 +704,7 @@ export const useMapStore = defineStore("map", {
 			this.map.flyTo({
 				center: location_array,
 				duration: 1000,
+				essential: true,
 			});
 		},
 		// 4. Remove a saved location
@@ -864,6 +883,15 @@ export const useMapStore = defineStore("map", {
 			this.map = null;
 			this.currentVisibleLayers = [];
 			this.removePopup();
+		},
+		manualTriggerPopup() {
+			const center = this.map.getCenter();
+			const point = this.map.project(center);
+
+			this.addPopup({
+				point: point,
+				lngLat: center,
+			});
 		},
 	},
 });
