@@ -34,10 +34,20 @@ const pages = computed(() => {
 function parseTime(time) {
 	const date = new Date(time); // Convert seconds to milliseconds
 	// return date.toISOString();
-	const taipeiTime = date.toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' });
-    const parts = taipeiTime.split(' ')[0].split('/').map(part => part.padStart(2, '0'));
-    const timeParts = taipeiTime.split(' ')[1].split(':').map(part => part.padStart(2, '0'));
-    return `${parts[0]-1911}年${parts[1]}月${parts[2]}日 ${timeParts[0]}點${timeParts[1]}分${timeParts[2]}秒`;
+	const taipeiTime = date.toLocaleString("zh-TW", {
+		timeZone: "Asia/Taipei",
+	});
+	const parts = taipeiTime
+		.split(" ")[0]
+		.split("/")
+		.map((part) => part.padStart(2, "0"));
+	const timeParts = taipeiTime
+		.split(" ")[1]
+		.split(":")
+		.map((part) => part.padStart(2, "0"));
+	return `${parts[0] - 1911}年${parts[1]}月${parts[2]}日 ${timeParts[0]}點${
+		timeParts[1]
+	}分${timeParts[2]}秒`;
 }
 
 function handleSort(sort) {
@@ -71,14 +81,11 @@ function handleOpenSettings(disaster) {
 	dialogStore.showDialog("adminEditDisaster");
 }
 
-function handleReview(id, result){
-	
-}
+function handleReview(id, result) {}
 
 onMounted(() => {
 	adminStore.getDisasters(searchParams.value);
 });
-
 </script>
 
 <template>
@@ -97,12 +104,11 @@ onMounted(() => {
 					>
 						ID
 					</TableHeader>
-					<TableHeader min-width="100px"> 種類 </TableHeader>
-					<TableHeader min-width="170px"> 描述 </TableHeader>
-					<TableHeader min-width="110px"> 經度 </TableHeader>
-					<TableHeader min-width="110px"> 緯度 </TableHeader>
-					<TableHeader min-width="200px"> 時間 </TableHeader>
-					<TableHeader min-width="120px"> 審核 </TableHeader>
+					<TableHeader min-width="150px"> 種類 </TableHeader>
+					<TableHeader min-width="220px"> 描述 </TableHeader>
+					<TableHeader min-width="320px"> 地點 </TableHeader>
+					<TableHeader min-width="250px"> 時間 </TableHeader>
+					<TableHeader min-width="250px"> 審核 </TableHeader>
 				</tr>
 			</thead>
 			<!-- 2-1. Disasters are present -->
@@ -114,8 +120,7 @@ onMounted(() => {
 					<td>{{ disaster.ID }}</td>
 					<td>{{ disaster.inctype }}</td>
 					<td class="description">{{ disaster.description }}</td>
-					<td>{{ disaster.longitude }}</td>
-					<td>{{ disaster.latitude }}</td>
+					<td>{{ disaster.place }}</td>
 					<td>{{ parseTime(disaster.reportTime) }}</td>
 					<td class="review">
 						<div class="btn">
@@ -131,7 +136,7 @@ onMounted(() => {
 							>
 								刪除
 							</button>
-						</div>				
+						</div>
 					</td>
 				</tr>
 			</tbody>
@@ -329,11 +334,11 @@ onMounted(() => {
 	}
 }
 .description {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    white-space: normal; 
-    word-break: break-word;
-    max-width: 450px;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	white-space: normal;
+	word-break: break-word;
+	max-width: 450px;
 }
 .review {
 	display: flex;
@@ -353,11 +358,9 @@ onMounted(() => {
 			background-color: rgba(136, 135, 135, 1);
 			border-radius: 10px;
 			&:hover {
-				background-color: rgb(190, 189, 189);	
+				background-color: rgb(190, 189, 189);
 			}
 		}
-	}	
+	}
 }
-
-
 </style>
