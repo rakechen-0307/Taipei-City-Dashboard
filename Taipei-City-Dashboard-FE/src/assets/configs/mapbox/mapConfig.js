@@ -348,6 +348,21 @@ export const maplayerCommonLayout = {
 			2,
 		],
 	},
+	"symbol-disaster": {
+		"icon-image": [
+			"case",
+			["==", ["get", "類型"], "fire"],
+			"disaster_fire",
+			["==", ["get", "類型"], "flood"],
+			"disaster_flood",
+			["==", ["get", "類型"], "road"],
+			"disaster_road",
+			["==", ["get", "類型"], "building"],
+			"disaster_building",
+			"disaster_others",
+		],
+		"icon-size": 0.2,
+	},
 	"symbol-bus": {
 		"icon-image": "bus",
 		"icon-size": [
