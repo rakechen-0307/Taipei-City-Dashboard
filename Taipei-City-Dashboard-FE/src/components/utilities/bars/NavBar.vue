@@ -19,28 +19,10 @@ const authStore = useAuthStore();
 const dialogStore = useDialogStore();
 const { isFullscreen, toggle } = useFullscreen();
 
-const updateData = {
-	type: "Feature",
-	geometry: {
-		type: "Point",
-		coordinates: [121.512, 25.07],
-	},
-	properties: {
-		類型: "fire",
-		描述: "火大",
-		距離: 2,
-		時間: "2024/5/11 下午3:10:11",
-	},
-};
-
 const linkQuery = computed(() => {
 	const { query } = route;
 	return `?index=${query.index}`;
 });
-
-const updateGeoJson = () => {
-	data.methods.uploadData(updateData);
-};
 </script>
 
 <template>
@@ -92,9 +74,6 @@ const updateGeoJson = () => {
 			</router-link>
 		</div>
 		<div class="navbar-user">
-			<button @click="updateGeoJson">
-				<span>car_crash</span>
-			</button>
 			<button @click="dialogStore.showDialog('incidentReport')">
 				<span>car_crash</span>
 			</button>

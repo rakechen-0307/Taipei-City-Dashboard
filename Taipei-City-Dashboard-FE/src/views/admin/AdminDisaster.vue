@@ -4,6 +4,8 @@ import { onMounted, ref, computed } from "vue";
 import { useAdminStore } from "../../store/adminStore";
 import { useDialogStore } from "../../store/dialogStore";
 import { useContentStore } from "../../store/contentStore";
+import http from "../../router/axios";
+import data from "../../router/jsonHandler";
 
 import TableHeader from "../../components/utilities/forms/TableHeader.vue";
 import AdminEditDisaster from "../../components/dialogs/admin/AdminEditDisaster.vue";
@@ -81,7 +83,34 @@ function handleOpenSettings(disaster) {
 	dialogStore.showDialog("adminEditDisaster");
 }
 
-function handleReview(id, result) {}
+async function handleReview(id, type, result) {
+	const res = http.get("/incident/");
+	res.then(async (value) => {
+		const getData = value.data.data;
+		const target = getData.find((element) => element.ID == id);
+		if (result) {
+			const updateRes = await http.patch("/incident/authorized", target);
+			const uploadGeoJson = {
+				type: "Feature",
+				geometry: {
+					type: "Point",
+					coordinates: [target.longitude, target.latitude],
+				},
+				properties: {
+					類型: target.inctype,
+					描述: target.description,
+					距離: target.distance.toString() + "公里",
+					時間: parseTime(target.reportTime),
+				},
+			};
+			data.methods.uploadData(uploadGeoJson);
+		}
+		const deleteRes = await http.delete("/incident/", {
+			data: { ID: target.ID },
+		});
+		handleNewQuery();
+	});
+}
 
 onMounted(() => {
 	adminStore.getDisasters(searchParams.value);
@@ -126,13 +155,25 @@ onMounted(() => {
 						<div class="btn">
 							<button
 								class="reviewBtn"
-								@click="handleReview(disaster.ID, true)"
+								@click="
+									handleReview(
+										disaster.ID,
+										disaster.inctype,
+										true
+									)
+								"
 							>
 								通過
 							</button>
 							<button
 								class="reviewBtn"
-								@click="handleReview(disaster.ID, false)"
+								@click="
+									handleReview(
+										disaster.ID,
+										disaster.inctype,
+										false
+									)
+								"
 							>
 								刪除
 							</button>
