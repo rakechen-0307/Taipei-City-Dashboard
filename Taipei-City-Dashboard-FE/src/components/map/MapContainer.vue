@@ -62,7 +62,7 @@ function findClosestHospital(userLat, userLon, hospitals) {
 
 	for (let hospital of hospitals) {
 		const { inform } = hospital.properties;
-		const [lat, lon] = hospital.geometry.coordinates;
+		const [lon, lat] = hospital.geometry.coordinates;
 
 		if (inform === "N") {
 			const distance = calculateDistance(userLat, userLon, lat, lon);
@@ -143,7 +143,6 @@ onMounted(() => {
 });
 
 const showTooltip = ref(false);
-
 </script>
 
 <template>
@@ -163,9 +162,8 @@ const showTooltip = ref(false);
 						color: districtLayer
 							? 'var(--color-highlight)'
 							: 'var(--color-component-background)',
-							marginTop: '50px',
+						marginTop: '50px',
 					}"
-					
 					@click="toggleDistrictLayer"
 				>
 					區
@@ -263,20 +261,20 @@ const showTooltip = ref(false);
 <style scoped lang="scss">
 .input {
 	position: absolute;
-    right: 20px;
-    bottom: 60px;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background-color: var(--color-component-background);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.2s, color 0.2s;
+	right: 20px;
+	bottom: 60px;
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	background-color: var(--color-component-background);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 0.2s, color 0.2s;
 	font-size: 32px;
-    &:hover {
-        background-color: var(--color-highlight);
-    }
+	&:hover {
+		background-color: var(--color-highlight);
+	}
 	.icon {
 		color: white;
 		font-family: var(--font-icon);
@@ -305,7 +303,6 @@ const showTooltip = ref(false);
 		margin-left: -5px;
 		border-color: black transparent transparent transparent;
 	}
-
 }
 .mapcontainer {
 	position: relative;
