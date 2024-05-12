@@ -175,7 +175,10 @@ func configureIncidentRoutes() {
 func serveWs(w http.ResponseWriter, r *http.Request) {
 	// Upgrade the HTTP connection to a WebSocket connection
 	wsHandler := websocket.Handler(func(ws *websocket.Conn) {
-			defer ws.Close()
+			defer func () {
+				ws.Close()
+				delete(clients, ws)
+			}()
 
 			// Add client to the clients map
 			clients[ws] = true
@@ -187,6 +190,7 @@ func serveWs(w http.ResponseWriter, r *http.Request) {
 					err := websocket.Message.Receive(ws, &msg)
 					if err != nil {
 							// Handle error
+							fmt.Println("Read message error: ", err)
 							break
 					}
 					// Print message received from client
@@ -197,6 +201,7 @@ func serveWs(w http.ResponseWriter, r *http.Request) {
 							err := websocket.Message.Send(client, msg)
 							if err != nil {
 									// Handle error
+									fmt.Println("Client ", client, " Error :" ,err)
 									break
 							}
 					}
