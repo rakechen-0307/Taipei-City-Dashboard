@@ -1,6 +1,6 @@
 <!-- Developed by Taipei Urban Intelligence Center 2023-2024-->
 <script setup>
-import { onMounted, ref, computed } from "vue";
+import { onMounted, onUnmounted, ref, computed } from "vue";
 import { useAdminStore } from "../../store/adminStore";
 import { useDialogStore } from "../../store/dialogStore";
 import { useContentStore } from "../../store/contentStore";
@@ -8,7 +8,6 @@ import http from "../../router/axios";
 import data from "../../router/jsonHandler";
 
 import TableHeader from "../../components/utilities/forms/TableHeader.vue";
-import AdminEditDisaster from "../../components/dialogs/admin/AdminEditDisaster.vue";
 import CustomCheckBox from "../../components/utilities/forms/CustomCheckBox.vue";
 
 const adminStore = useAdminStore();
@@ -78,11 +77,6 @@ function handleNewPage(page) {
 	adminStore.getDisasters(searchParams.value);
 }
 
-function handleOpenSettings(disaster) {
-	adminStore.currentDisaster = JSON.parse(JSON.stringify(disaster));
-	dialogStore.showDialog("adminEditDisaster");
-}
-
 async function handleReview(id, type, result) {
 	const res = http.get("/incident/");
 	res.then(async (value) => {
@@ -104,6 +98,8 @@ async function handleReview(id, type, result) {
 				},
 			};
 			data.methods.uploadData(uploadGeoJson);
+
+			contentStore.sendMessage(target);
 		}
 		const deleteRes = await http.delete("/incident/", {
 			data: { ID: target.ID },
@@ -123,6 +119,7 @@ onMounted(() => {
 		<table class="admindisaster-table">
 			<thead>
 				<tr class="admindisaster-table-header">
+					<TableHeader min-width="50px" />
 					<TableHeader
 						:sort="true"
 						:mode="
@@ -146,6 +143,9 @@ onMounted(() => {
 					v-for="disaster in adminStore.disasters"
 					:key="`disaster-${disaster.id}`"
 				>
+					<td>
+						<span>edit_note</span>
+					</td>
 					<td>{{ disaster.ID }}</td>
 					<td>{{ disaster.inctype }}</td>
 					<td class="description">{{ disaster.description }}</td>
@@ -224,7 +224,6 @@ onMounted(() => {
 				</button>
 			</div>
 		</div>
-		<AdminEditDisaster :search-params="searchParams" />
 	</div>
 </template>
 
@@ -388,7 +387,7 @@ onMounted(() => {
 	min-height: 120px;
 	.btn {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
 		justify-content: center;
 		align-items: center;
 		.reviewBtn {
