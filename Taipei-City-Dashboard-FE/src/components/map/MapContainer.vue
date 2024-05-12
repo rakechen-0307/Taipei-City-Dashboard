@@ -195,7 +195,7 @@ const showTooltip = ref(false);
 						toggleFindNearestAdvancedLifeSupportWithRoomAvailable
 					"
 				>
-					<span>YYYY</span>
+					<span>近</span>
 				</button>
 			</div>
 			<!-- The key prop informs vue that the component should be updated when switching dashboards -->
