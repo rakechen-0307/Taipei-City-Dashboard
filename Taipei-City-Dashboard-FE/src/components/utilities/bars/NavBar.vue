@@ -74,9 +74,6 @@ const linkQuery = computed(() => {
 			</router-link>
 		</div>
 		<div class="navbar-user">
-			<button @click="dialogStore.showDialog('incidentReport')">
-				<span>car_crash</span>
-			</button>
 			<a
 				href="https://tuic.gov.taipei/documentation"
 				target="_blank"
