@@ -6,4 +6,4 @@ while True:
 		print("file exist")
 		os.system("rm -f ./Taipei-City-Dashboard-FE/public/mapData/incident.geojson")
 		os.system("mv ./Taipei-City-Dashboard-BE/incident.geojson ./Taipei-City-Dashboard-FE/public/mapData/incident.geojson")
-	sleep(3)
+	sleep(2)
