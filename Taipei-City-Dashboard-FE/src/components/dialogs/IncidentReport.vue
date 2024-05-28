@@ -107,6 +107,7 @@ async function handleSubmit() {
 		longitude: location.value.longitude,
 		place: place.value,
 		reportTime: new Date().getTime(),
+		status: "pending",
 	};
 	if (
 		incidentType.value == "" ||
