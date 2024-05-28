@@ -106,7 +106,6 @@ async function handleSubmit() {
 		latitude: location.value.latitude,
 		longitude: location.value.longitude,
 		place: place.value,
-		reportTime: new Date().getTime(),
 		status: "pending",
 	};
 	if (
