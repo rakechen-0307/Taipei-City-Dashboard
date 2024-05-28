@@ -150,6 +150,7 @@ onMounted(() => {
 				type="text"
 				placeholder="(請概述事件過程)"
 				v-model="incidentDesc"
+				:maxlength="30"
 			/>
 			<label> 事件發生位置 </label>
 			<select v-model="incidentDis">
