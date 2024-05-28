@@ -2,6 +2,7 @@ package models
 
 import (
 	"fmt"
+	"time"
 )
 
 type Incident struct {
@@ -12,7 +13,7 @@ type Incident struct {
 	Latitude    	float64		`json:"latitude"`
 	Longitude   	float64		`json:"longitude"`
 	Place			string		`json:"place"`
-	Time        	int64		`json:"reportTime"`
+	Time        	time.Time	`json:"reportTime"`
 	Status			string		`json:"status"`
 }
 
@@ -43,7 +44,7 @@ func GetAllIncident(pageSize int, pageNum int, sort string, order string) (incid
 	return incidents, totalIncidents, resultNum, err
 }
 
-func CreateIncident(incidentType, description string, distance, latitude, longitude float64, place string, incidentTime int64, status string) (incident Incident, err error) {
+func CreateIncident(incidentType, description string, distance, latitude, longitude float64, place string, status string) (incident Incident, err error) {
 
     // Create an example incident
     // incident = Incident{
@@ -61,7 +62,7 @@ func CreateIncident(incidentType, description string, distance, latitude, longit
 		Latitude:    	latitude,
 		Longitude:   	longitude,
 		Place:		 	place,
-		Time:        	incidentTime,
+		Time:        	time.Now(),
 		Status: 		status,
 	}
     // Insert the incident into the database
