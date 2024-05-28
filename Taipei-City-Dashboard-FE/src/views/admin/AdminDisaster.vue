@@ -69,53 +69,39 @@ function handleDelete(id) {
 }
 
 async function handleReview(id, result) {
-	const res = http.get("/incident/");
-	res.then(async (value) => {
-		const getData = value.data.data;
-		const target = getData.find((element) => element.ID == id);
-		if (result === 1) {
-			target.status = "accepted";
-			const updateRes = await http.patch(
-				"/incident/" + target.ID,
-				target
-			);
-			// const uploadGeoJson = {
-			// 	type: "Feature",
-			// 	geometry: {
-			// 		type: "Point",
-			// 		coordinates: [target.longitude, target.latitude],
-			// 	},
-			// 	properties: {
-			// 		類型: target.inctype,
-			// 		描述: target.description,
-			// 		距離: target.distance.toString() + "公里",
-			// 		時間: parseTime(target.reportTime),
-			// 	},
-			// };
-			// data.methods.uploadData(uploadGeoJson);
+	if (result === 1) {
+		const updateRes = await http.patch("/incident/" + id, {
+			status: "accepted",
+		});
+		// const uploadGeoJson = {
+		// 	type: "Feature",
+		// 	geometry: {
+		// 		type: "Point",
+		// 		coordinates: [target.longitude, target.latitude],
+		// 	},
+		// 	properties: {
+		// 		類型: target.inctype,
+		// 		描述: target.description,
+		// 		距離: target.distance.toString() + "公里",
+		// 		時間: parseTime(target.reportTime),
+		// 	},
+		// };
+		// data.methods.uploadData(uploadGeoJson);
 
-			dialogStore.showNotification("success", `ID:${target.ID} accepted`);
-			// contentStore.sendMessage(target);
-		} else if (result === 0) {
-			target.status = "rejected";
-			const updateRes = await http.patch(
-				"/incident/" + target.ID,
-				target
-			);
-			dialogStore.showNotification("fail", `ID:${target.ID} rejected`);
-		} else {
-			target.status = "pending";
-			const updateRes = await http.patch(
-				"/incident/" + target.ID,
-				target
-			);
-			dialogStore.showNotification("info", `ID:${target.ID} refreshed`);
-		}
-		// const deleteRes = await http.delete("/incident/", {
-		// 	data: { ID: target.ID },
-		// });
-		handleNewQuery();
-	});
+		dialogStore.showNotification("success", `ID:${id} accepted`);
+		// contentStore.sendMessage(target);
+	} else if (result === 0) {
+		const updateRes = await http.patch("/incident/" + id, {
+			status: "rejected",
+		});
+		dialogStore.showNotification("fail", `ID:${id} rejected`);
+	} else {
+		const updateRes = await http.patch("/incident/" + id, {
+			status: "pending",
+		});
+		dialogStore.showNotification("info", `ID:${id} refreshed`);
+	}
+	handleNewQuery();
 }
 
 onMounted(() => {
