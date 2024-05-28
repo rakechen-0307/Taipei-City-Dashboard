@@ -59,7 +59,7 @@ onBeforeMount(() => {
 		let vh = window.innerHeight * 0.01;
 		document.documentElement.style.setProperty("--vh", `${vh}px`);
 	});
-	contentStore.wsConnect();
+	// contentStore.wsConnect();
 });
 onMounted(() => {
 	const showInitialWarning = localStorage.getItem("initialWarning");
@@ -73,7 +73,7 @@ onMounted(() => {
 onBeforeUnmount(() => {
 	clearInterval(reloadChartData);
 	clearInterval(updateTimeToUpdate);
-	contentStore.wsDisconnect();
+	// contentStore.wsDisconnect();
 });
 </script>
 
