@@ -63,6 +63,11 @@ function handleNewPage(page) {
 	adminStore.getDisasters(searchParams.value);
 }
 
+function handleDelete(id) {
+	adminStore.deleteDisaster(id, searchParams.value);
+	handleNewQuery();
+}
+
 async function handleReview(id, result) {
 	const res = http.get("/incident/");
 	res.then(async (value) => {
