@@ -77,33 +77,52 @@ function handleNewPage(page) {
 	adminStore.getDisasters(searchParams.value);
 }
 
-async function handleReview(id, type, result) {
+async function handleReview(id, result) {
 	const res = http.get("/incident/");
 	res.then(async (value) => {
 		const getData = value.data.data;
 		const target = getData.find((element) => element.ID == id);
-		if (result) {
-			const updateRes = await http.patch("/incident/authorized", target);
-			const uploadGeoJson = {
-				type: "Feature",
-				geometry: {
-					type: "Point",
-					coordinates: [target.longitude, target.latitude],
-				},
-				properties: {
-					類型: target.inctype,
-					描述: target.description,
-					距離: target.distance.toString() + "公里",
-					時間: parseTime(target.reportTime),
-				},
-			};
-			data.methods.uploadData(uploadGeoJson);
+		if (result === 1) {
+			target.status = "accepted";
+			const updateRes = await http.patch(
+				"/incident/" + target.ID,
+				target
+			);
+			// const uploadGeoJson = {
+			// 	type: "Feature",
+			// 	geometry: {
+			// 		type: "Point",
+			// 		coordinates: [target.longitude, target.latitude],
+			// 	},
+			// 	properties: {
+			// 		類型: target.inctype,
+			// 		描述: target.description,
+			// 		距離: target.distance.toString() + "公里",
+			// 		時間: parseTime(target.reportTime),
+			// 	},
+			// };
+			// data.methods.uploadData(uploadGeoJson);
 
-			contentStore.sendMessage(target);
+			dialogStore.showNotification("success", `ID:${target.ID} accepted`);
+			// contentStore.sendMessage(target);
+		} else if (result === 0) {
+			target.status = "rejected";
+			const updateRes = await http.patch(
+				"/incident/" + target.ID,
+				target
+			);
+			dialogStore.showNotification("fail", `ID:${target.ID} rejected`);
+		} else {
+			target.status = "pending";
+			const updateRes = await http.patch(
+				"/incident/" + target.ID,
+				target
+			);
+			dialogStore.showNotification("info", `ID:${target.ID} refreshed`);
 		}
-		const deleteRes = await http.delete("/incident/", {
-			data: { ID: target.ID },
-		});
+		// const deleteRes = await http.delete("/incident/", {
+		// 	data: { ID: target.ID },
+		// });
 		handleNewQuery();
 	});
 }
@@ -119,7 +138,7 @@ onMounted(() => {
 		<table class="admindisaster-table">
 			<thead>
 				<tr class="admindisaster-table-header">
-					<TableHeader min-width="50px" />
+					<TableHeader min-width="60px" />
 					<TableHeader
 						:sort="true"
 						:mode="
@@ -134,7 +153,7 @@ onMounted(() => {
 					<TableHeader min-width="220px"> 描述 </TableHeader>
 					<TableHeader min-width="320px"> 地點 </TableHeader>
 					<TableHeader min-width="250px"> 時間 </TableHeader>
-					<TableHeader min-width="250px"> 審核 </TableHeader>
+					<TableHeader min-width="200px"> 審核 </TableHeader>
 				</tr>
 			</thead>
 			<!-- 2-1. Disasters are present -->
@@ -144,7 +163,20 @@ onMounted(() => {
 					:key="`disaster-${disaster.id}`"
 				>
 					<td>
-						<span>edit_note</span>
+						<span
+							v-if="disaster.status === 'accepted'"
+							class="material-symbols-rounded"
+							style="color: yellowgreen"
+						>
+							verified
+						</span>
+						<span
+							v-else-if="disaster.status === 'rejected'"
+							class="material-symbols-rounded"
+							style="color: lightcoral"
+						>
+							cancel
+						</span>
 					</td>
 					<td>{{ disaster.ID }}</td>
 					<td>{{ disaster.inctype }}</td>
@@ -152,30 +184,35 @@ onMounted(() => {
 					<td>{{ disaster.place }}</td>
 					<td>{{ parseTime(disaster.reportTime) }}</td>
 					<td class="review">
-						<div class="btn">
+						<div class="btn" v-if="disaster.status !== 'pending'">
+							<button
+								v-if="
+									disaster.status === 'accepted' ||
+									disaster.status === 'rejected'
+								"
+								@click="handleDelete(disaster.ID)"
+							>
+								<span>delete</span>
+							</button>
+							<button
+								v-else
+								@click="handleReview(disaster.ID, -1)"
+							>
+								<span>refresh</span>
+							</button>
+						</div>
+						<div class="btn" v-else>
 							<button
 								class="reviewBtn"
-								@click="
-									handleReview(
-										disaster.ID,
-										disaster.inctype,
-										true
-									)
-								"
+								@click="handleReview(disaster.ID, 1)"
 							>
 								通過
 							</button>
 							<button
 								class="reviewBtn"
-								@click="
-									handleReview(
-										disaster.ID,
-										disaster.inctype,
-										false
-									)
-								"
+								@click="handleReview(disaster.ID, 0)"
 							>
-								刪除
+								拒絕
 							</button>
 						</div>
 					</td>
@@ -384,7 +421,7 @@ onMounted(() => {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	min-height: 120px;
+	// min-height: 120px;
 	.btn {
 		display: flex;
 		flex-direction: row;
