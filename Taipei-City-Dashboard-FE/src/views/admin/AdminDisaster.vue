@@ -33,22 +33,8 @@ const pages = computed(() => {
 });
 
 function parseTime(time) {
-	const date = new Date(time); // Convert seconds to milliseconds
-	// return date.toISOString();
-	const taipeiTime = date.toLocaleString("zh-TW", {
-		timeZone: "Asia/Taipei",
-	});
-	const parts = taipeiTime
-		.split(" ")[0]
-		.split("/")
-		.map((part) => part.padStart(2, "0"));
-	const timeParts = taipeiTime
-		.split(" ")[1]
-		.split(":")
-		.map((part) => part.padStart(2, "0"));
-	return `${parts[0] - 1911}年${parts[1]}月${parts[2]}日 ${timeParts[0]}點${
-		timeParts[1]
-	}分${timeParts[2]}秒`;
+	// return time.slice(0, 19).replace("T", " ");
+	return new Date(time).toLocaleString("zh-TW", { hour12: false });
 }
 
 function handleSort(sort) {
@@ -150,9 +136,9 @@ onMounted(() => {
 						ID
 					</TableHeader>
 					<TableHeader min-width="150px"> 種類 </TableHeader>
-					<TableHeader min-width="220px"> 描述 </TableHeader>
+					<TableHeader min-width="250px"> 描述 </TableHeader>
 					<TableHeader min-width="320px"> 地點 </TableHeader>
-					<TableHeader min-width="250px"> 時間 </TableHeader>
+					<TableHeader min-width="180px"> 時間 </TableHeader>
 					<TableHeader min-width="200px"> 審核 </TableHeader>
 				</tr>
 			</thead>
@@ -219,21 +205,24 @@ onMounted(() => {
 				</tr>
 			</tbody>
 			<!-- 2-2. Disaster are still loading -->
-			<div v-else-if="contentStore.loading" class="disaster-nocontent">
-				<div class="disaster-nocontent-content">
+			<div
+				v-else-if="contentStore.loading"
+				class="admindisaster-nocontent"
+			>
+				<div class="admindisaster-nocontent-content">
 					<h2>載入中...</h2>
 				</div>
 			</div>
 			<!-- 2-3. An Error occurred -->
-			<div v-else-if="contentStore.error" class="disaster-nocontent">
-				<div class="disaster-nocontent-content">
+			<div v-else-if="contentStore.error" class="admindisaster-nocontent">
+				<div class="admindisaster-nocontent-content">
 					<span>sentiment_very_dissatisfied</span>
 					<h2>發生錯誤，無法載入問題列表</h2>
 				</div>
 			</div>
 			<!-- 2-4. Disasters are loaded but there are none -->
-			<div v-else class="disaster-nocontent">
-				<div class="disaster-nocontent-content">
+			<div v-else class="admindisaster-nocontent">
+				<div class="admindisaster-nocontent-content">
 					<span>search_off</span>
 					<h2>查無符合篩選條件的災害</h2>
 				</div>
