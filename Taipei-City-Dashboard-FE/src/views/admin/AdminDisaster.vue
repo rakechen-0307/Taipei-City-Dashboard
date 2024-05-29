@@ -14,7 +14,14 @@ const adminStore = useAdminStore();
 const dialogStore = useDialogStore();
 const contentStore = useContentStore();
 
+const statuses = ["待處理", "通過", "不通過"];
+const statusName = {
+	待處理: "pending",
+	通過: "accepted",
+	不通過: "rejected",
+};
 const searchParams = ref({
+	filterbystatus: [],
 	sort: "time",
 	order: "desc",
 	pagesize: 10,
@@ -88,18 +95,18 @@ async function handleReview(id, result) {
 		// };
 		// data.methods.uploadData(uploadGeoJson);
 
-		dialogStore.showNotification("success", `ID:${id} accepted`);
+		dialogStore.showNotification("success", `ID:${id} 事件已接受`);
 		// contentStore.sendMessage(target);
 	} else if (result === 0) {
 		const updateRes = await http.patch("/incident/" + id, {
 			status: "rejected",
 		});
-		dialogStore.showNotification("fail", `ID:${id} rejected`);
+		dialogStore.showNotification("fail", `ID:${id} 事件已拒絕`);
 	} else {
 		const updateRes = await http.patch("/incident/" + id, {
 			status: "pending",
 		});
-		dialogStore.showNotification("info", `ID:${id} refreshed`);
+		dialogStore.showNotification("info", `ID:${id} 事件已更新狀態`);
 	}
 	handleNewQuery();
 }
@@ -111,6 +118,22 @@ onMounted(() => {
 
 <template>
 	<div class="admindisaster">
+		<!-- 1. Checkboxes to filter through different issue types -->
+		<div class="admindisaster-filter">
+			<div v-for="status in statuses" :key="status">
+				<input
+					:id="status"
+					v-model="searchParams.filterbystatus"
+					type="checkbox"
+					class="custom-check-input"
+					:value="statusName[status]"
+					@change="handleNewQuery"
+				/>
+				<CustomCheckBox :for="status">
+					{{ status }}
+				</CustomCheckBox>
+			</div>
+		</div>
 		<!-- 2. The main table displaying various issues -->
 		<table class="admindisaster-table">
 			<thead>
