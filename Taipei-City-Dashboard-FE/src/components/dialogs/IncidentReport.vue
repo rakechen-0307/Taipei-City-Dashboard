@@ -122,7 +122,7 @@ async function handleSubmit() {
 	incidentType.value = "";
 	incidentDesc.value = "";
 	incidentDis.value = "";
-	dialogStore.showNotification("success", "OK!!!");
+	dialogStore.showNotification("success", "災害新增成功");
 	dialogStore.hideAllDialogs();
 }
 onMounted(() => {
