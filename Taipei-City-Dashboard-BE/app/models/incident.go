@@ -2,6 +2,7 @@ package models
 
 import (
 	"fmt"
+	"strings"
 	"time"
 )
 
@@ -17,11 +18,17 @@ type Incident struct {
 	Status			string		`json:"status"`
 }
 
-func GetAllIncident(pageSize int, pageNum int, sort string, order string) (incidents []Incident, totalIncidents int64, resultNum int64, err error) {
+func GetAllIncident(pageSize int, pageNum int, filterByStatus string, sort string, order string) (incidents []Incident, totalIncidents int64, resultNum int64, err error) {
 	tempDB := DBManager.Table("incidents")
 
 	// Count the total amount of incidents
 	tempDB.Count(&totalIncidents)
+
+	// Filter by status
+	if filterByStatus != "" {
+		statuses := strings.Split(filterByStatus, ",")
+		tempDB = tempDB.Where("incidents.status IN (?)", statuses)
+	}
 
 	tempDB.Count(&resultNum)
 

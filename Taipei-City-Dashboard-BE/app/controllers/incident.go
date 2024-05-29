@@ -12,6 +12,7 @@ func GetIncident(c *gin.Context) {
 	type incidentQuery struct {
 		PageSize       int    `form:"pagesize"`
 		PageNum        int    `form:"pagenum"`
+		FilterByStatus string `form:"filterbystatus"`
 		Sort           string `form:"sort"`
 		Order          string `form:"order"`
 	}
@@ -19,8 +20,8 @@ func GetIncident(c *gin.Context) {
 	// Get query parameters
 	var query incidentQuery
 	c.ShouldBindQuery(&query)
-
-	incidents, totalIncidents, resultNum, err := models.GetAllIncident(query.PageSize, query.PageNum, query.Sort, query.Order)
+	
+	incidents, totalIncidents, resultNum, err := models.GetAllIncident(query.PageSize, query.PageNum, query.FilterByStatus, query.Sort, query.Order)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"status": "error", "message": err.Error()})
 		return
