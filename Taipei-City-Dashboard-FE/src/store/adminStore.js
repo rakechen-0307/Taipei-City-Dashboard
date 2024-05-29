@@ -276,10 +276,12 @@ export const useAdminStore = defineStore("admin", {
 		async getDisasters(params) {
 			const apiParams = JSON.parse(JSON.stringify(params));
 
+			apiParams.filterbystatus = apiParams.filterbystatus.join(",");
+
 			const response = await http.get(`/incident/`, {
 				params: apiParams,
 			});
-			console.log(response.data.data);
+
 			this.disasters = response.data.data;
 			this.disasterResults = response.data.results;
 			this.setLoading(false);
