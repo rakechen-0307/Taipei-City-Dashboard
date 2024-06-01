@@ -12,7 +12,6 @@ import axios from "axios";
 import MobileLayers from "../dialogs/MobileLayers.vue";
 
 const mapStore = useMapStore();
-const { getSourceByMapConfigId } = storeToRefs(mapStore);
 const dialogStore = useDialogStore();
 const contentStore = useContentStore();
 
@@ -428,7 +427,7 @@ const showTooltip = ref(false);
 	&-layers {
 		position: absolute;
 		right: 10px;
-		top: 104px;
+		top: 150px;
 		z-index: 1;
 		display: flex;
 		flex-direction: column;
