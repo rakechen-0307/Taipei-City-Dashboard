@@ -4,6 +4,10 @@ import (
 	"fmt"
 	"strings"
 	"time"
+	"encoding/xml"
+	"io"
+	"net/http"
+	"strconv"
 )
 
 type Incident struct {
@@ -16,6 +20,13 @@ type Incident struct {
 	Place			string		`json:"place"`
 	Time        	time.Time	`json:"reportTime"`
 	Status			string		`json:"status"`
+}
+
+type PlaceResponse struct {
+	CtyName    string `xml:"ctyName"`
+	TownName   string `xml:"townName"`
+	SectName   string `xml:"sectName"`
+	VillageName string `xml:"villageName"`
 }
 
 func GetAllIncident(pageSize int, pageNum int, filterByStatus string, sort string, order string) (incidents []Incident, totalIncidents int64, resultNum int64, err error) {
@@ -51,7 +62,35 @@ func GetAllIncident(pageSize int, pageNum int, filterByStatus string, sort strin
 	return incidents, totalIncidents, resultNum, err
 }
 
-func CreateIncident(incidentType, description string, distance, latitude, longitude float64, place string, status string) (incident Incident, err error) {
+func GetLocationData(latitude, longitude float64) (*PlaceResponse, error) {
+		// Fetch location
+	apiUrl := fmt.Sprintf(
+		"https://api.nlsc.gov.tw/other/TownVillagePointQuery/%s/%s",
+		strconv.FormatFloat(longitude, 'f', -1, 64),
+		strconv.FormatFloat(latitude, 'f', -1, 64),
+	)
+	resp, err := http.Get(apiUrl)
+	if err != nil {
+		return nil, fmt.Errorf("failed to make request: %w", err)
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("unexpected status code: %d", resp.StatusCode)
+	}
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return nil, fmt.Errorf("failed to read response body: %w", err)
+	}
+		
+	var locationData PlaceResponse
+	if err := xml.Unmarshal(body, &locationData); err != nil {
+		return nil, fmt.Errorf("failed to parse XML: %w", err)
+	}
+
+	return &locationData, nil
+}
+
+func CreateIncident(incidentType, description string, distance, latitude, longitude float64, status string) (incident Incident, err error) {
 
     // Create an example incident
     // incident = Incident{
@@ -62,6 +101,14 @@ func CreateIncident(incidentType, description string, distance, latitude, longit
     //     Longitude:   -74.0060,
     //     Time:        time.Now().Unix(),
     // }
+
+	locationData, err := GetLocationData(latitude, longitude)
+	if err != nil {
+		fmt.Printf("Error fetching location data: %v\n", err)
+		return
+	}
+	place := locationData.CtyName + locationData.TownName + locationData.SectName + locationData.VillageName
+
 	incident = Incident {
 		Type:       	incidentType,
 		Description:	description,

@@ -13,7 +13,6 @@ const dialogStore = useDialogStore();
 const authStore = useAuthStore();
 
 const location = ref(null);
-const place = ref("");
 const errorMessage = ref(null);
 const incidentType = ref("");
 const incidentDesc = ref("");
@@ -50,43 +49,6 @@ const getCurrentLocation = () => {
 					latitude: position.coords.latitude,
 					longitude: position.coords.longitude,
 				};
-				const apiUrl =
-					"https://api.nlsc.gov.tw/other/TownVillagePointQuery" +
-					"/" +
-					location.value.longitude.toString() +
-					"/" +
-					location.value.latitude.toString();
-				fetch(apiUrl)
-					.then((response) => {
-						if (!response.ok) {
-							throw new Error("Network response was not ok");
-						}
-						return response.text();
-					})
-					.then((data) => {
-						const parser = new DOMParser();
-						const xmlDoc = parser.parseFromString(data, "text/xml");
-
-						const ctyName =
-							xmlDoc.querySelector("ctyName").textContent;
-						const townName =
-							xmlDoc.querySelector("townName").textContent;
-						const sectName =
-							xmlDoc.querySelector("sectName").textContent;
-						const villageName =
-							xmlDoc.querySelector("villageName").textContent;
-
-						place.value =
-							ctyName.toString() +
-							townName.toString() +
-							sectName.toString() +
-							villageName.toString();
-
-						console.log(place.value);
-					})
-					.catch((error) => {
-						console.error("Error:", error);
-					});
 			},
 			(error) => {
 				errorMessage.value = error.message;
@@ -105,7 +67,6 @@ async function handleSubmit() {
 		distance: incidentDis.value,
 		latitude: location.value.latitude,
 		longitude: location.value.longitude,
-		place: place.value,
 		status: "pending",
 	};
 	if (
@@ -125,6 +86,7 @@ async function handleSubmit() {
 	dialogStore.showNotification("success", "災害新增成功");
 	dialogStore.hideAllDialogs();
 }
+
 onMounted(() => {
 	getCurrentLocation();
 });

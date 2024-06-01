@@ -55,7 +55,7 @@ func CreateIncident(c *gin.Context) {
 		return
 	}
 
-	tmpIncident, err := models.CreateIncident(incident.Type, incident.Description, incident.Distance, incident.Latitude, incident.Longitude, incident.Place, incident.Status)
+	tmpIncident, err := models.CreateIncident(incident.Type, incident.Description, incident.Distance, incident.Latitude, incident.Longitude, incident.Status)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"status": "error", "message": err.Error()})
 		return
