@@ -8,7 +8,6 @@ import { useDialogStore } from "../../../store/dialogStore";
 
 import MobileNavigation from "../../dialogs/MobileNavigation.vue";
 import AddEditDashboards from "../../dialogs/AddEditDashboards.vue";
-import DownloadInfo from "../../dialogs/DownloadInfo.vue";
 
 const contentStore = useContentStore();
 const dialogStore = useDialogStore();
@@ -52,12 +51,6 @@ function handleOpenSettings() {
 			</div>
 			<AddEditDashboards />
 		</div>
-		<div class="downloads">
-			<button @click="dialogStore.showDialog('downloadInfo')">
-				更多防災資訊
-			</button>
-		</div>
-		<DownloadInfo />
 	</div>
 </template>
 

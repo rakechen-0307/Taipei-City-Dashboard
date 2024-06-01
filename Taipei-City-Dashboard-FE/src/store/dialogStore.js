@@ -36,7 +36,6 @@ export const useDialogStore = defineStore("dialog", {
 			userSettings: false,
 			embedComponent: false,
 			incidentReport: false,
-			downloadInfo: false,
 			curTimeout: null,
 		},
 		// Stores the content for notifications
