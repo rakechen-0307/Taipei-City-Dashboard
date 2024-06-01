@@ -132,14 +132,8 @@ const getCurrentLocation = () => {
 };
 
 onMounted(() => {
-	const geoLocate = mapStore.initializeMapBox();
-	geoLocate.on("geolocate", function (position) {
-		latitude.value = position.coords.latitude;
-		longitude.value = position.coords.longitude;
-		console.log(latitude.value);
-		console.log(longitude.value);
-	});
-	getCurrentLocation();
+	mapStore.initializeMapBox();
+	mapStore.setCurrentLocation();
 });
 
 const showTooltip = ref(false);
@@ -162,7 +156,6 @@ const showTooltip = ref(false);
 						color: districtLayer
 							? 'var(--color-highlight)'
 							: 'var(--color-component-background)',
-						marginTop: '50px',
 					}"
 					@click="toggleDistrictLayer"
 				>
@@ -178,24 +171,28 @@ const showTooltip = ref(false);
 				>
 					里
 				</button>
+
+				<button
+					v-if="
+						mapConfigsLength === 1 &&
+						mapConfigs[currentVisibleLayerKey ?? '']?.type ===
+							'circle'
+					"
+					:style="{
+						color: villageLayer
+							? 'var(--color-highlight)'
+							: 'var(--color-component-background)',
+					}"
+					type="button"
+					@click="mapStore.flyToClosestLocationAndTriggerPopup"
+				>
+					近
+				</button>
 				<button
 					class="show-if-mobile"
 					@click="dialogStore.showDialog('mobileLayers')"
 				>
 					<span>layers</span>
-				</button>
-
-				<button
-					v-if="
-						Object.values(mapStore.currentLayers).some(
-							(row) => row === ALS
-						)
-					"
-					@click="
-						toggleFindNearestAdvancedLifeSupportWithRoomAvailable
-					"
-				>
-					<span>近</span>
 				</button>
 			</div>
 			<!-- The key prop informs vue that the component should be updated when switching dashboards -->

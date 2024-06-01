@@ -884,14 +884,103 @@ export const useMapStore = defineStore("map", {
 			this.currentVisibleLayers = [];
 			this.removePopup();
 		},
-		manualTriggerPopup() {
-			const center = this.map.getCenter();
-			const point = this.map.project(center);
 
-			this.addPopup({
-				point: point,
-				lngLat: center,
+		// preserve some user's geolocation info
+		setCurrentLocation() {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(
+					(position) => {
+						this.userLocation = {
+							latitude: position.coords.latitude,
+							longitude: position.coords.longitude,
+						};
+					},
+					(error) => {
+						console.error(error.message);
+					}
+				);
+			} else {
+				console.error("Geolocation is not supported by this browser.");
+			}
+		},
+		findClosestLocation(userCoords, locations) {
+			// Check if userCoords has valid latitude and longitude
+			if (
+				!userCoords ||
+				typeof userCoords.latitude !== "number" ||
+				typeof userCoords.longitude !== "number"
+			) {
+				throw new Error("Invalid user coordinates");
+			}
+
+			let minDistance = Infinity;
+			let closestLocation = null;
+
+			for (let location of locations) {
+				try {
+					// Check if location, location.geometry, and location.geometry.coordinates are valid
+					if (
+						!location ||
+						!location.geometry ||
+						!Array.isArray(location.geometry.coordinates)
+					) {
+						continue; // Skip this location if any of these are invalid
+					}
+					const [lon, lat] = location.geometry.coordinates;
+
+					// Check if longitude and latitude are valid numbers
+					if (typeof lon !== "number" || typeof lat !== "number") {
+						continue; // Skip this location if coordinates are not numbers
+					}
+
+					// Calculate the Haversine distance
+					const distance = calculateHaversineDistance(
+						{
+							latitude: userCoords.latitude,
+							longitude: userCoords.longitude,
+						},
+						{ latitude: lat, longitude: lon }
+					);
+
+					// Update the closest location if the current distance is smaller
+					if (distance < minDistance) {
+						minDistance = distance;
+						closestLocation = location;
+					}
+				} catch (e) {
+					// Catch and log any errors during processing
+					console.error(
+						`Error processing location: ${JSON.stringify(
+							location
+						)}`,
+						e
+					);
+				}
+			}
+			return closestLocation;
+		},
+		flyToClosestLocationAndTriggerPopup() {
+			// make sure this.userLocation is not null before call findClosestLocation
+			const res = this.findClosestLocation(
+				{
+					longitude: this.userLocation.longitude,
+					latitude: this.userLocation.latitude,
+				},
+
+				{
+					...this.getSourceByMapConfigId(
+						`${
+							this.mapConfigs[this.currentVisibleLayers].index
+						}-circle`
+					),
+				}.features
+			);
+
+			this.map.once("moveend", () => {
+				this.manualTriggerPopup();
 			});
+
+			this.flyToLocation(res.geometry.coordinates);
 		},
 	},
 });
