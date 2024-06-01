@@ -7,6 +7,7 @@ import { useDialogStore } from "../../store/dialogStore";
 import { useContentStore } from "../../store/contentStore";
 
 import MobileLayers from "../dialogs/MobileLayers.vue";
+import IncidentReport from "../dialogs/IncidentReport.vue";
 
 const mapStore = useMapStore();
 const dialogStore = useDialogStore();
@@ -197,6 +198,7 @@ const showTooltip = ref(false);
         >通報災害</span>
         !
       </button>
+      <IncidentReport />
     </div>
 
     <div class="mapcontainer-controls hide-if-mobile">
