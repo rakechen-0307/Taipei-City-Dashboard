@@ -293,7 +293,6 @@ export const useAdminStore = defineStore("admin", {
 		// 2. Update a disaster
 		async updateDisaster(id, disaster, params) {
 			const dialogStore = useDialogStore();
-			const authStore = useAuthStore();
 
 			await http.patch(`/incident/${id}`, disaster);
 

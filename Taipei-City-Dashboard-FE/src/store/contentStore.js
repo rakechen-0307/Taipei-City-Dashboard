@@ -478,6 +478,7 @@ export const useContentStore = defineStore("content", {
 				this.setDashboards();
 			}
 		},
+		/*
 		wsConnect() {
 			const dialogStore = useDialogStore();
 			this.ws = new WebSocket("ws://192.168.88.193:8088/api/v1/ws");
@@ -498,6 +499,7 @@ export const useContentStore = defineStore("content", {
 		sendMessage(message) {
 			this.ws.send(message.inctype + ": 位於 " + message.place);
 		},
+		*/
 	},
 	debounce: {
 		favoriteComponent: 500,

@@ -62,12 +62,10 @@ export const useDialogStore = defineStore("dialog", {
 	actions: {
 		// Show the dialog passed into the function
 		showDialog(dialog) {
-			console.log("show");
 			this.dialogs[dialog] = true;
 		},
 		// Will hide all dialogs currently active
 		hideAllDialogs() {
-			console.log("hide");
 			const keys = Object.keys(this.dialogs);
 			for (let i = 0; i < keys.length; i++) {
 				if (keys[i] === "notificationBar") {

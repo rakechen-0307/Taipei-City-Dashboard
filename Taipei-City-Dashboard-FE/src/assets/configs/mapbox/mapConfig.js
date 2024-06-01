@@ -470,7 +470,7 @@ export const maplayerCommonLayout = {
 			2,
 		],
 	},
-	"symbol-disaster_building": {
+	"symbol-disaster_others": {
 		"icon-image": "disaster_others",
 		"icon-size": [
 			"interpolate",

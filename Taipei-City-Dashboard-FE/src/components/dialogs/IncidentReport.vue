@@ -2,23 +2,18 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { storeToRefs } from "pinia";
 import { useDialogStore } from "../../store/dialogStore";
-import { useAuthStore } from "../../store/authStore";
 import http from "../../router/axios";
 
 import DialogContainer from "./DialogContainer.vue";
 
 const dialogStore = useDialogStore();
-const authStore = useAuthStore();
 
 const location = ref(null);
 const errorMessage = ref(null);
 const incidentType = ref("");
 const incidentDesc = ref("");
 const incidentDis = ref("");
-
-const { editUser } = storeToRefs(authStore);
 
 const typeOptions = [
 	{ label: "火災 Fire", value: "fire" },
@@ -54,7 +49,6 @@ const getCurrentLocation = () => {
 				errorMessage.value = error.message;
 			}
 		);
-		console.log(location);
 	} else {
 		errorMessage.value = "Geolocation is not supported by this browser.";
 	}
@@ -77,9 +71,7 @@ async function handleSubmit() {
 		dialogStore.showNotification("fail", "Some properties are empty");
 		return;
 	}
-	console.log(payload);
-	const response = await http.post("/incident/", payload);
-	console.log(response);
+	await http.post("/incident/", payload);
 	incidentType.value = "";
 	incidentDesc.value = "";
 	incidentDis.value = "";
@@ -93,55 +85,61 @@ onMounted(() => {
 </script>
 
 <template>
-	<DialogContainer :dialog="`incidentReport`" @on-close="handleClose">
-		<div class="incidentreport">
-			<h2>事件通報</h2>
-			<label> 事件類型 </label>
-			<select v-model="incidentType">
-				<option
-					v-for="(option, index) in typeOptions"
-					:key="index"
-					:value="option.value"
-				>
-					{{ option.label }}
-				</option>
-			</select>
+  <DialogContainer
+    :dialog="`incidentReport`"
+    @on-close="handleClose"
+  >
+    <div class="incidentreport">
+      <h2>事件通報</h2>
+      <label> 事件類型 </label>
+      <select v-model="incidentType">
+        <option
+          v-for="(option, index) in typeOptions"
+          :key="index"
+          :value="option.value"
+        >
+          {{ option.label }}
+        </option>
+      </select>
 
-			<label> 事件描述 </label>
-			<input
-				type="text"
-				placeholder="(請概述事件過程)"
-				v-model="incidentDesc"
-				:maxlength="30"
-			/>
-			<label> 事件發生位置 </label>
-			<select v-model="incidentDis">
-				<option
-					v-for="(option, index) in disOptions"
-					:key="index"
-					:value="option.value"
-				>
-					{{ option.label }}
-				</option>
-			</select>
-			<label> 通報位置 </label>
-			<!-- <input :value="parseTime(editUser.login_at)" disabled /> -->
-			<input
-				:value="location.latitude + `, ` + location.longitude"
-				disabled
-			/>
-			<label> 通報時間 </label>
-			<input :value="new Date().toLocaleString()" disabled />
-			<div class="incidentreport-control">
-				<button
-					class="incidentreport-control-confirm"
-					@click="handleSubmit"
-				>
-					提交
-				</button>
-			</div>
-		</div>
-	</DialogContainer>
+      <label> 事件描述 </label>
+      <input
+        v-model="incidentDesc"
+        type="text"
+        placeholder="(請概述事件過程)"
+        :maxlength="30"
+      >
+      <label> 事件發生位置 </label>
+      <select v-model="incidentDis">
+        <option
+          v-for="(option, index) in disOptions"
+          :key="index"
+          :value="option.value"
+        >
+          {{ option.label }}
+        </option>
+      </select>
+      <label> 通報位置 </label>
+      <!-- <input :value="parseTime(editUser.login_at)" disabled /> -->
+      <input
+        :value="location.latitude + `, ` + location.longitude"
+        disabled
+      >
+      <label> 通報時間 </label>
+      <input
+        :value="new Date().toLocaleString()"
+        disabled
+      >
+      <div class="incidentreport-control">
+        <button
+          class="incidentreport-control-confirm"
+          @click="handleSubmit"
+        >
+          提交
+        </button>
+      </div>
+    </div>
+  </DialogContainer>
 </template>
 
 <style scoped lang="scss">
