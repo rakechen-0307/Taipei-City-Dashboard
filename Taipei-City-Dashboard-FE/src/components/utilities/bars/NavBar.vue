@@ -13,6 +13,7 @@ import data from "../../../router/jsonHandler";
 
 import UserSettings from "../../dialogs/UserSettings.vue";
 import incidentReport from "../../dialogs/IncidentReport.vue";
+import ContributorsList from "../../dialogs/ContributorsList.vue";
 
 const route = useRoute();
 const authStore = useAuthStore();
@@ -74,12 +75,6 @@ const linkQuery = computed(() => {
 			</router-link>
 		</div>
 		<div class="navbar-user">
-			<a
-				href="https://tuic.gov.taipei/documentation"
-				target="_blank"
-				rel="noreferrer"
-				><button><span>help</span></button></a
-			>
 			<button
 				v-if="!(authStore.isMobileDevice && authStore.isNarrowDevice)"
 				class="hide-if-mobile"
@@ -89,6 +84,29 @@ const linkQuery = computed(() => {
 					isFullscreen ? "fullscreen_exit" : "fullscreen"
 				}}</span>
 			</button>
+			<div class="navbar-user-info">
+				<button><span>info</span></button>
+				<ul>
+					<li>
+						<a
+							href="https://tuic.gov.taipei/documentation"
+							target="_blank"
+							rel="noreferrer"
+							>技術文件</a
+						>
+					</li>
+					<li>
+						<button
+							@click="dialogStore.showDialog('contributorsList')"
+						>
+							專案貢獻者
+						</button>
+					</li>
+				</ul>
+				<teleport to="body">
+					<ContributorsList />
+				</teleport>
+			</div>
 			<div
 				v-if="
 					authStore.token &&
@@ -126,7 +144,6 @@ const linkQuery = computed(() => {
 				</ul>
 				<teleport to="body">
 					<user-settings />
-					<incident-report />
 				</teleport>
 			</div>
 			<div
@@ -229,12 +246,14 @@ const linkQuery = computed(() => {
 			font-size: calc(var(--font-l) * var(--font-to-icon));
 		}
 
-		&-user:hover ul {
+		&-user:hover ul,
+		&-info:hover ul {
 			display: block;
 			opacity: 1;
 		}
 
-		&-user {
+		&-user,
+		&-info {
 			height: 60px;
 			min-width: 100px;
 			display: flex;
@@ -276,6 +295,27 @@ const linkQuery = computed(() => {
 				li:hover {
 					background-color: var(--color-complement-text);
 				}
+			}
+		}
+
+		&-info {
+			min-width: 0;
+
+			ul {
+				right: 120px;
+				top: 55px;
+			}
+
+			@media screen and (max-width: 750px) {
+				display: flex;
+
+				ul {
+					right: 20px;
+					top: 55px;
+				}
+			}
+			@media screen and (max-height: 500px) {
+				display: flex;
 			}
 		}
 	}

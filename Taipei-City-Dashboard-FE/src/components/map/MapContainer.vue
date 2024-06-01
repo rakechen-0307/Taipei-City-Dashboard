@@ -12,6 +12,7 @@ import axios from "axios";
 import MobileLayers from "../dialogs/MobileLayers.vue";
 
 const mapStore = useMapStore();
+const { getSourceByMapConfigId } = storeToRefs(mapStore);
 const dialogStore = useDialogStore();
 const contentStore = useContentStore();
 
@@ -22,6 +23,14 @@ const longitude = ref(0);
 
 const location = ref(null);
 const ALS = "advanced_life_support_plc-circle";
+
+const mapConfigsLength = computed(
+	() => Object.keys(mapStore.currentVisibleLayers).length
+);
+const currentVisibleLayerKey = computed(() => mapStore.currentVisibleLayers);
+const mapConfigs = computed(() => {
+	return mapStore.mapConfigs;
+});
 
 // const newSavedLocation = ref("");
 

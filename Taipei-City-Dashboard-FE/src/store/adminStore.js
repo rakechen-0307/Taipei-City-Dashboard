@@ -34,6 +34,10 @@ export const useAdminStore = defineStore("admin", {
 		users: [],
 		userResults: 0,
 		currentUser: null,
+		// Edit Contributor (for /admin/contributor)
+		contributors: [],
+		contributorResults: 0,
+		currentContributor: null,
 	}),
 	actions: {
 		/* Utility functions to access loading and error states in contentStore */
@@ -335,6 +339,63 @@ export const useAdminStore = defineStore("admin", {
 				authStore.initialChecks();
 
 			this.currentUser = null;
+		},
+
+		/* Contributor */
+		// 1. Get all contributors
+		async getContributors(params) {
+			const apiParams = JSON.parse(JSON.stringify(params));
+
+			const response = await http.get(`/contributor/`, {
+				params: apiParams,
+			});
+			this.contributors = response.data.data;
+			this.contributorResults = response.data.total;
+			this.setLoading(false);
+		},
+		// 2. Update a contributor
+		async updateContributor(params) {
+			const dialogStore = useDialogStore();
+			const contentStore = useContentStore();
+			const editedContributor = JSON.parse(
+				JSON.stringify(this.currentContributor)
+			);
+
+			await http.patch(
+				`/contributor/${this.currentContributor.id}`,
+				editedContributor
+			);
+			dialogStore.showNotification("success", "貢獻者更新成功");
+			this.getContributors(params);
+
+			this.currentContributor = null;
+			contentStore.setContributors();
+		},
+		// 3. Add a contributor
+		async addContributor(params) {
+			const dialogStore = useDialogStore();
+			const contentStore = useContentStore();
+			const contributor = JSON.parse(
+				JSON.stringify(this.currentContributor)
+			);
+
+			await http.post(`/contributor/`, contributor);
+			dialogStore.showNotification("success", "貢獻者新增成功");
+			this.getContributors(params);
+
+			this.currentContributor = null;
+			contentStore.setContributors();
+		},
+
+		// 4. Delete a contributor
+		async deleteContributor(params) {
+			const dialogStore = useDialogStore();
+
+			await http.delete(`/contributor/${this.currentContributor.id}`);
+			dialogStore.showNotification("success", "貢獻者刪除成功");
+			this.getContributors(params);
+
+			this.currentContributor = null;
 		},
 	},
 });

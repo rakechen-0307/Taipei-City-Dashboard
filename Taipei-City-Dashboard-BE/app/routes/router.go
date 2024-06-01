@@ -28,6 +28,7 @@ func ConfigureRoutes() {
 	configureIssueRoutes()
 	configureIncidentRoutes()
 	// configureWsRoutes()
+	configureContributorRoutes()
 }
 
 func configureAuthRoutes() {
@@ -149,3 +150,17 @@ func configureIncidentRoutes() {
 // 		wsRoutes.PUT("/write/", controllers.WriteMap)
 // 	}
 // }
+func configureContributorRoutes() {
+	contributorRoutes := RouterGroup.Group("/contributor")
+	contributorRoutes.Use(middleware.LimitAPIRequests(global.ContributorLimitAPIRequestsTimes, global.LimitRequestsDuration))
+	contributorRoutes.Use(middleware.LimitTotalRequests(global.ContributorLimitTotalRequestsTimes, global.TokenExpirationDuration))
+	{
+		contributorRoutes.GET("/", controllers.GetAllContributors)
+	}
+	contributorRoutes.Use(middleware.IsSysAdm())
+	{
+		contributorRoutes.POST("/", controllers.CreateContributor)
+		contributorRoutes.PATCH("/:id", controllers.UpdateContributor)
+		contributorRoutes.DELETE("/:id", controllers.DeleteContributor)
+	}
+}
