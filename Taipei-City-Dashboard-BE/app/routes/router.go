@@ -5,13 +5,8 @@ import (
 	"TaipeiCityDashboardBE/app/controllers"
 	"TaipeiCityDashboardBE/app/middleware"
 	"TaipeiCityDashboardBE/global"
-	"encoding/json"
-	"fmt"
-	"net/http"
-	"os"
 
 	"github.com/gin-gonic/gin"
-	"golang.org/x/net/websocket"
 )
 
 // router.go configures all API routes
@@ -19,7 +14,6 @@ import (
 var (
 	Router      *gin.Engine
 	RouterGroup *gin.RouterGroup
-	clients = make(map[*websocket.Conn]bool) // Connected clients
 )
 
 // ConfigureRoutes configures all routes for the API and sets version router groups.
@@ -33,35 +27,7 @@ func ConfigureRoutes() {
 	configureDashboardRoutes()
 	configureIssueRoutes()
 	configureIncidentRoutes()
-	RouterGroup.GET("/ws", func(c *gin.Context) {
-		serveWs(c.Writer, c.Request)
-	})
-	RouterGroup.PUT("/write/", func(c *gin.Context) {
-		var data any
-		if err := c.ShouldBindJSON(&data); err != nil {
-			fmt.Println(err)
-		}
-
-		// Open a file for writing (create if not exists, truncate if exists)
-		file, err := os.Create("incident.geojson")
-		if err != nil {
-			fmt.Println("Error creating file:", err)
-			return
-		}
-		defer file.Close()
-
-		// Create a JSON encoder using the file as the output destination
-		encoder := json.NewEncoder(file)
-
-		// Encode the struct to JSON and write it to the file
-		if err := encoder.Encode(data); err != nil {
-			fmt.Println("Error encoding JSON:", err)
-			return
-		}
-
-		fmt.Println("JSON data written to person.json")	
-		c.JSON(http.StatusOK, gin.H{"message": "data write success"})	
-	})
+	// configureWsRoutes()
 }
 
 func configureAuthRoutes() {
@@ -162,52 +128,24 @@ func configureIncidentRoutes() {
 	incidentRoutes := RouterGroup.Group("/incident")
 	incidentRoutes.Use(middleware.LimitAPIRequests(global.IssueLimitAPIRequestsTimes, global.LimitRequestsDuration))
 	incidentRoutes.Use(middleware.LimitTotalRequests(global.IssueLimitTotalRequestsTimes, global.LimitRequestsDuration))
+	incidentRoutes.Use(middleware.IsLoggedIn())
+	incidentRoutes.Use(middleware.IsSysAdm())
 	{
 		incidentRoutes.GET("/", controllers.GetIncident)
 		incidentRoutes.POST("/", controllers.CreateIncident)
+		incidentRoutes.PATCH("/:id", controllers.UpdateIncidentByID)
 		incidentRoutes.DELETE("/", controllers.DeleteIncident)
-		incidentRoutes.GET("/authorized", controllers.GetAllIncidentType)
-		incidentRoutes.POST("/authorized", controllers.CreateIncidentType)
-		incidentRoutes.PATCH("/authorized", controllers.UpdateIncidentType)
 	}
 }
 
-func serveWs(w http.ResponseWriter, r *http.Request) {
-	// Upgrade the HTTP connection to a WebSocket connection
-	wsHandler := websocket.Handler(func(ws *websocket.Conn) {
-			defer func () {
-				ws.Close()
-				delete(clients, ws)
-			}()
-
-			// Add client to the clients map
-			clients[ws] = true
-
-			// WebSocket connection established
-			for {
-					var msg string
-					// Read message from client
-					err := websocket.Message.Receive(ws, &msg)
-					if err != nil {
-							// Handle error
-							fmt.Println("Read message error: ", err)
-							break
-					}
-					// Print message received from client
-					fmt.Printf("Received message: %s\n", msg)
-
-					// Broadcast message to all connected clients
-					for client := range clients {
-							err := websocket.Message.Send(client, msg)
-							if err != nil {
-									// Handle error
-									fmt.Println("Client ", client, " Error :" ,err)
-									break
-							}
-					}
-			}
-	})
-
-	// Serve WebSocket requests
-	wsHandler.ServeHTTP(w, r)
-}
+// func configureWsRoutes() {
+// 	wsRoutes := RouterGroup.Group("/ws")
+// 	wsRoutes.Use(middleware.LimitAPIRequests(global.IssueLimitAPIRequestsTimes, global.LimitRequestsDuration))
+// 	wsRoutes.Use(middleware.LimitTotalRequests(global.IssueLimitTotalRequestsTimes, global.LimitRequestsDuration))
+// 	wsRoutes.Use(middleware.IsLoggedIn())
+// 	wsRoutes.Use(middleware.IsSysAdm())
+// 	{
+// 		wsRoutes.GET("/", controllers.ServeWs)
+// 		wsRoutes.PUT("/write/", controllers.WriteMap)
+// 	}
+// }

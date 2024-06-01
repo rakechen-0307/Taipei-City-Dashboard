@@ -2,35 +2,33 @@ package models
 
 import (
 	"fmt"
+	"strings"
+	"time"
 )
 
 type Incident struct {
-  ID          uint      `gorm:"primaryKey"`
-  Type        string    `json:"inctype"`
-  Description string		`json:"description"`
-  Distance    float64		`json:"distance"`
-  Latitude    float64		`json:"latitude"`
-  Longitude   float64		`json:"longitude"`
-  Place		  string		`json:"place"`
-  Time        int64			`json:"reportTime"`
+	ID          	int64      	`gorm:"primaryKey"`
+	Type        	string    	`json:"inctype"`
+	Description 	string		`json:"description"`
+	Distance    	float64		`json:"distance"`
+	Latitude    	float64		`json:"latitude"`
+	Longitude   	float64		`json:"longitude"`
+	Place			string		`json:"place"`
+	Time        	time.Time	`json:"reportTime"`
+	Status			string		`json:"status"`
 }
 
-type IncidentType struct {
-	ID 					uint 			`gorm:"primaryKey"`
-	Type				string		`json:"type" gorm:"not null"`
-	Count				int				`json:"count"`
-}
-
-func (m IncidentType) IsEmpty() bool {
-	return m.Type == "" && m.Count == 0
-}
-
-
-func GetAllIncident(pageSize int, pageNum int, sort string, order string) (incidents []Incident, totalIncidents int64, resultNum int64, err error) {
+func GetAllIncident(pageSize int, pageNum int, filterByStatus string, sort string, order string) (incidents []Incident, totalIncidents int64, resultNum int64, err error) {
 	tempDB := DBManager.Table("incidents")
 
 	// Count the total amount of incidents
 	tempDB.Count(&totalIncidents)
+
+	// Filter by status
+	if filterByStatus != "" {
+		statuses := strings.Split(filterByStatus, ",")
+		tempDB = tempDB.Where("incidents.status IN (?)", statuses)
+	}
 
 	tempDB.Count(&resultNum)
 
@@ -53,7 +51,7 @@ func GetAllIncident(pageSize int, pageNum int, sort string, order string) (incid
 	return incidents, totalIncidents, resultNum, err
 }
 
-func CreateIncident(incidentType, description string, distance, latitude, longitude float64, place string, incidentTime int64) (incident Incident, err error) {
+func CreateIncident(incidentType, description string, distance, latitude, longitude float64, place string, status string) (incident Incident, err error) {
 
     // Create an example incident
     // incident = Incident{
@@ -64,23 +62,30 @@ func CreateIncident(incidentType, description string, distance, latitude, longit
     //     Longitude:   -74.0060,
     //     Time:        time.Now().Unix(),
     // }
-		incident = Incident {
-        Type:        incidentType,
-        Description: description,
-        Distance:    distance,
-        Latitude:    latitude,
-        Longitude:   longitude,
-		Place:		 place,
-        Time:        incidentTime,
-		}
-
+	incident = Incident {
+		Type:       	incidentType,
+		Description:	description,
+		Distance:    	distance,
+		Latitude:    	latitude,
+		Longitude:   	longitude,
+		Place:		 	place,
+		Time:        	time.Now(),
+		Status: 		status,
+	}
     // Insert the incident into the database
     err = DBManager.Create(&incident).Error
-
-		return incident, err
+	return incident, err
 }
 
-func DeleteIncident(id uint) (incident Incident, err error) {
+func UpdateIncidentByID(id string, status string) (incident Incident, err error) {
+	// Only update status by admin
+	incident.Status = status
+
+	err = DBManager.Table("incidents").Where("id = ?", id).Updates(&incident).Error
+	return incident, err
+}
+
+func DeleteIncident(id int64) (incident Incident, err error) {
 	
 	if err := DBManager.Where("ID = ?", id).First(&incident).Error; err != nil {
 		// Handle error (e.g., incident not found)
@@ -92,44 +97,4 @@ func DeleteIncident(id uint) (incident Incident, err error) {
 	err = DBManager.Delete(&incident).Error
 	return incident, err
 }
-
-func GetAllIncidentType() (types []IncidentType, err error) {
-	tempDB := DBDashboard.Table("incident_types")
-	// Get the incidents
-	err = tempDB.Find(&types).Error
-
-	return types, err
-}
-
-func CreateIncidentType(incidentType string) (newType IncidentType, err error){
-	newType = IncidentType{
-		Type:					incidentType,
-		Count:				0,
-	}
-	var tmpType IncidentType
-	if err := DBDashboard.Where("type = ?", incidentType).First(&tmpType).Error; err != nil {
-		err = DBDashboard.Create(&newType).Error
-		return newType, err
-	}
-	// Handle error (e.g., incident not found)
-	fmt.Printf("Incident type " + incidentType + " already exist!!")
-	return IncidentType{}, err
-}
-
-func UpdateIncidentType(incidentType string) (updType IncidentType, err error){
-	if err := DBDashboard.Where("type = ?", incidentType).First(&updType).Error; err != nil {
-			// Handle error (e.g., incident not found)
-			fmt.Printf("Incident type " + incidentType + " not found")
-			return IncidentType{}, err
-	}
-
-	updType.Count += 1
-	if err := DBDashboard.Save(&updType).Error; err != nil {
-		// Handle error
-		fmt.Printf("Failed to update incident type " + incidentType)
-		return IncidentType{}, err
-	}
-	return updType, err
-}
-
 

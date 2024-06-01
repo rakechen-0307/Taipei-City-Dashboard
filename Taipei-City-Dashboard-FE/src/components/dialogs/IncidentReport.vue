@@ -106,7 +106,7 @@ async function handleSubmit() {
 		latitude: location.value.latitude,
 		longitude: location.value.longitude,
 		place: place.value,
-		reportTime: new Date().getTime(),
+		status: "pending",
 	};
 	if (
 		incidentType.value == "" ||
@@ -122,7 +122,7 @@ async function handleSubmit() {
 	incidentType.value = "";
 	incidentDesc.value = "";
 	incidentDis.value = "";
-	dialogStore.showNotification("success", "OK!!!");
+	dialogStore.showNotification("success", "災害新增成功");
 	dialogStore.hideAllDialogs();
 }
 onMounted(() => {
@@ -150,6 +150,7 @@ onMounted(() => {
 				type="text"
 				placeholder="(請概述事件過程)"
 				v-model="incidentDesc"
+				:maxlength="30"
 			/>
 			<label> 事件發生位置 </label>
 			<select v-model="incidentDis">

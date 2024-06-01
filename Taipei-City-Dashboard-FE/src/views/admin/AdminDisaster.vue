@@ -14,7 +14,14 @@ const adminStore = useAdminStore();
 const dialogStore = useDialogStore();
 const contentStore = useContentStore();
 
+const statuses = ["待處理", "通過", "不通過"];
+const statusName = {
+	待處理: "pending",
+	通過: "accepted",
+	不通過: "rejected",
+};
 const searchParams = ref({
+	filterbystatus: [],
 	sort: "time",
 	order: "desc",
 	pagesize: 10,
@@ -33,22 +40,8 @@ const pages = computed(() => {
 });
 
 function parseTime(time) {
-	const date = new Date(time); // Convert seconds to milliseconds
-	// return date.toISOString();
-	const taipeiTime = date.toLocaleString("zh-TW", {
-		timeZone: "Asia/Taipei",
-	});
-	const parts = taipeiTime
-		.split(" ")[0]
-		.split("/")
-		.map((part) => part.padStart(2, "0"));
-	const timeParts = taipeiTime
-		.split(" ")[1]
-		.split(":")
-		.map((part) => part.padStart(2, "0"));
-	return `${parts[0] - 1911}年${parts[1]}月${parts[2]}日 ${timeParts[0]}點${
-		timeParts[1]
-	}分${timeParts[2]}秒`;
+	// return time.slice(0, 19).replace("T", " ");
+	return new Date(time).toLocaleString("zh-TW", { hour12: false });
 }
 
 function handleSort(sort) {
@@ -77,35 +70,45 @@ function handleNewPage(page) {
 	adminStore.getDisasters(searchParams.value);
 }
 
-async function handleReview(id, type, result) {
-	const res = http.get("/incident/");
-	res.then(async (value) => {
-		const getData = value.data.data;
-		const target = getData.find((element) => element.ID == id);
-		if (result) {
-			const updateRes = await http.patch("/incident/authorized", target);
-			const uploadGeoJson = {
-				type: "Feature",
-				geometry: {
-					type: "Point",
-					coordinates: [target.longitude, target.latitude],
-				},
-				properties: {
-					類型: target.inctype,
-					描述: target.description,
-					距離: target.distance.toString() + "公里",
-					時間: parseTime(target.reportTime),
-				},
-			};
-			data.methods.uploadData(uploadGeoJson);
+function handleDelete(id) {
+	adminStore.deleteDisaster(id, searchParams.value);
+	handleNewQuery();
+}
 
-			contentStore.sendMessage(target);
-		}
-		const deleteRes = await http.delete("/incident/", {
-			data: { ID: target.ID },
+async function handleReview(id, result) {
+	if (result === 1) {
+		const updateRes = await http.patch("/incident/" + id, {
+			status: "accepted",
 		});
-		handleNewQuery();
-	});
+		// const uploadGeoJson = {
+		// 	type: "Feature",
+		// 	geometry: {
+		// 		type: "Point",
+		// 		coordinates: [target.longitude, target.latitude],
+		// 	},
+		// 	properties: {
+		// 		類型: target.inctype,
+		// 		描述: target.description,
+		// 		距離: target.distance.toString() + "公里",
+		// 		時間: parseTime(target.reportTime),
+		// 	},
+		// };
+		// data.methods.uploadData(uploadGeoJson);
+
+		dialogStore.showNotification("success", `ID:${id} 事件已接受`);
+		// contentStore.sendMessage(target);
+	} else if (result === 0) {
+		const updateRes = await http.patch("/incident/" + id, {
+			status: "rejected",
+		});
+		dialogStore.showNotification("fail", `ID:${id} 事件已拒絕`);
+	} else {
+		const updateRes = await http.patch("/incident/" + id, {
+			status: "pending",
+		});
+		dialogStore.showNotification("info", `ID:${id} 事件已更新狀態`);
+	}
+	handleNewQuery();
 }
 
 onMounted(() => {
@@ -115,11 +118,27 @@ onMounted(() => {
 
 <template>
 	<div class="admindisaster">
+		<!-- 1. Checkboxes to filter through different issue types -->
+		<div class="admindisaster-filter">
+			<div v-for="status in statuses" :key="status">
+				<input
+					:id="status"
+					v-model="searchParams.filterbystatus"
+					type="checkbox"
+					class="custom-check-input"
+					:value="statusName[status]"
+					@change="handleNewQuery"
+				/>
+				<CustomCheckBox :for="status">
+					{{ status }}
+				</CustomCheckBox>
+			</div>
+		</div>
 		<!-- 2. The main table displaying various issues -->
 		<table class="admindisaster-table">
 			<thead>
 				<tr class="admindisaster-table-header">
-					<TableHeader min-width="50px" />
+					<TableHeader min-width="60px" />
 					<TableHeader
 						:sort="true"
 						:mode="
@@ -131,10 +150,10 @@ onMounted(() => {
 						ID
 					</TableHeader>
 					<TableHeader min-width="150px"> 種類 </TableHeader>
-					<TableHeader min-width="220px"> 描述 </TableHeader>
+					<TableHeader min-width="250px"> 描述 </TableHeader>
 					<TableHeader min-width="320px"> 地點 </TableHeader>
-					<TableHeader min-width="250px"> 時間 </TableHeader>
-					<TableHeader min-width="250px"> 審核 </TableHeader>
+					<TableHeader min-width="180px"> 時間 </TableHeader>
+					<TableHeader min-width="200px"> 審核 </TableHeader>
 				</tr>
 			</thead>
 			<!-- 2-1. Disasters are present -->
@@ -144,7 +163,20 @@ onMounted(() => {
 					:key="`disaster-${disaster.id}`"
 				>
 					<td>
-						<span>edit_note</span>
+						<span
+							v-if="disaster.status === 'accepted'"
+							class="material-symbols-rounded"
+							style="color: yellowgreen"
+						>
+							verified
+						</span>
+						<span
+							v-else-if="disaster.status === 'rejected'"
+							class="material-symbols-rounded"
+							style="color: lightcoral"
+						>
+							cancel
+						</span>
 					</td>
 					<td>{{ disaster.ID }}</td>
 					<td>{{ disaster.inctype }}</td>
@@ -152,51 +184,59 @@ onMounted(() => {
 					<td>{{ disaster.place }}</td>
 					<td>{{ parseTime(disaster.reportTime) }}</td>
 					<td class="review">
-						<div class="btn">
+						<div class="btn" v-if="disaster.status !== 'pending'">
+							<button
+								v-if="
+									disaster.status === 'accepted' ||
+									disaster.status === 'rejected'
+								"
+								@click="handleDelete(disaster.ID)"
+							>
+								<span>delete</span>
+							</button>
+							<button
+								v-else
+								@click="handleReview(disaster.ID, -1)"
+							>
+								<span>refresh</span>
+							</button>
+						</div>
+						<div class="btn" v-else>
 							<button
 								class="reviewBtn"
-								@click="
-									handleReview(
-										disaster.ID,
-										disaster.inctype,
-										true
-									)
-								"
+								@click="handleReview(disaster.ID, 1)"
 							>
 								通過
 							</button>
 							<button
 								class="reviewBtn"
-								@click="
-									handleReview(
-										disaster.ID,
-										disaster.inctype,
-										false
-									)
-								"
+								@click="handleReview(disaster.ID, 0)"
 							>
-								刪除
+								拒絕
 							</button>
 						</div>
 					</td>
 				</tr>
 			</tbody>
 			<!-- 2-2. Disaster are still loading -->
-			<div v-else-if="contentStore.loading" class="disaster-nocontent">
-				<div class="disaster-nocontent-content">
+			<div
+				v-else-if="contentStore.loading"
+				class="admindisaster-nocontent"
+			>
+				<div class="admindisaster-nocontent-content">
 					<h2>載入中...</h2>
 				</div>
 			</div>
 			<!-- 2-3. An Error occurred -->
-			<div v-else-if="contentStore.error" class="disaster-nocontent">
-				<div class="disaster-nocontent-content">
+			<div v-else-if="contentStore.error" class="admindisaster-nocontent">
+				<div class="admindisaster-nocontent-content">
 					<span>sentiment_very_dissatisfied</span>
 					<h2>發生錯誤，無法載入問題列表</h2>
 				</div>
 			</div>
 			<!-- 2-4. Disasters are loaded but there are none -->
-			<div v-else class="disaster-nocontent">
-				<div class="disaster-nocontent-content">
+			<div v-else class="admindisaster-nocontent">
+				<div class="admindisaster-nocontent-content">
 					<span>search_off</span>
 					<h2>查無符合篩選條件的災害</h2>
 				</div>
@@ -384,7 +424,7 @@ onMounted(() => {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	min-height: 120px;
+	// min-height: 120px;
 	.btn {
 		display: flex;
 		flex-direction: row;

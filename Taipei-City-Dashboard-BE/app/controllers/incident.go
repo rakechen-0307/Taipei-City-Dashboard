@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"net/http"
 
 	"TaipeiCityDashboardBE/app/models"
@@ -13,6 +12,7 @@ func GetIncident(c *gin.Context) {
 	type incidentQuery struct {
 		PageSize       int    `form:"pagesize"`
 		PageNum        int    `form:"pagenum"`
+		FilterByStatus string `form:"filterbystatus"`
 		Sort           string `form:"sort"`
 		Order          string `form:"order"`
 	}
@@ -20,8 +20,8 @@ func GetIncident(c *gin.Context) {
 	// Get query parameters
 	var query incidentQuery
 	c.ShouldBindQuery(&query)
-
-	incidents, totalIncidents, resultNum, err := models.GetAllIncident(query.PageSize, query.PageNum, query.Sort, query.Order)
+	
+	incidents, totalIncidents, resultNum, err := models.GetAllIncident(query.PageSize, query.PageNum, query.FilterByStatus, query.Sort, query.Order)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"status": "error", "message": err.Error()})
 		return
@@ -55,13 +55,33 @@ func CreateIncident(c *gin.Context) {
 		return
 	}
 
-	tmpIncident, err := models.CreateIncident(incident.Type, incident.Description, incident.Distance, incident.Latitude, incident.Longitude, incident.Place, incident.Time)
+	tmpIncident, err := models.CreateIncident(incident.Type, incident.Description, incident.Distance, incident.Latitude, incident.Longitude, incident.Place, incident.Status)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"status": "error", "message": err.Error()})
 		return
 	}
 
 	c.JSON(http.StatusCreated, gin.H{"status": "success", "data": tmpIncident})
+}
+
+func UpdateIncidentByID(c *gin.Context) {
+	var incident models.Incident
+
+	incidentID := c.Param("id")
+
+	// Bind the incident data
+	if err := c.ShouldBindJSON(&incident); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"status": "error", "message": err.Error()})
+		return
+	}
+
+	incident, err := models.UpdateIncidentByID(incidentID, incident.Status)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"status": "error", "message": err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"status": "success", "data": incident})
 }
 
 func DeleteIncident(c *gin.Context) {
@@ -85,54 +105,4 @@ func DeleteIncident(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, gin.H{"status": "success", "data": tmpIncident})
-}
-
-func GetAllIncidentType(c *gin.Context) {
-	incidentTypes, err := models.GetAllIncidentType()
-	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"status": "error", "message": err.Error()})
-		return
-	}
-
-	c.JSON(http.StatusOK, gin.H{"status": "success", "data": incidentTypes})
-}
-
-func CreateIncidentType(c *gin.Context) {
-	var incidentType models.IncidentType
-
-	if err := c.ShouldBindJSON(&incidentType); (err != nil) || (incidentType.Type == "") {
-		c.JSON(http.StatusBadRequest, gin.H{"status": "error", "message": err.Error()})
-		return
-	}
-	tmpIncident, err := models.CreateIncidentType(incidentType.Type)
-	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"status": "error", "message": err.Error()})
-		return
-	}
-	if tmpIncident.IsEmpty() {
-		c.JSON(http.StatusInternalServerError, gin.H{"status": "error", "message": "Incident type " + incidentType.Type + " already exists!!"})
-		return
-	}
-	c.JSON(http.StatusCreated, gin.H{"status": "success", "data": tmpIncident})
-}
-
-func UpdateIncidentType(c *gin.Context) {
-	var incident models.Incident
-
-	if err := c.ShouldBindJSON(&incident); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"status": "error", "message": err.Error()})
-		return
-	}
-	var tmpinc models.Incident
-	if err := models.DBManager.Table("incidents").Where("id = ?", incident.ID).First(&tmpinc).Error; err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"status": "error", "message": err.Error()})
-		return
-	}
-	fmt.Println(incident.Type)
-	tmpIncident, err := models.UpdateIncidentType(incident.Type)
-	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"status": "error", "message": err.Error()})
-		return
-	}
-	c.JSON(http.StatusCreated, gin.H{"status": "success", "data": tmpIncident})
 }

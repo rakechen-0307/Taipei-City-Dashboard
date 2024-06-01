@@ -276,25 +276,33 @@ export const useAdminStore = defineStore("admin", {
 		async getDisasters(params) {
 			const apiParams = JSON.parse(JSON.stringify(params));
 
+			apiParams.filterbystatus = apiParams.filterbystatus.join(",");
+
 			const response = await http.get(`/incident/`, {
 				params: apiParams,
 			});
-			console.log(response.data.data);
+
 			this.disasters = response.data.data;
 			this.disasterResults = response.data.results;
 			this.setLoading(false);
 		},
 		// 2. Update a disaster
-		async updateDisaster(params) {
+		async updateDisaster(id, disaster, params) {
 			const dialogStore = useDialogStore();
 			const authStore = useAuthStore();
 
-			await http.patch(`/incident/${this.currentDisaster.id}`, {
-				status: this.currentDisaster.status,
-				decision_desc: this.currentDisaster.decision_desc,
-				updated_by: authStore.user.name,
-			});
+			await http.patch(`/incident/${id}`, disaster);
+
 			dialogStore.showNotification("success", "災害更新成功");
+			this.getDisasters(params);
+			this.currentDisaster = null;
+		},
+		async deleteDisaster(id, params) {
+			const dialogStore = useDialogStore();
+			await http.delete(`/incident/`, {
+				data: { id: id },
+			});
+			dialogStore.showNotification("info", "災害刪除成功");
 			this.getDisasters(params);
 			this.currentDisaster = null;
 		},
