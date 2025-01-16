@@ -326,15 +326,88 @@ export const useMapStore = defineStore("map", {
 					this.AddIsolineMapLayer(map_config, res.data);
 				}
 			} else {
-				this.map.addSource(`${map_config.layerId}-source`, {
-					type: "vector",
-					scheme: "tms",
-					tolerance: 0,
-					tiles: [
-						`${location.origin}/geo_server/gwc/service/tms/1.0.0/taipei_vioc:${map_config.index}@EPSG:900913@pbf/{z}/{x}/{y}.pbf`,
-					],
-				});
-				this.addMapLayer(map_config);
+				try {
+					// 獲取當前地圖可視區域的範圍
+					const bounds = this.map.getBounds();
+
+					// 添加源
+					this.map.addSource(`${map_config.layerId}-source`, {
+						type: "vector",
+						scheme: "tms",
+						tolerance: 0,
+						// 限制瓦片範圍在當前可視區域
+						bounds: [
+							bounds.getWest(),  // 最小經度
+							bounds.getSouth(), // 最小緯度
+							bounds.getEast(),  // 最大經度
+							bounds.getNorth()  // 最大緯度
+						],
+						// // 限制縮放級別
+						// minzoom: Math.floor(this.map.getZoom() - 1),
+						// maxzoom: Math.ceil(this.map.getZoom() + 1),
+						tiles: [
+							`${location.origin}/geo_server/gwc/service/tms/1.0.0/taipei_vioc:${map_config.index}@EPSG:900913@pbf/{z}/{x}/{y}.pbf`,
+						],
+					});
+		
+					// 監聽錯誤
+					this.map.on('error', (e) => {
+						if (e.sourceId === `${map_config.layerId}-source`) {
+							console.error('Source error:', e);
+
+							// 清理已添加的源（如果存在）
+							if (this.map.getSource(`${map_config.layerId}-source`)) {
+								this.map.removeSource(`${map_config.layerId}-source`);
+							}
+							// 從 loadingLayers 中移除
+							this.loadingLayers = this.loadingLayers.filter(
+								(el) => el !== map_config.layerId
+							);
+						}
+					});
+		
+					// 監聽源加載完成
+					const sourceLoaded = new Promise((resolve, reject) => {
+						const checkSource = (e) => {
+							if (e.sourceId === `${map_config.layerId}-source`) {
+								if (e.isSourceLoaded) {
+									this.map.off('sourcedata', checkSource);
+									resolve();
+								}
+								// 如果有錯誤也需要處理
+								if (e.error) {
+									this.map.off('sourcedata', checkSource);
+									reject(e.error);
+								}
+							}
+						};
+						
+						this.map.on('sourcedata', checkSource);
+						
+						// 設置超時
+						setTimeout(() => {
+							this.map.off('sourcedata', checkSource);
+							reject(new Error('Source load timeout'));
+						}, 10000);
+					});
+		
+					// 等待源加載完成後添加圖層
+					await sourceLoaded;
+					this.addMapLayer(map_config);
+
+
+		
+				} catch (error) {
+					console.error('Failed to add source:', error);
+					// 清理已添加的源（如果存在）
+					if (this.map.getSource(`${map_config.layerId}-source`)) {
+						this.map.removeSource(`${map_config.layerId}-source`);
+					}
+					// 從 loadingLayers 中移除
+					this.loadingLayers = this.loadingLayers.filter(
+						(el) => el !== map_config.layerId
+					);
+				}
 			}
 		},
 		// 4-1. Using the mapbox source and map config, create a new layer
@@ -718,6 +791,13 @@ export const useMapStore = defineStore("map", {
 		/* Popup Related Functions */
 		// 1. Adds a popup when the user clicks on a item. The event will be passed in.
 		addPopup(event) {
+			const formatValue = (value, key) => {
+				if (key === 'occupied_rate') {
+					return value === -99 ? '-' : value;
+				}
+				return value;
+			};
+
 			// Gets the info that is contained in the coordinates that the user clicked on (only visible layers)
 			const clickFeatureDatas = this.map.queryRenderedFeatures(
 				event.point,
@@ -740,9 +820,17 @@ export const useMapStore = defineStore("map", {
 				if (mapConfigs.length === 3) break;
 				if (previousParsedLayer === clickFeatureDatas[i].layer.id)
 					continue;
+
+				// format properties
+				const feature = {...clickFeatureDatas[i]};
+				feature.properties = {...feature.properties};
+				Object.keys(feature.properties).forEach(key => {
+					feature.properties[key] = formatValue(feature.properties[key], key);
+				});
+
 				previousParsedLayer = clickFeatureDatas[i].layer.id;
 				mapConfigs.push(this.mapConfigs[clickFeatureDatas[i].layer.id]);
-				parsedPopupContent.push(clickFeatureDatas[i]);
+				parsedPopupContent.push(feature);
 			}
 			// Create a new mapbox popup
 			this.popup = new mapboxGl.Popup()

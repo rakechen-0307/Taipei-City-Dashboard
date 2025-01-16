@@ -22,7 +22,7 @@
         "load_behavior": "current+history"
     },
     "data_infos":{
-        "name_cn": "歷年度使用執照摘要",
+        "name_cn": "YouBike即時車位",
         "airflow_update_freq": "every 10 minutes",
         "source": "TDX>基礎服務>公共運輸-自行車>自行車>取得指定縣市的公共自行車即時車位資料",
         "source_type": "TDX API",
