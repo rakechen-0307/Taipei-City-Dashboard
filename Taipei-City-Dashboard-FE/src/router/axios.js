@@ -4,7 +4,7 @@
 // This file centrally handles all axios requests made in the application.
 
 import axios from "axios";
-import { useAuthStore } from "../store/authStore";
+import { usePersonStore } from "../store/personStore";
 import { useDialogStore } from "../store/dialogStore";
 import { useContentStore } from "../store/contentStore";
 
@@ -17,14 +17,14 @@ const http = axios.create({
 
 // Request Handler
 http.interceptors.request.use((request) => {
-	const authStore = useAuthStore();
+	const personStore = usePersonStore();
 	const contentStore = useContentStore();
 
 	contentStore.loading = true;
 	contentStore.error = false;
 
-	if (authStore.token) {
-		request.headers.setAuthorization(`Bearer ${authStore.token}`);
+	if (personStore.token) {
+		request.headers.setAuthorization(`Bearer ${personStore.token}`);
 	} else {
 		request.headers.setAuthorization(`Bearer`);
 	}
@@ -35,16 +35,16 @@ http.interceptors.request.use((request) => {
 http.interceptors.response.use(
 	(response) => {
 		// handle loading directly in request since sometimes requests are stringed together
-		const authStore = useAuthStore();
+		const personStore = usePersonStore();
 		if (response.data.token) {
-			authStore.token = response.data.token;
+			personStore.token = response.data.token;
 			localStorage.setItem("token", response.data.token);
 		}
 		return response;
 	},
 	(error) => {
 		const dialogStore = useDialogStore();
-		const authStore = useAuthStore();
+		const personStore = usePersonStore();
 		const contentStore = useContentStore();
 
 		contentStore.error = true;
@@ -52,12 +52,12 @@ http.interceptors.response.use(
 
 		switch (error.response.status) {
 			case 401:
-				if (authStore.token) {
+				if (personStore.token) {
 					dialogStore.showNotification(
 						"fail",
 						"401，登入逾時，請重新登入"
 					);
-					authStore.handleLogout();
+					personStore.handleLogout();
 				} else {
 					dialogStore.showNotification(
 						"fail",
@@ -66,7 +66,7 @@ http.interceptors.response.use(
 				}
 				break;
 			case 403:
-				if (authStore.token) {
+				if (personStore.token) {
 					dialogStore.showNotification(
 						"fail",
 						"403，沒有權限執行此動作"
