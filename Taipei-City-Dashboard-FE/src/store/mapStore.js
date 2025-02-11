@@ -130,7 +130,12 @@ export const useMapStore = defineStore("map", {
 			const personStore = usePersonStore();
 			if (!this.map) return;
 			// Taipei District Labels
-			fetch(`/mapData/taipei_town.geojson`)
+			fetch(`/mapData/taipei_town.geojson`, {
+				method: 'GET',
+				headers: {
+					'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
+				}
+			})
 				.then((response) => response.json())
 				.then((data) => {
 					this.map
@@ -141,7 +146,12 @@ export const useMapStore = defineStore("map", {
 						.addLayer(TaipeiTown);
 				});
 			// Taipei Village Labels
-			fetch(`/mapData/taipei_village.geojson`)
+			fetch(`/mapData/taipei_village.geojson`, {
+				method: 'GET',
+				headers: {
+					'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
+				}
+			})
 				.then((response) => response.json())
 				.then((data) => {
 					this.map

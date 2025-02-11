@@ -4,9 +4,10 @@
 // This file centrally handles all axios requests made in the application.
 
 import axios from "axios";
-import { usePersonStore } from "../store/personStore";
+import { usePersonStore } from "../store/personStore.js";
 import { useDialogStore } from "../store/dialogStore";
 import { useContentStore } from "../store/contentStore";
+import { DataManager } from "../assets/utilityFunctions/dataManager.js";
 
 const http = axios.create({
 	baseURL: import.meta.env.VITE_API_URL,
@@ -23,8 +24,8 @@ http.interceptors.request.use((request) => {
 	contentStore.loading = true;
 	contentStore.error = false;
 
-	if (personStore.token) {
-		request.headers.setAuthorization(`Bearer ${personStore.token}`);
+	if (personStore.code) {
+		request.headers.setAuthorization(`Bearer ${personStore.code}`);
 	} else {
 		request.headers.setAuthorization(`Bearer`);
 	}
@@ -36,9 +37,11 @@ http.interceptors.response.use(
 	(response) => {
 		// handle loading directly in request since sometimes requests are stringed together
 		const personStore = usePersonStore();
-		if (response.data.token) {
-			personStore.token = response.data.token;
-			localStorage.setItem("token", response.data.token);
+		const dataManager = new DataManager(response.data);
+
+		if (dataManager.getData("data")) {
+			personStore.code = dataManager.getData("data");
+			localStorage.setItem("code", personStore.code);
 		}
 		return response;
 	},
@@ -52,7 +55,7 @@ http.interceptors.response.use(
 
 		switch (error.response.status) {
 			case 401:
-				if (personStore.token) {
+				if (personStore.code) {
 					dialogStore.showNotification(
 						"fail",
 						"401，登入逾時，請重新登入"
@@ -66,7 +69,7 @@ http.interceptors.response.use(
 				}
 				break;
 			case 403:
-				if (personStore.token) {
+				if (personStore.code) {
 					dialogStore.showNotification(
 						"fail",
 						"403，沒有權限執行此動作"
