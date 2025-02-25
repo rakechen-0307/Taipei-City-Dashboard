@@ -42,6 +42,10 @@ import { voronoi } from "../assets/utilityFunctions/voronoi.js";
 import { calculateHaversineDistance } from "../assets/utilityFunctions/calculateHaversineDistance";
 import { AnimatedArcLayer } from "../assets/configs/mapbox/arcAnimate.js";
 
+// public map data
+import taipeiTownData from '/mapData/taipei_town.geojson?url';
+import taipeiVillageData from '/mapData/taipei_village.geojson?url';
+
 export const useMapStore = defineStore("map", {
 	state: () => ({
 		// Array of layer IDs that are in the map
@@ -130,37 +134,19 @@ export const useMapStore = defineStore("map", {
 			const personStore = usePersonStore();
 			if (!this.map) return;
 			// Taipei District Labels
-			fetch(`/mapData/taipei_town.geojson`, {
-				method: 'GET',
-				headers: {
-					'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
-				}
-			})
-				.then((response) => response.json())
-				.then((data) => {
-					this.map
-						.addSource("taipei_town", {
-							type: "geojson",
-							data: data,
-						})
-						.addLayer(TaipeiTown);
-				});
+			this.map
+				.addSource("taipei_town", {
+					type: "geojson",
+					data: taipeiTownData,
+				})
+				.addLayer(TaipeiTown);
 			// Taipei Village Labels
-			fetch(`/mapData/taipei_village.geojson`, {
-				method: 'GET',
-				headers: {
-					'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
-				}
-			})
-				.then((response) => response.json())
-				.then((data) => {
-					this.map
-						.addSource("taipei_village", {
-							type: "geojson",
-							data: data,
-						})
-						.addLayer(TaipeiVillage);
-				});
+			this.map
+				.addSource("taipei_village", {
+					type: "geojson",
+					data: taipeiVillageData,
+				})
+				.addLayer(TaipeiVillage);
 			// Taipei 3D Buildings
 			if (!personStore.isMbDevice) {
 				this.map
