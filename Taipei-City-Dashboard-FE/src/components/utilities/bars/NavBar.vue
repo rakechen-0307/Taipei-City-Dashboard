@@ -7,14 +7,14 @@ const { VITE_APP_TITLE } = import.meta.env;
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 import { useFullscreen } from "@vueuse/core";
-import { useAuthStore } from "../../../store/authStore";
+import { usePersonStore } from "../../../store/personStore";
 import { useDialogStore } from "../../../store/dialogStore";
 
 import UserSettings from "../../dialogs/UserSettings.vue";
 import ContributorsList from "../../dialogs/ContributorsList.vue";
 
 const route = useRoute();
-const authStore = useAuthStore();
+const personStore = usePersonStore();
 const dialogStore = useDialogStore();
 const { isFullscreen, toggle } = useFullscreen();
 
@@ -44,17 +44,17 @@ const linkQuery = computed(() => {
     </a>
     <div
       v-if="
-        authStore.currentPath !== 'admin' &&
-          !(authStore.isMobileDevice && authStore.isNarrowDevice)
+        personStore.currentPath !== 'admin' &&
+          !(personStore.isMbDevice && personStore.isNarrowDevice)
       "
       class="navbar-tabs"
     >
       <router-link
-        v-if="authStore.token"
+        v-if="personStore.token"
         :to="`/component`"
         :class="{
           'router-link-active':
-            authStore.currentPath.includes('component'),
+            personStore.currentPath.includes('component'),
         }"
       >
         組件瀏覽平台
@@ -76,7 +76,7 @@ const linkQuery = computed(() => {
     </div>
     <div class="navbar-user">
       <button
-        v-if="!(authStore.isMobileDevice && authStore.isNarrowDevice)"
+        v-if="!(personStore.isMbDevice && personStore.isNarrowDevice)"
         class="hide-if-mobile"
         @click="toggle"
       >
@@ -108,13 +108,13 @@ const linkQuery = computed(() => {
       </div>
       <div
         v-if="
-          authStore.token &&
-            !(authStore.isMobileDevice && authStore.isNarrowDevice)
+          personStore.token &&
+            !(personStore.isMbDevice && personStore.isNarrowDevice)
         "
         class="navbar-user-user"
       >
         <button>
-          {{ authStore.user.name }}
+          {{ personStore.user.name }}
         </button>
         <ul>
           <li>
@@ -124,8 +124,8 @@ const linkQuery = computed(() => {
           </li>
           <li
             v-if="
-              authStore.currentPath !== 'admin' &&
-                authStore.user.is_admin
+              personStore.currentPath !== 'admin' &&
+                personStore.user.is_admin
             "
             class="hide-if-mobile"
           >
@@ -134,7 +134,7 @@ const linkQuery = computed(() => {
             </router-link>
           </li>
           <li
-            v-else-if="authStore.user.is_admin"
+            v-else-if="personStore.user.is_admin"
             class="hide-if-mobile"
           >
             <router-link to="/dashboard">
@@ -142,7 +142,7 @@ const linkQuery = computed(() => {
             </router-link>
           </li>
           <li>
-            <button @click="authStore.handleLogout">
+            <button @click="personStore.handleLogout">
               登出
             </button>
           </li>
@@ -153,7 +153,7 @@ const linkQuery = computed(() => {
       </div>
       <div
         v-else-if="
-          !(authStore.isMobileDevice && authStore.isNarrowDevice)
+          !(personStore.isMbDevice && personStore.isNarrowDevice)
         "
         class="navbar-user-user"
       >
