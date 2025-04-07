@@ -56,9 +56,12 @@ const formattedTimeToUpdate = computed(() => {
 
 function reloadChartData() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	if (!["dashboard", "mapview"].includes(authStore.currentPath)) return;
 	contentStore.setCurrentDashboardAllChartData();
 =======
+=======
+>>>>>>> main
 	if (!["dashboard", "mapview"].includes(personStore.currentPath)) return;
 	contentStore.setCurrentDashboardChartData();
 >>>>>>> main

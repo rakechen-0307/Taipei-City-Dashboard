@@ -2,9 +2,14 @@
 
 <script setup>
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { onMounted, ref, computed, watch } from "vue";
 import { useRoute } from "vue-router";
 import { useAuthStore } from "../../store/authStore";
+=======
+import { onMounted, ref, computed } from "vue";
+import { usePersonStore } from "../../store/personStore.js";
+>>>>>>> main
 =======
 import { onMounted, ref, computed } from "vue";
 import { usePersonStore } from "../../store/personStore.js";

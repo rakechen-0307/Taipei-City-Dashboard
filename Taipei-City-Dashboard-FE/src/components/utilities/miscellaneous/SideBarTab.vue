@@ -21,12 +21,15 @@ const personStore = usePersonStore();
 
 const tabLink = computed(() => {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	const isAdminPath = authStore.currentPath === "admin";
 	const cityParam = props.city ? `${isAdminPath ? "?" : "&"}city=${props.city}` : "";
 	return isAdminPath
 		? `/admin/${props.index}${cityParam}`
 		: `${route.path}?index=${props.index}${cityParam}`;
 =======
+=======
+>>>>>>> main
 	if (personStore.currentPath === "admin") {
 		return `/admin/${props.index}`;
 	}
@@ -35,6 +38,7 @@ const tabLink = computed(() => {
 });
 
 const linkActiveOrNot = computed(() => {
+<<<<<<< HEAD
 <<<<<<< HEAD
 	const isAdminPath = authStore.currentPath === "admin";
 	const isPathMatch = isAdminPath
@@ -46,6 +50,8 @@ const linkActiveOrNot = computed(() => {
 
 	return isPathMatch && isCityMatch;
 =======
+=======
+>>>>>>> main
 	if (personStore.currentPath === "admin") {
 		return route.path === `/admin/${props.index}` ? true : false;
 	}

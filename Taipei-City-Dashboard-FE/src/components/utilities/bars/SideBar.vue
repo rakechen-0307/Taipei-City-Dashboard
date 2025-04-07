@@ -81,6 +81,7 @@ onMounted(() => {
     }"
   >
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div
       class="sidebar-collapse-btnContainer"
       :class="{ notExpanded: !isExpanded }"
@@ -114,6 +115,8 @@ onMounted(() => {
         </template>
       </transition>
 =======
+=======
+>>>>>>> main
     <div v-if="personStore.token">
       <h2>{{ isExpanded ? `我的最愛` : `最愛` }}</h2>
       <SideBarTab

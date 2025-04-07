@@ -11,6 +11,7 @@ import SideBarTab from "../utilities/miscellaneous/SideBarTab.vue";
 const dialogStore = useDialogStore();
 const contentStore = useContentStore();
 <<<<<<< HEAD
+<<<<<<< HEAD
 const authStore = useAuthStore();
 
 // The collapsed states are for each dashboard
@@ -50,6 +51,9 @@ onMounted(() => {
 =======
 const personStore = usePersonStore();
 >>>>>>> main
+=======
+const personStore = usePersonStore();
+>>>>>>> main
 </script>
 
 <template>
@@ -65,6 +69,7 @@ const personStore = usePersonStore();
         />
         <div class="dialogcontainer-dialog">
           <div class="mobilenavigation">
+<<<<<<< HEAD
 <<<<<<< HEAD
             <template v-if="authStore.token">
               <h1 @click="toggleCollapse(['favorites', 'personal'])">
@@ -144,6 +149,8 @@ const personStore = usePersonStore();
               </transition>
             </template>
 =======
+=======
+>>>>>>> main
             <div v-if="personStore.token">
               <h2>我的最愛</h2>
               <SideBarTab

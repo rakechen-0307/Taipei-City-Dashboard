@@ -12,8 +12,12 @@ import { createRouter, createWebHistory } from "vue-router";
 import { useContentStore } from "../store/contentStore";
 import { useMapStore } from "../store/mapStore";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useAuthStore } from "../store/authStore";
 import { useAdminStore } from "../store/adminStore";
+=======
+import { usePersonStore } from "../store/personStore";
+>>>>>>> main
 =======
 import { usePersonStore } from "../store/personStore";
 >>>>>>> main
