@@ -96,6 +96,20 @@ export const usePersonStore = defineStore("person", {
 			const contentStore = useContentStore();
 
 			const dataManager = new DataManager(response.data);
+<<<<<<< HEAD
+=======
+
+			this.code = dataManager.getData("data");
+			localStorage.setItem("code", this.code);
+
+			if (dataManager.getData("taipei_code")) {
+				this.taipei_code = dataManager.getData("taipei_code");
+				localStorage.setItem("taipei_code", this.taipei_code);
+			}
+			
+			this.person = dataManager.getData("person");
+			this.editUser = JSON.parse(JSON.stringify(this.person));
+>>>>>>> main
 
 			this.code = dataManager.getData("data");
 			localStorage.setItem("code", this.code);
@@ -108,6 +122,7 @@ export const usePersonStore = defineStore("person", {
 			this.person = dataManager.getData("person");
 			this.editUser = JSON.parse(JSON.stringify(this.person));
 
+			contentStore.dashboards.clear()
 			contentStore.publicDashboards = [];
 			router.go();
 			dialogStore.showNotification("success", "登入成功");
@@ -122,9 +137,19 @@ export const usePersonStore = defineStore("person", {
 			this.editUser = {};
 			this.code = null;
 
+			contentStore.dashboards.clear()
 			contentStore.publicDashboards = [];
 
+<<<<<<< HEAD
+<<<<<<< HEAD:Taipei-City-Dashboard-FE/src/store/authStore.js
+
+			if (this.isso_token) {
+=======
 			if (this.taipei_code) {
+>>>>>>> main:Taipei-City-Dashboard-FE/src/store/personStore.js
+=======
+			if (this.taipei_code) {
+>>>>>>> main
 				await http.post(
 					"/auth/logout",
 					{},
