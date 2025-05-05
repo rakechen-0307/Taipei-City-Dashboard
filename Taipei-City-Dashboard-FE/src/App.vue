@@ -55,22 +55,15 @@ const formattedTimeToUpdate = computed(() => {
 });
 
 function reloadChartData() {
-<<<<<<< HEAD
-<<<<<<< HEAD
 	if (!["dashboard", "mapview"].includes(authStore.currentPath)) return;
 	contentStore.setCurrentDashboardAllChartData();
-=======
-=======
->>>>>>> main
-	if (!["dashboard", "mapview"].includes(personStore.currentPath)) return;
-	contentStore.setCurrentDashboardChartData();
->>>>>>> main
 	timeToUpdate.value = frequency.value;
 
 	if (isMappedToUpdateBoards.value) {
 		reloadMapData()
 	}
 }
+
 function updateTimeToUpdate() {
 	if (!["dashboard", "mapview"].includes(personStore.currentPath)) return;
 	if (timeToUpdate.value <= 0) {
