@@ -13,14 +13,14 @@ import DashboardComponent from "../dashboardComponent/DashboardComponent.vue";
 import router from "../router";
 import { useContentStore } from "../store/contentStore";
 import { useDialogStore } from "../store/dialogStore";
-import { usePersonStore } from "../store/personStore";
+import { useAuthStore } from "../store/authStore";
 
 import MoreInfo from "../components/dialogs/MoreInfo.vue";
 import ReportIssue from "../components/dialogs/ReportIssue.vue";
 
 const contentStore = useContentStore();
 const dialogStore = useDialogStore();
-const personStore = usePersonStore();
+const authStore = useAuthStore();
 
 function handleOpenSettings() {
 	contentStore.editDashboard = JSON.parse(
@@ -38,7 +38,7 @@ function toggleFavorite(id) {
 	}
 }
 function handleMoreInfo(item) {
-	if (personStore.isMbDevice && personStore.isNarrowDevice) {
+	if (authStore.isMobileDevice && authStore.isNarrowDevice) {
 		router.push({
 			name: "component-info",
 			params: { index: item.index },
@@ -61,7 +61,12 @@ function handleMoreInfo(item) {
       :config="item"
       mode="half"
       :info-btn="true"
-      :favorite-btn="personStore.token ? true : false"
+      :active-city="item.city"
+      :select-btn="true"
+      :select-btn-disabled="contentStore.cityManager.getSelectList(contentStore.currentDashboard?.city).length === 1"
+      :select-btn-list="contentStore.cityManager.getSelectList(contentStore.currentDashboard?.city)"
+      :city-tag="contentStore.cityManager.getTagList(contentStore.currentDashboard?.city)"
+      :favorite-btn="authStore.token ? true : false"
       :is-favorite="contentStore.favorites?.components.includes(item.id)"
       @favorite="
         (id) => {
@@ -73,6 +78,21 @@ function handleMoreInfo(item) {
           handleMoreInfo(item);
         }
       "
+      @change-city="(city)=> {
+        const selectedData = contentStore.cityDashboard.components.find((data) => {
+          if (data.index === item.index && data.city === city) {
+            return data
+          }
+        });
+
+        const componentIndex = contentStore.currentDashboard.components.findIndex(
+          (item) => item.id === selectedData.id
+        );
+
+        if (selectedData) {
+          contentStore.setComponentData(componentIndex, selectedData);
+        }
+      }"
     />
     <MoreInfo />
     <ReportIssue />
@@ -83,7 +103,7 @@ function handleMoreInfo(item) {
     class="dashboard"
   >
     <DashboardComponent
-      v-for="(item, arrayIdx) in contentStore.currentDashboard.components"
+      v-for="item in contentStore.currentDashboard.components"
       :key="`${item.index}-${item.city}`"
       :config="item"
       :info-btn="true"
@@ -104,7 +124,7 @@ function handleMoreInfo(item) {
           .includes(contentStore.currentDashboard.index)
       "
       :favorite-btn="
-        personStore.token &&
+        authStore.token &&
           contentStore.currentDashboard.icon !== 'favorite'
       "
       :is-favorite="contentStore.favorites?.components.includes(item.id)"
@@ -130,8 +150,12 @@ function handleMoreInfo(item) {
           }
         });
 
+        const componentIndex = contentStore.currentDashboard.components.findIndex(
+          (item) => item.id === selectedData.id
+        );
+
         if (selectedData) {
-          contentStore.setComponentData(arrayIdx,selectedData);
+          contentStore.setComponentData(componentIndex, selectedData);
         }
       }
       "

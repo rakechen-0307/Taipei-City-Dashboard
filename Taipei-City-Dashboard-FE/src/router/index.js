@@ -11,16 +11,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { useContentStore } from "../store/contentStore";
 import { useMapStore } from "../store/mapStore";
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { useAuthStore } from "../store/authStore";
 import { useAdminStore } from "../store/adminStore";
-=======
-import { usePersonStore } from "../store/personStore";
->>>>>>> main
-=======
-import { usePersonStore } from "../store/personStore";
->>>>>>> main
 import DashboardView from "../views/DashboardView.vue";
 import MapView from "../views/MapView.vue";
 import ComponentView from "../views/ComponentView.vue";
@@ -113,21 +105,21 @@ const router = createRouter({
 	routes,
 });
 
-// Sets route name to currentPath in personStore
+// Sets route name to currentPath in authStore
 router.beforeEach((to) => {
-	const personStore = usePersonStore();
+	const authStore = useAuthStore();
 
 	if (to.name.includes("admin")) {
-		personStore.setCurrentPath("admin");
+		authStore.setCurrentPath("admin");
 		return;
 	}
-	personStore.setCurrentPath(to.name);
+	authStore.setCurrentPath(to.name);
 });
 
 // Redirects blocked routes in mobile mode
 router.beforeEach((to) => {
-	const personStore = usePersonStore();
-	if (personStore.isMbDevice && personStore.isNarrowDevice) {
+	const authStore = useAuthStore();
+	if (authStore.isMobileDevice && authStore.isNarrowDevice) {
 		if (
 			!["dashboard", "component-info", "callback", "embed"].includes(
 				to.name
@@ -135,7 +127,7 @@ router.beforeEach((to) => {
 		) {
 			router.push("/dashboard");
 		}
-	} else if (personStore.token) {
+	} else if (authStore.token) {
 		if (to.name === "callback") {
 			router.push("/dashboard");
 		}
@@ -144,25 +136,25 @@ router.beforeEach((to) => {
 
 // Redirects unauthenticated routes
 router.beforeEach((to) => {
-	const personStore = usePersonStore();
+	const authStore = useAuthStore();
 	if (to.name.includes("admin")) {
-		if (!personStore.user.is_admin || !personStore.token) {
-			if (personStore.user.is_admin === false) {
+		if (!authStore.user.is_admin || !authStore.token) {
+			if (authStore.user.is_admin === false) {
 				router.push("/dashboard");
 			} else {
 				setTimeout(() => {
-					if (!personStore.user.is_admin) {
+					if (!authStore.user.is_admin) {
 						router.push("/dashboard");
 					}
 				}, 200);
 			}
 		}
 	} else if (to.name === "component") {
-		if (!personStore.token) {
+		if (!authStore.token) {
 			router.push("/dashboard");
 		}
 	} else if (to.name === "component-info") {
-		if (!personStore.token && !personStore.isNarrowDevice) {
+		if (!authStore.token && !authStore.isNarrowDevice) {
 			router.push("/dashboard");
 		}
 	}

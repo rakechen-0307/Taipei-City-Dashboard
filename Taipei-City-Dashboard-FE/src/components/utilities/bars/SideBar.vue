@@ -5,14 +5,14 @@ import { onMounted, ref, watch } from "vue";
 import { useContentStore } from "../../../store/contentStore";
 import { useDialogStore } from "../../../store/dialogStore";
 import { useMapStore } from "../../../store/mapStore";
-import { usePersonStore } from "../../../store/personStore";
+import { useAuthStore } from "../../../store/authStore";
 
 import SideBarTab from "../miscellaneous/SideBarTab.vue";
 
 const contentStore = useContentStore();
 const dialogStore = useDialogStore();
 const mapStore = useMapStore();
-const personStore = usePersonStore();
+const authStore = useAuthStore();
 
 // The expanded state is also stored in localstorage to retain the setting after refresh
 const isExpanded = ref(true);
@@ -80,8 +80,6 @@ onMounted(() => {
       'hide-if-mobile': true,
     }"
   >
-<<<<<<< HEAD
-<<<<<<< HEAD
     <div
       class="sidebar-collapse-btnContainer"
       :class="{ notExpanded: !isExpanded }"
@@ -114,18 +112,6 @@ onMounted(() => {
           />
         </template>
       </transition>
-=======
-=======
->>>>>>> main
-    <div v-if="personStore.token">
-      <h2>{{ isExpanded ? `我的最愛` : `最愛` }}</h2>
-      <SideBarTab
-        icon="favorite"
-        title="收藏組件"
-        :expanded="isExpanded"
-        :index="contentStore.favorites?.index"
-      />
->>>>>>> main
       <div class="sidebar-sub-add">
         <h2 @click="toggleCollapse('personal')">
           {{ isExpanded ? `個人儀表板 ` : `個人` }}
