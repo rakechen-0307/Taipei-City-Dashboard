@@ -10,8 +10,9 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "西門町商圈",
-                "type": "commercial",
+                "name": "西門町停車場",
+				"type": "parking",
+                "category": "traffic",
                 "city": "台北市",
                 "district": "萬華區"
             },
@@ -26,8 +27,9 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "西門町停車場",
-                "type": "parking",
+                "name": "西門町商圈",
+				"type": "nightmarket",
+                "category": "commercial",
                 "city": "台北市",
                 "district": "萬華區"
             },
@@ -43,7 +45,8 @@
             "type": "Feature",
             "properties": {
                 "name": "信義商圈",
-                "type": "commercial",
+				"type": "nightmarket",
+                "category": "commercial",
                 "city": "台北市",
                 "district": "信義區"
             },
@@ -59,7 +62,8 @@
             "type": "Feature",
             "properties": {
                 "name": "信義停車場",
-                "type": "parking",
+				"type": "parking",
+                "category": "traffic",
                 "city": "台北市",
                 "district": "信義區"
             },

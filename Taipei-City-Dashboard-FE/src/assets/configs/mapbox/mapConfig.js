@@ -554,9 +554,21 @@ export const maplayerCommonLayout = {
 	"symbol-commercial_parking": {
 		"icon-image": [
 			"case",
-			["==", ["get", "type"], "commercial"],
+			["==", ["get", "type"], "nightmarket"],
+			"commercial_area_1",
+			["==", ["get", "type"], "restaurant"],
+			"commercial_area_2",
+			["==", ["get", "type"], "art"],
+			"commercial_area_3",
+			["==", ["get", "type"], "clothes"],
+			"commercial_area_4",
+			["==", ["get", "type"], "tourism"],
 			"commercial_area_5",
-			"commercial_area_1"
+			["==", ["get", "type"], "parking"],
+			"traffic_1",
+			["==", ["get", "type"], "bus"],
+			"traffic_2",
+			"commercial_area_1",			
 		],
 		"icon-size": [
 			"case",

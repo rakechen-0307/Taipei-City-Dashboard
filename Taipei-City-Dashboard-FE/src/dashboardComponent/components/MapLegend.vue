@@ -22,6 +22,8 @@ import friendly_2 from "../assets/map/friendly_2.png";
 import friendly_3 from "../assets/map/friendly_3.png";
 import friendly_4 from "../assets/map/friendly_4.png";
 import friendly_5 from "../assets/map/friendly_5.png";
+import traffic_1 from "../assets/map/traffic_1.png";
+import traffic_2 from "../assets/map/traffic_2.png";
 
 const props = defineProps([
 	"chart_config",
@@ -80,6 +82,10 @@ function returnIcon(name) {
 		return friendly_4;
 	case "friendly_5":
 		return friendly_5;
+	case "traffic_1":
+		return traffic_1;
+	case "traffic_2":
+		return traffic_2;
 	default:
 		return "";
 	}

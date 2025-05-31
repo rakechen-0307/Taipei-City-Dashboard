@@ -221,6 +221,8 @@ export const useMapStore = defineStore("map", {
 				"friendly_3",
 				"friendly_4",
 				"friendly_5",
+				"traffic_1",
+				"traffic_2",
 			];
 			return Promise.all(images.map(element => {
 				return new Promise((resolve, reject) => {
@@ -856,9 +858,9 @@ export const useMapStore = defineStore("map", {
 				const clickedCoords = clickedFeature.geometry.coordinates;
 				console.log('clickedCoords:', clickedCoords);
 				
-				if(clickedFeature.properties.type === "commercial") {
+				if(clickedFeature.properties.category === "commercial") {
 					this.srcCount++;
-					const parkingLots = data.features.filter(feature => feature.properties.type === "parking");
+					const parkingLots = data.features.filter(feature => feature.properties.category === "traffic");
 					console.log('parkingLots:', JSON.stringify(parkingLots));
 					
 					const nearbyParkingLots = parkingLots.filter(parking => {
