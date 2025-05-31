@@ -10,17 +10,64 @@
         {
             "type": "Feature",
             "properties": {
-                "sna": "A商圈",
-				"sno": 500201001,
-                "type": "nightmarket",
-				"city": "台北市",
-				"district": "中正區"
+                "name": "西門町商圈",
+                "type": "commercial",
+                "city": "台北市",
+                "district": "萬華區"
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    121.5436,
-                    25.02605
+                    121.3075,
+                    25.0421
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "西門町停車場",
+                "type": "parking",
+                "city": "台北市",
+                "district": "萬華區"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    121.5085,
+                    25.0431
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "信義商圈",
+                "type": "commercial",
+                "city": "台北市",
+                "district": "信義區"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    121.5654,
+                    25.0330
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "信義停車場",
+                "type": "parking",
+                "city": "台北市",
+                "district": "信義區"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    121.7664,
+                    25.0340
                 ]
             }
         }

@@ -19,7 +19,7 @@ export default [
 			quotes: "off",
 			semi: "off",
 			"spaced-comment": "off",
-			"no-console": ["error", { allow: ["warn", "error"] }],
+			// "no-console": ["error", { allow: ["warn", "error"] }],
 			"consistent-return": "off",
 			"func-names": "off",
 			"object-shorthand": "off",

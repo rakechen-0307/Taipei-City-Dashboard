@@ -17,6 +17,11 @@ import commercial_area_2 from "../assets/map/commercial_area_2.png";
 import commercial_area_3 from "../assets/map/commercial_area_3.png";
 import commercial_area_4 from "../assets/map/commercial_area_4.png";
 import commercial_area_5 from "../assets/map/commercial_area_5.png";
+import friendly_1 from "../assets/map/friendly_1.png";
+import friendly_2 from "../assets/map/friendly_2.png";
+import friendly_3 from "../assets/map/friendly_3.png";
+import friendly_4 from "../assets/map/friendly_4.png";
+import friendly_5 from "../assets/map/friendly_5.png";
 
 const props = defineProps([
 	"chart_config",
@@ -65,6 +70,16 @@ function returnIcon(name) {
 		return commercial_area_4;
 	case "commercial_area_5":
 		return commercial_area_5;
+	case "friendly_1":
+		return friendly_1;
+	case "friendly_2":
+		return friendly_2;
+	case "friendly_3":
+		return friendly_3;
+	case "friendly_4":
+		return friendly_4;
+	case "friendly_5":
+		return friendly_5;
 	default:
 		return "";
 	}

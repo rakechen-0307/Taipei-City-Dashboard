@@ -378,6 +378,19 @@ export const maplayerCommonPaint = {
 		"line-dasharray": [2, 4],
 	},
 	symbol: {},
+	"symbol-commercial_parking": {
+		"text-color": "#ffffff",
+		"text-halo-color": "#000000",
+		"text-halo-width": 1,
+		"line-color": "#FFD700",
+		"line-width": 2,
+		"line-dasharray": [2, 2]
+	},
+	"line-commercial_parking": {
+		"line-color": "#FFD700",
+		"line-width": 2,
+		"line-dasharray": [2, 2]
+	},
 };
 
 // Layout Properties
@@ -538,4 +551,75 @@ export const maplayerCommonLayout = {
 			60,
 		],
 	},
+	"symbol-commercial_parking": {
+		"icon-image": [
+			"case",
+			["==", ["get", "type"], "commercial"],
+			"commercial_area_5",
+			"commercial_area_1"
+		],
+		"icon-size": [
+			"case",
+			["==", ["get", "type"], "commercial"],
+			0.5,
+			0.5
+		],
+		"text-field": [
+			"case",
+			["has", "distance"],
+			["concat", ["get", "distance"], "m"],
+			["get", "name"]
+		],
+		"text-offset": [
+			"case",
+			["has", "distance"],
+			[0, 0],
+			[0, 1.5]
+		],
+		"text-anchor": [
+			"case",
+			["has", "distance"],
+			"center",
+			"top"
+		],
+		"text-size": [
+			"case",
+			["has", "distance"],
+			12,
+			14
+		],
+		"text-allow-overlap": true,
+		"text-ignore-placement": true,
+	},	
+	"line-commercial_parking": {
+		"line-color": "#FFD700",
+		"line-width": 2,
+		"line-dasharray": [2, 2]
+	},
+	"symbol-friendly":{
+		"icon-image": [
+			"case",
+			["==", ["get", "type"], "English"],
+			"friendly_4",
+			["==", ["get", "type"], "BarrierFree"],
+			"friendly_2",
+			["==", ["get", "type"], "GenderFriendly"],
+			"friendly_1",
+			["==", ["get", "type"], "Vegetarian"],
+			"friendly_3",
+			["==", ["get", "type"], "BreastfeedingFriendly"],
+			"friendly_5",
+		],
+		"icon-size": [
+			"interpolate",
+			["linear"],
+			["zoom"],
+			11.99,
+			0.5,
+			14,
+			0.7,
+			22,
+			1,
+		]
+	}
 };
