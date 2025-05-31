@@ -1,0 +1,89 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+	  {
+		"type": "Feature",
+		"properties": {
+		  "id": "C001",
+		  "name": "信義商圈",
+		  "type": "commercial",
+		  "area": 150000,
+		  "description": "台北市主要商業區之一"
+		},
+		"geometry": {
+		  "type": "Point",
+		  "coordinates": [121.566, 25.034]
+		}
+	  },
+	  {
+		"type": "Feature",
+		"properties": {
+		  "id": "C002",
+		  "name": "西門町商圈",
+		  "type": "commercial",
+		  "area": 120000,
+		  "description": "台北市著名商圈"
+		},
+		"geometry": {
+		  "type": "Point",
+		  "coordinates": [121.506, 25.042]
+		}
+	  },
+	  {
+		"type": "Feature",
+		"properties": {
+		  "id": "P001",
+		  "name": "信義商圈停車場A",
+		  "type": "parking",
+		  "capacity": 200,
+		  "fee": "50元/小時"
+		},
+		"geometry": {
+		  "type": "Point",
+		  "coordinates": [121.566, 25.034]
+		}
+	  },
+	  {
+		"type": "Feature",
+		"properties": {
+		  "id": "P002",
+		  "name": "信義商圈停車場B",
+		  "type": "parking",
+		  "capacity": 150,
+		  "fee": "40元/小時"
+		},
+		"geometry": {
+		  "type": "Point",
+		  "coordinates": [121.564, 25.034]
+		}
+	  },
+	  {
+		"type": "Feature",
+		"properties": {
+		  "id": "P003",
+		  "name": "西門町停車場A",
+		  "type": "parking",
+		  "capacity": 180,
+		  "fee": "45元/小時"
+		},
+		"geometry": {
+		  "type": "Point",
+		  "coordinates": [121.506, 25.042]
+		}
+	  },
+	  {
+		"type": "Feature",
+		"properties": {
+		  "id": "P004",
+		  "name": "西門町停車場B",
+		  "type": "parking",
+		  "capacity": 120,
+		  "fee": "35元/小時"
+		},
+		"geometry": {
+		  "type": "Point",
+		  "coordinates": [121.504, 25.042]
+		}
+	  }
+	]
+  } 

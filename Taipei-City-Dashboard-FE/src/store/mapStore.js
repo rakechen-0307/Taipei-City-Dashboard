@@ -182,7 +182,6 @@ export const useMapStore = defineStore("map", {
 					],
 				})
 				.addLayer(metroTpDistrict);
-
 			this.addSymbolSources();
 		},
 		// 3. Adds symbols that will be used by some map layers
@@ -195,6 +194,11 @@ export const useMapStore = defineStore("map", {
 				"bike_orange",
 				"bike_red",
 				"cctv",
+				"commercial_area_1",
+				"commercial_area_2",
+				"commercial_area_3",
+				"commercial_area_4",
+				"commercial_area_5",
 			];
 			images.forEach((element) => {
 				this.map.loadImage(
@@ -309,7 +313,7 @@ export const useMapStore = defineStore("map", {
 		},
 		// 3-1. Add a local geojson as a source in mapbox
 		addGeojsonSource(map_config, data) {
-			if (!["voronoi", "isoline"].includes(map_config.type)) {
+			if (!["voronoi", "isoline", "commercial-parking"].includes(map_config.type)) {
 				this.map.addSource(`${map_config.layerId}-source`, {
 					type: "geojson",
 					data: { ...data },
@@ -321,6 +325,8 @@ export const useMapStore = defineStore("map", {
 				this.AddVoronoiMapLayer(map_config, data);
 			} else if (map_config.type === "isoline") {
 				this.AddIsolineMapLayer(map_config, data);
+			} else if (map_config.type === "commercial-parking") {
+				this.AddCommercialParkingMapLayer(map_config, data);
 			} else {
 				this.addMapLayer(map_config);
 			}
@@ -756,6 +762,155 @@ export const useMapStore = defineStore("map", {
 				source: "geojson",
 			};
 			this.addMapLayer(new_map_config);
+		},
+		AddCommercialParkingMapLayer(map_config, data) {
+			this.loadingLayers.push("rendering");
+			
+			const commercialAreas = data.features.filter(f => f.properties.type === 'commercial');
+			const parkingLots = data.features.filter(f => f.properties.type === 'parking');
+			
+			this.map.addSource(`${map_config.layerId}-commercial-source`, {
+				type: "geojson",
+				data: {
+					type: "FeatureCollection",
+					features: commercialAreas
+				}
+			});
+			
+			this.map.addSource(`${map_config.layerId}-parking-source`, {
+				type: "geojson",
+				data: {
+					type: "FeatureCollection",
+					features: parkingLots
+				}
+			});
+			
+			const commercialLayerId = `${map_config.layerId}-commercial`;
+			const parkingLayerId = `${map_config.layerId}-parking`;
+			
+			this.map.addLayer({
+				id: commercialLayerId,
+				type: "symbol",
+				source: `${map_config.layerId}-commercial-source`,
+				layout: {
+					"icon-image": "triangle_green",
+					"icon-size": 1.5,
+					"text-field": ["get", "name"],
+					"text-offset": [0, 1.5],
+					"text-anchor": "top"
+				},
+				paint: {
+					"text-color": "#ffffff",
+					"text-halo-color": "#000000",
+					"text-halo-width": 1
+				}
+			});
+			
+			this.map.addLayer({
+				id: parkingLayerId,
+				type: "symbol",
+				source: `${map_config.layerId}-parking-source`,
+				layout: {
+					"icon-image": "metro",
+					"icon-size": 1,
+					"text-field": ["get", "name"],
+					"text-offset": [0, 1.5],
+					"text-anchor": "top"
+				},
+				paint: {
+					"text-color": "#ffffff",
+					"text-halo-color": "#000000",
+					"text-halo-width": 1
+				}
+			});
+			
+			this.currentLayers.push(commercialLayerId, parkingLayerId);
+			this.mapConfigs[commercialLayerId] = map_config;
+			this.mapConfigs[parkingLayerId] = map_config;
+			this.currentVisibleLayers.push(commercialLayerId, parkingLayerId);
+			
+			this.map.on('click', commercialLayerId, (e) => {
+				const clickedFeature = e.features[0];
+				const clickedCoords = clickedFeature.geometry.coordinates;
+				
+				const nearbyParkingLots = parkingLots.filter(parking => {
+					const distance = calculateHaversineDistance(
+						{ latitude: clickedCoords[1], longitude: clickedCoords[0] },
+						{ latitude: parking.geometry.coordinates[1], longitude: parking.geometry.coordinates[0] }
+					);
+					return distance <= 500;
+				});
+				
+				const connectionFeatures = nearbyParkingLots.map(parking => ({
+					type: "Feature",
+					properties: {
+						distance: Math.round(calculateHaversineDistance(
+							{ latitude: clickedCoords[1], longitude: clickedCoords[0] },
+							{ latitude: parking.geometry.coordinates[1], longitude: parking.geometry.coordinates[0] }
+						))
+					},
+					geometry: {
+						type: "LineString",
+						coordinates: [clickedCoords, parking.geometry.coordinates]
+					}
+				}));
+				
+				if (this.map.getSource(`${map_config.layerId}-connections-source`)) {
+					this.map.removeSource(`${map_config.layerId}-connections-source`);
+				}
+				
+				this.map.addSource(`${map_config.layerId}-connections-source`, {
+					type: "geojson",
+					data: {
+						type: "FeatureCollection",
+						features: connectionFeatures
+					}
+				});
+				
+				if (this.map.getLayer(`${map_config.layerId}-connections`)) {
+					this.map.removeLayer(`${map_config.layerId}-connections`);
+				}
+				
+				this.map.addLayer({
+					id: `${map_config.layerId}-connections`,
+					type: "line",
+					source: `${map_config.layerId}-connections-source`,
+					paint: {
+						"line-color": "#FFD700",
+						"line-width": 2,
+						"line-dasharray": [2, 2]
+					}
+				});
+				
+				this.map.addLayer({
+					id: `${map_config.layerId}-distance-labels`,
+					type: "symbol",
+					source: `${map_config.layerId}-connections-source`,
+					layout: {
+						"text-field": ["concat", ["get", "distance"], "m"],
+						"text-anchor": "center",
+						"text-offset": [0, 0],
+						"text-size": 12
+					},
+					paint: {
+						"text-color": "#FFFFFF",
+						"text-halo-color": "#000000",
+						"text-halo-width": 1
+					}
+				});
+			});
+			
+			this.map.on('mouseenter', commercialLayerId, () => {
+				this.map.getCanvas().style.cursor = 'pointer';
+			});
+			
+			this.map.on('mouseleave', commercialLayerId, () => {
+				this.map.getCanvas().style.cursor = '';
+			});
+			
+			this.loadingLayers = this.loadingLayers.filter(
+				(el) => el !== map_config.layerId
+			);
 		},
 		//  5. Turn on the visibility for a exisiting map layer
 		turnOnMapLayerVisibility(mapLayerId) {

@@ -12,6 +12,11 @@ import bike_red from "../assets/map/bike_red.png";
 import cross_bold from "../assets/map/cross_bold.png";
 import cross_normal from "../assets/map/cross_normal.png";
 import cctv from "../assets/map/cctv.png";
+import commercial_area_1 from "../assets/map/commercial_area_1.png";
+import commercial_area_2 from "../assets/map/commercial_area_2.png";
+import commercial_area_3 from "../assets/map/commercial_area_3.png";
+import commercial_area_4 from "../assets/map/commercial_area_4.png";
+import commercial_area_5 from "../assets/map/commercial_area_5.png";
 
 const props = defineProps([
 	"chart_config",
@@ -50,6 +55,16 @@ function returnIcon(name) {
 		return cross_normal;
 	case "cctv":
 		return cctv;
+	case "commercial_area_1":
+		return commercial_area_1;
+	case "commercial_area_2":
+		return commercial_area_2;
+	case "commercial_area_3":
+		return commercial_area_3;
+	case "commercial_area_4":
+		return commercial_area_4;
+	case "commercial_area_5":
+		return commercial_area_5;
 	default:
 		return "";
 	}

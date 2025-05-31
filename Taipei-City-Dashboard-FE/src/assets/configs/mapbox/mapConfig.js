@@ -39,6 +39,7 @@ export const mapTypes = {
 	arc: "立體弧線圖",
 	voronoi: "泰森多邊形",
 	isoline: "等高線圖",
+	"commercial-parking": "商業區停車場",
 };
 
 // Styles for base layer "Taipei Town"
@@ -424,14 +425,41 @@ export const maplayerCommonLayout = {
 	"symbol-triangle_white": {
 		"icon-image": "triangle_white",
 	},
+	"symbol-commercial_area": {
+		"icon-image": [
+			"case",
+			["==", ["get", "type"], "nightmarket"],
+			"commercial_area_1",
+			["==", ["get", "type"], "restaurant"],
+			"commercial_area_2",
+			["==", ["get", "type"], "art"],
+			"commercial_area_3",
+			["==", ["get", "type"], "clothes"],
+			"commercial_area_4",
+			["==", ["get", "type"], "tourism"],
+			"commercial_area_5",
+			"bike_green",
+		],
+		"icon-size": [
+			"interpolate",
+			["linear"],
+			["zoom"],
+			11.99,
+			1,
+			14,
+			1.5,
+			22,
+			2,
+		],
+	},
 	"symbol-youbike": {
 		"icon-image": [
 			"case",
 			["==", ["get", "available_return_bikes"], 0],
-			"bike_red",
+			"commercial_area_1",
 			["==", ["get", "available_rent_general_bikes"], 0],
-			"bike_orange",
-			"bike_green",
+			"commercial_area_2",
+			"commercial_area_3",
 		],
 		"icon-size": [
 			"interpolate",
