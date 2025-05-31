@@ -11,7 +11,7 @@
             "type": "Feature",
             "properties": {
                 "name": "西門町停車場",
-				"type": "parking",
+				"type": "bus",
                 "category": "traffic",
                 "city": "台北市",
                 "district": "萬華區"

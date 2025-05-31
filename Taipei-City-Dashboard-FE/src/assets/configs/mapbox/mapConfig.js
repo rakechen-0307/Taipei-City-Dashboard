@@ -568,7 +568,7 @@ export const maplayerCommonLayout = {
 			"traffic_1",
 			["==", ["get", "type"], "bus"],
 			"traffic_2",
-			"commercial_area_1",			
+			"commercial_area_3",			
 		],
 		"icon-size": [
 			"case",
