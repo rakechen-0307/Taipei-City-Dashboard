@@ -1,2371 +1,3371 @@
 {
-  "type": "FeatureCollection",
-  "crs": {
-    "type": "name",
-    "properties": {
-      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
-    }
-  },
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "臺灣史前動物特展",
-        "id": 2,
-        "date": "1月",
-        "address": "249 新北市八里區博物館路200號(新北市立十三行博物館)",
-        "city": "新北市",
-        "district": "八里區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3029",
-        "hits": 1484
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4048561,
-          25.1568739
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "《淡古聯萌》IP特展",
-        "id": 3,
-        "date": "2月",
-        "address": "251 新北市淡水區中正路259號(淡水海關碼頭園區)",
-        "city": "新北市",
-        "district": "淡水區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/2805",
-        "hits": 4304
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.431753,
-          25.174482
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Woo礦石色",
-        "id": 4,
-        "date": "4月",
-        "address": "224 新北市瑞芳區金光路8號(新北市立黃金博物館 煉金樓1樓特展室)",
-        "city": "新北市",
-        "district": "瑞芳區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/2806",
-        "hits": 2999
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.8596365,
-          25.1061358
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "RE ³布袋戲特展 (Recreate X Reimagine X Remake)",
-        "id": 5,
-        "date": "6月",
-        "address": "242 新北市新莊區中平路133號(新莊文藝中心)",
-        "city": "新北市",
-        "district": "新莊區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/2447",
-        "hits": 2929
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.444383859634,
-          25.0472210720829
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "新北市113年食農教育特展",
-        "id": 6,
-        "date": "6月",
-        "address": "249 新北市八里區觀海大道36號(新北市永續環境教育中心)",
-        "city": "新北市",
-        "district": "八里區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/2505",
-        "hits": 4140
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4303267,
-          25.1606311
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "「茶與王」特展",
-        "id": 7,
-        "date": "7月",
-        "address": "232 新北市坪林區水德里水聳淒坑19-1號(新北市坪林茶業博物館 展示館1F)",
-        "city": "新北市",
-        "district": "坪林區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/2608",
-        "hits": 3865
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.7127515,
-          24.934495
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "113年濕地故事館巡守隊特展｜即拾巡樂",
-        "id": 8,
-        "date": "9月",
-        "address": "220 新北市板橋區中正路435號(濕地故事館2樓)",
-        "city": "新北市",
-        "district": "板橋區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/2797",
-        "hits": 974
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4517761,
-          25.023619
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2024臺灣國際陶藝雙年展",
-        "id": 9,
-        "date": "10月",
-        "address": "239 新北市鶯歌區文化路200號(新北市立鶯歌陶瓷博物館 三樓特展室)",
-        "city": "新北市",
-        "district": "鶯歌區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/2740",
-        "hits": 2944
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.352032,
-          24.949251
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "「少年拍-Video Format of You」特展",
-        "id": 10,
-        "date": "10月",
-        "address": "220 新北市板橋區府中路15號(府中15 一樓直播室、三樓-五樓展覽室 )",
-        "city": "新北市",
-        "district": "板橋區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/2824",
-        "hits": 632
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.459579244256,
-          25.0094887418255
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "李亮一紀念展",
-        "id": 11,
-        "date": "11月",
-        "address": "239 新北市鶯歌區新北市立鶯歌陶瓷博物館",
-        "city": "新北市",
-        "district": "鶯歌區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/2930",
-        "hits": 437
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.352032,
-          24.949251
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2024新北歡樂耶誕城",
-        "id": 0,
-        "date": "11月",
-        "address": "220 新北市板橋區中山路一段161號(市民廣場)",
-        "city": "新北市",
-        "district": "板橋區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/2887",
-        "hits": 133924
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4655166,
-          25.0123132
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "「漫遊．藝宇宙」新北市國際藝術村成果展",
-        "id": 12,
-        "date": "11月",
-        "address": "251 新北市淡水區淡水區觀海路91號(滬水一方藝文空間5樓)",
-        "city": "新北市",
-        "district": "淡水區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3164",
-        "hits": 361
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4139304,
-          25.1823658
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "1拍3響—拍出我的主場｜府中15十三週年",
-        "id": 13,
-        "date": "12月",
-        "address": "220 新北市板橋區府中15",
-        "city": "新北市",
-        "district": "板橋區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/2996",
-        "hits": 220
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.459578573704,
-          25.0094887418255
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2024光映淡水—無垠之光",
-        "id": 14,
-        "date": "12月",
-        "address": "251 新北市淡水區海關碼頭",
-        "city": "新北市",
-        "district": "淡水區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/2972",
-        "hits": 1106
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.431753,
-          25.174482
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "稅關新人下班生存指南｜淡水稅關五十會特展",
-        "id": 15,
-        "date": "12月",
-        "address": "251 新北市淡水區中正路259號(淡水海關碼頭園區倉庫)",
-        "city": "新北市",
-        "district": "淡水區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3190",
-        "hits": 1879
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.431753,
-          25.174482
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "從保存到再造｜林主勵新秀創作個展",
-        "id": 16,
-        "date": "12月",
-        "address": "239 新北市鶯歌區新北市立鶯歌陶瓷博物館(B1陶藝長廊)",
-        "city": "新北市",
-        "district": "鶯歌區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3025",
-        "hits": 329
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.352032,
-          24.949251
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "巫登益美術館12月活動亮點：藝術交響曲｜藝術刮刮樂",
-        "id": 17,
-        "date": "12月",
-        "address": "251 新北市淡水區真理街(巫登益美術館)",
-        "city": "新北市",
-        "district": "淡水區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3031",
-        "hits": 329
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4358278,
-          25.1746997
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "114年新北市元旦升旗暨健走活動",
-        "id": 18,
-        "date": "1月",
-        "address": "231 新北市新店區碧潭東岸廣場",
-        "city": "新北市",
-        "district": "新店區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3028",
-        "hits": 2120
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.537067562171,
-          24.9601652594069
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "遷年流遇—新北客家山河紀",
-        "id": 19,
-        "date": "1月",
-        "address": "237 新北市三峽區新北市客家文化園區",
-        "city": "新北市",
-        "district": "三峽區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3163",
-        "hits": 1566
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.3598,
-          24.9417
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "114年新春揮毫贈春聯活動",
-        "id": 20,
-        "date": "1月",
-        "address": "244 新北市林口區",
-        "city": "新北市",
-        "district": "林口區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3038",
-        "hits": 2761
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.3881378,
-          25.0790108
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "新北市114年119消防節誌慶活動",
-        "id": 21,
-        "date": "1月",
-        "address": "220 新北市板橋區遠東香榭大道",
-        "city": "新北市",
-        "district": "板橋區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3061",
-        "hits": 2195
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4546376,
-          24.9984254
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "金蛇陶喜｜2025陶博館春節活動",
-        "id": 22,
-        "date": "1月",
-        "address": "239 新北市鶯歌區新北市立鶯歌陶瓷博物館",
-        "city": "新北市",
-        "district": "鶯歌區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3146",
-        "hits": 390
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.352032,
-          24.949251
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "感動蛇｜陶博聯展",
-        "id": 23,
-        "date": "1月",
-        "address": "239 新北市鶯歌區鶯歌陶瓷博物館",
-        "city": "新北市",
-        "district": "鶯歌區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3145",
-        "hits": 936
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.352032,
-          24.949251
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "運動競化論-古代生活與現代競技特展",
-        "id": 24,
-        "date": "1月",
-        "address": "249 新北市八里區十三行博物館第一特展廳",
-        "city": "新北市",
-        "district": "八里區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3067",
-        "hits": 1770
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.404853463173,
-          25.1568754504822
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "微笑山線成果發表會｜親近山林自然微笑：新北山林聚落的地景與日常",
-        "id": 25,
-        "date": "1月",
-        "address": "220 新北市板橋區府中路29-2號3樓(良師塾人文食飲)",
-        "city": "新北市",
-        "district": "板橋區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3088",
-        "hits": 274
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4583994,
-          25.0082526
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025 金蛇迎春：禮物製造所",
-        "id": 26,
-        "date": "1月",
-        "address": "220 新北市板橋區縣民大道二段275號(傑仕堡有氧園區)",
-        "city": "新北市",
-        "district": "板橋區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3072",
-        "hits": 796
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4694095,
-          25.0176523
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "蛇來蛇去~蛇到435訪春神！",
-        "id": 27,
-        "date": "1月",
-        "address": "220 新北市板橋區板橋435藝文特區",
-        "city": "新北市",
-        "district": "板橋區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3107",
-        "hits": 396
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4523308,
-          25.0241693
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025 「蛇麼都好運」春節活動",
-        "id": 28,
-        "date": "1月",
-        "address": "224 新北市瑞芳區新北市立黃金博物館",
-        "city": "新北市",
-        "district": "瑞芳區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3128",
-        "hits": 621
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.8596365,
-          25.1061358
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025汐止康誥坑溪文化櫻花季",
-        "id": 29,
-        "date": "1月",
-        "address": "221 新北市汐止區康誥坑溪櫻花大道",
-        "city": "新北市",
-        "district": "汐止區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3106",
-        "hits": 810
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.6535965,
-          25.0598368
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "穿山而過 Passing Through",
-        "id": 30,
-        "date": "1月",
-        "address": "239 新北市鶯歌區新北市美術館戶外園區",
-        "city": "新北市",
-        "district": "鶯歌區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3102",
-        "hits": 1052
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.3574662,
-          24.9528393
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025蛇來運轉迎新春｜國定古蹟林本源園邸",
-        "id": 31,
-        "date": "1月",
-        "address": "220 新北市板橋區國定古蹟林本源園邸 - 板橋林家花園",
-        "city": "新北市",
-        "district": "板橋區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3144",
-        "hits": 353
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4546023,
-          25.0110814
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "新北蒔花好綻｜2025花見櫻花季",
-        "id": 32,
-        "date": "1月",
-        "address": "251 新北市淡水區無極天元宮",
-        "city": "新北市",
-        "district": "淡水區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3142",
-        "hits": 389
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4847762,
-          25.1864699
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "不可回收的時尚｜高蓮秀陶藝展",
-        "id": 33,
-        "date": "1月",
-        "address": "239 新北市鶯歌區文化路200號(新北市立鶯歌陶瓷博物館 B1陶藝長廊)",
-        "city": "新北市",
-        "district": "鶯歌區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3187",
-        "hits": 184
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.352032,
-          24.949251
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025新北燈會",
-        "id": 34,
-        "date": "2月",
-        "address": "241 新北市三重區 新北大都會公園 幸福水漾園區",
-        "city": "新北市",
-        "district": "三重區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3087",
-        "hits": 2826
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.48175,
-          25.0515168
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "做自己的光  Be A Light Unto Yourself｜李潔如陶藝創作個展",
-        "id": 35,
-        "date": "2月",
-        "address": "241 新北市三重區正義南路68巷2號(空軍三重一村)",
-        "city": "新北市",
-        "district": "三重區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3206",
-        "hits": 580
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.499417424202,
-          25.057737539193
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "一村有年味｜2025百人搖元宵",
-        "id": 36,
-        "date": "2月",
-        "address": "241 新北市三重區空軍三重一村廣場",
-        "city": "新北市",
-        "district": "三重區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3147",
-        "hits": 381
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4994182,
-          25.057737
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025新北櫻花季｜石碇賞櫻趣",
-        "id": 37,
-        "date": "2月",
-        "address": "223 新北市石碇區二格公園",
-        "city": "新北市",
-        "district": "石碇區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3148",
-        "hits": 793
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.6240519,
-          24.9567629
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025新北市平溪天燈節",
-        "id": 38,
-        "date": "2月",
-        "address": "226 新北市平溪區",
-        "city": "新北市",
-        "district": "平溪區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3070",
-        "hits": 6971
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.7408654,
-          25.0248314
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025新北市樹林之美新春嘉年華燈會",
-        "id": 39,
-        "date": "2月",
-        "address": "238 新北市樹林區樹林車站",
-        "city": "新北市",
-        "district": "樹林區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3160",
-        "hits": 827
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4244296,
-          24.9913972
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025新北市宗教文化節｜野柳神明淨港文化祭活動",
-        "id": 40,
-        "date": "2月",
-        "address": "207 新北市萬里區野柳保安宮前廣場",
-        "city": "新北市",
-        "district": "萬里區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3159",
-        "hits": 406
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.6880603,
-          25.204369
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "《時代印記：老街與烏來橋影像展》",
-        "id": 41,
-        "date": "2月",
-        "address": "233 新北市烏來區烏來街12號(新北市烏來泰雅民族博物館 1樓)",
-        "city": "新北市",
-        "district": "烏來區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3189",
-        "hits": 1447
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.5515073,
-          24.86409
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "「LOVE中．樂府中」府中雙城情人節系列活動｜府中戀舞宮 ",
-        "id": 42,
-        "date": "2月",
-        "address": "220 新北市板橋區府中廣場",
-        "city": "新北市",
-        "district": "板橋區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3161",
-        "hits": 407
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4587887,
-          25.0092047
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "114年新北市天穿日活動｜客式綠生活",
-        "id": 43,
-        "date": "2月",
-        "address": "237 新北市三峽區隆恩街239號(新北市客家文化園區)",
-        "city": "新北市",
-        "district": "三峽區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3188",
-        "hits": 266
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.3598,
-          24.9417
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025世界棒球經典賽資格賽｜直播派對",
-        "id": 44,
-        "date": "2月",
-        "address": "220 新北市板橋區新北市政府市民廣場",
-        "city": "新北市",
-        "district": "板橋區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3196",
-        "hits": 295
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.464979,
-          25.0132388
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025三芝櫻花季文創聯展",
-        "id": 45,
-        "date": "2月",
-        "address": "252 新北市三芝區田心子1-2號(三芝興華驛站二層-農業及藝術教育中心)",
-        "city": "新北市",
-        "district": "三芝區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3216",
-        "hits": 890
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.5020786,
-          25.2036887
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Pokémon GO Tour：合眾地區-新北",
-        "id": 46,
-        "date": "2月",
-        "address": "241 新北市三重區水漾路一段(新北大都會公園)",
-        "city": "新北市",
-        "district": "三重區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/2982",
-        "hits": 2465
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4807459,
-          25.055464
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025中港大排光雕展｜光影中港 神幻秘境",
-        "id": 47,
-        "date": "2月",
-        "address": "242 新北市新莊區中港大排中港廣場",
-        "city": "新北市",
-        "district": "新莊區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3211",
-        "hits": 23506
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4539203,
-          25.0456096
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "蝶衣｜李存仁、汪弘玉陶藝聯展",
-        "id": 48,
-        "date": "2月",
-        "address": "239 新北市鶯歌區文化路200號(新北市立鶯歌陶瓷博物館  B1陶藝長廊)",
-        "city": "新北市",
-        "district": "鶯歌區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3203",
-        "hits": 821
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.352032,
-          24.949251
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025萬金杜鵑『38花花競走』",
-        "id": 49,
-        "date": "3月",
-        "address": "207 新北市萬里區萬里觀光公園",
-        "city": "新北市",
-        "district": "萬里區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3214",
-        "hits": 208
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.6832081,
-          25.1738655
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025新北蒔花好綻｜金山區賞櫻健行",
-        "id": 50,
-        "date": "3月",
-        "address": "208 新北市金山區中山溫泉公園",
-        "city": "新北市",
-        "district": "金山區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3219",
-        "hits": 303
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.6404309,
-          25.2215748
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "「LOVE中．樂府中」府中雙城情人節系列活動｜一府二路散散步",
-        "id": 51,
-        "date": "3月",
-        "address": "220 新北市板橋區府中商圈",
-        "city": "新北市",
-        "district": "板橋區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3232",
-        "hits": 259
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.459431052208,
-          25.0085492652785
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025新北市三芝區櫻花季",
-        "id": 52,
-        "date": "3月",
-        "address": "252 新北市三芝區三生步道",
-        "city": "新北市",
-        "district": "三芝區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3217",
-        "hits": 1927
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.5105381,
-          25.2682175
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025雙溪春耕祈福插秧趣",
-        "id": 53,
-        "date": "3月",
-        "address": "227 新北市雙溪區內平林60-1號",
-        "city": "新北市",
-        "district": "雙溪區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3213",
-        "hits": 872
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.831472,
-          25.0281633
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "《點亮五彩繽紛的原子筆畫》林永祥個展",
-        "id": 54,
-        "date": "3月",
-        "address": "242 新北市新莊區中平路133號(新莊文化藝術中心藝術廳)",
-        "city": "新北市",
-        "district": "新莊區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3238",
-        "hits": 213
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4442445,
-          25.0472248
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "新北路跑運動博覽會",
-        "id": 55,
-        "date": "3月",
-        "address": "242 新北市新莊區中華路一段75號(新莊體育館)",
-        "city": "新北市",
-        "district": "新莊區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3244",
-        "hits": 236
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4518373,
-          25.0404627
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "《花火瞬影 – 臺藝金工創作聯展》",
-        "id": 56,
-        "date": "3月",
-        "address": "220 新北市板橋區莊敬路62號(新北市藝文中心 第一展覽室)",
-        "city": "新北市",
-        "district": "板橋區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3239",
-        "hits": 493
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4722599,
-          25.0260486
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "第四屆貢寮和禾水梯田｜插秧大賽暨森川里海市集",
-        "id": 57,
-        "date": "3月",
-        "address": "228 新北市貢寮區內寮街55號(和禾聚落)",
-        "city": "新北市",
-        "district": "貢寮區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3243",
-        "hits": 188
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.8875974,
-          24.9858113
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025茶山繚療",
-        "id": 58,
-        "date": "3月",
-        "address": "232 新北市坪林區水德里水聳淒坑19-1號(新北市坪林茶業博物館)",
-        "city": "新北市",
-        "district": "坪林區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3198",
-        "hits": 1141
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.7128281,
-          24.9344651
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025第五屆三峽綠茶季「H’O你有春 」",
-        "id": 59,
-        "date": "3月",
-        "address": "237 新北市三峽區國立臺北大學三峽校區 社會科學院後方心湖旁草坪",
-        "city": "新北市",
-        "district": "三峽區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3212",
-        "hits": 1149
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.369081278667,
-          24.9432353099132
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025淼渺書市集",
-        "id": 60,
-        "date": "3月",
-        "address": "235 新北市中和區中安街85號(國立臺灣圖書館中和門旁)",
-        "city": "新北市",
-        "district": "中和區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3241",
-        "hits": 520
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.5127029,
-          25.0014294
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025新北情人節市集",
-        "id": 61,
-        "date": "3月",
-        "address": "220 新北市板橋區府中廣場",
-        "city": "新北市",
-        "district": "板橋區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3201",
-        "hits": 1686
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4587887,
-          25.0092047
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "〈偶書計畫——蜈蚣陣〉協作版工作坊",
-        "id": 62,
-        "date": "3月",
-        "address": "239 新北市鶯歌區新北市美術館",
-        "city": "新北市",
-        "district": "鶯歌區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3197",
-        "hits": 158
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.3574662,
-          24.9528393
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025文資新生活｜新店十四張歷史建築園區",
-        "id": 63,
-        "date": "3月",
-        "address": "231 新北市新店區央北二路206巷6號(新店十四張歷史建築園區)",
-        "city": "新北市",
-        "district": "新店區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3248",
-        "hits": 1210
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.5274224,
-          24.9804644
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025萬金石馬拉松",
-        "id": 64,
-        "date": "3月",
-        "address": "207 新北市萬里區太平洋建設第二停車場",
-        "city": "新北市",
-        "district": "萬里區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/2858",
-        "hits": 1272
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.6831369,
-          25.1882788
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "「濕情話意–話漳和」特展",
-        "id": 65,
-        "date": "3月",
-        "address": "220 新北市板橋區中正路435號(新北勢濕地故事館2樓)",
-        "city": "新北市",
-        "district": "板橋區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3253",
-        "hits": 754
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4517761,
-          25.023619
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "《微視ˍ之間》臺北市立大學 視覺藝術學系｜「藝展新藝」2025新北市學校合作計畫",
-        "id": 66,
-        "date": "3月",
-        "address": "220 新北市板橋區莊敬路62號(新北藝文中心 第三展覽廳)",
-        "city": "新北市",
-        "district": "板橋區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3266",
-        "hits": 135
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4722599,
-          25.0260486
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "《不均勻-Jiaii&柏斯雙人聯展》",
-        "id": 67,
-        "date": "3月",
-        "address": "235 新北市中和區中和路390號2樓(新北市美麗永安藝文中心)",
-        "city": "新北市",
-        "district": "中和區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3264",
-        "hits": 201
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.5110921,
-          25.0024385
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "LUCKY!幸運毛寶認養會",
-        "id": 68,
-        "date": "3月",
-        "address": "241 新北市三重區三信路1號(新北高中川堂)",
-        "city": "新北市",
-        "district": "三重區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3254",
-        "hits": 167
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.490696855776,
-          25.0869165998924
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025新北春紛節",
-        "id": 69,
-        "date": "3月",
-        "address": "241 新北市三重區新北大都會公園幸福水漾園區",
-        "city": "新北市",
-        "district": "三重區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3230",
-        "hits": 2165
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.48175,
-          25.0515168
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "交換日誌—輝文貞陶藝展",
-        "id": 70,
-        "date": "3月",
-        "address": "239 新北市鶯歌區新北市立鶯歌陶瓷博物館 1F陽光特展室",
-        "city": "新北市",
-        "district": "鶯歌區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3242",
-        "hits": 280
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.352032,
-          24.949251
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "寵物AI大健走｜新北認養萬金禮",
-        "id": 71,
-        "date": "3月",
-        "address": "251 新北市淡水區淡水金色水岸步道",
-        "city": "新北市",
-        "district": "淡水區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3255",
-        "hits": 309
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4414592,
-          25.1689094
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025礦山文化健走｜水湳洞縱走路線",
-        "id": 72,
-        "date": "3月",
-        "address": "224 新北市瑞芳區水湳洞縱走路線",
-        "city": "新北市",
-        "district": "瑞芳區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3240",
-        "hits": 561
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.860336,
-          25.122467
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "435藝啟童樂｜兒童節系列活動",
-        "id": 73,
-        "date": "4月",
-        "address": "220 新北市板橋區中正路435號(板橋435藝文特區)",
-        "city": "新北市",
-        "district": "板橋區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3247",
-        "hits": 598
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4523308,
-          25.0241693
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "礦山遊樂場｜黃金博物館兒童節系列活動",
-        "id": 74,
-        "date": "4月",
-        "address": "224 新北市瑞芳區金光路8號(黃金博物館 共學館2樓)",
-        "city": "新北市",
-        "district": "瑞芳區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3265",
-        "hits": 367
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.8596365,
-          25.1061358
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "聽見光的聲音—宋立陶藝個展",
-        "id": 75,
-        "date": "4月",
-        "address": "239 新北市鶯歌區文化路200號(新北市立鶯歌陶瓷博物館 B1陶藝長廊)",
-        "city": "新北市",
-        "district": "鶯歌區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3256",
-        "hits": 275
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.352032,
-          24.949251
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025春遊三鶯",
-        "id": 76,
-        "date": "4月",
-        "address": "239 新北市鶯歌區新北市立鶯歌陶瓷博物館",
-        "city": "新北市",
-        "district": "鶯歌區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3229",
-        "hits": 3360
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.352032,
-          24.949251
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025礦山講堂｜水金九礦山學",
-        "id": 77,
-        "date": "4月",
-        "address": "224 新北市瑞芳區黃金博物館共學館 2樓大研討室",
-        "city": "新北市",
-        "district": "瑞芳區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3273",
-        "hits": 580
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.8578751,
-          25.1088806
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025坪林螢光季",
-        "id": 78,
-        "date": "4月",
-        "address": "232 新北市坪林區坪林區公所、坪林老街、坪林親水吊橋等坪林區周邊街道",
-        "city": "新北市",
-        "district": "坪林區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3279",
-        "hits": 4517
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.711950302124,
-          24.9364324389255
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025新北市循環設計展",
-        "id": 79,
-        "date": "4月",
-        "address": "220 新北市板橋區府中路15號(府中15)",
-        "city": "新北市",
-        "district": "板橋區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3267",
-        "hits": 1044
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.459579244256,
-          25.0094814496678
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "相遇：臺灣陶瓷的美術風景",
-        "id": 80,
-        "date": "4月",
-        "address": "239 新北市鶯歌區文化路200號(新北市立鶯歌陶瓷博物館 3樓特展室)",
-        "city": "新北市",
-        "district": "鶯歌區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3302",
-        "hits": 529
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.352032,
-          24.949251
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025 MERRELL健行嘉年華 第17屆台灣IVV健行大會",
-        "id": 81,
-        "date": "4月",
-        "address": "231 新北市新店區新店路2號(新北市新店區新店國民小學)",
-        "city": "新北市",
-        "district": "新店區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3231",
-        "hits": 707
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.5403764,
-          24.9530138
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025新北市客家桐花祭｜土城桐花祭",
-        "id": 82,
-        "date": "4月",
-        "address": "236 新北市土城區承天路141-2號旁",
-        "city": "新北市",
-        "district": "土城區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3290",
-        "hits": 4258
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4496027,
-          24.9489635
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025觀音觀鷹樂活行腳系列活動",
-        "id": 83,
-        "date": "4月",
-        "address": "248 新北市五股區凌雲路三段130號(觀音山遊客中心)",
-        "city": "新北市",
-        "district": "五股區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3304",
-        "hits": 1018
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4180256,
-          25.1295355
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025新北市鐵道馬拉松接力賽",
-        "id": 1,
-        "date": "4月",
-        "address": "228 新北市貢寮區福隆街41號(福容大飯店福隆彩虹橋前廣場)",
-        "city": "新北市",
-        "district": "貢寮區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/2925",
-        "hits": 22109
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.9439413,
-          25.0184044
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "世界露營總會第95屆世界露營大會",
-        "id": 84,
-        "date": "4月",
-        "address": "228 新北市貢寮區福隆里興隆街100號",
-        "city": "新北市",
-        "district": "貢寮區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3220",
-        "hits": 5907
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.938571,
-          25.0190264
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "光軸線「傾聽生機」｜新北市美術館開館活動",
-        "id": 85,
-        "date": "4月",
-        "address": "239 新北市鶯歌區館前路300號(新北市美術館戶外園區)",
-        "city": "新北市",
-        "district": "鶯歌區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3311",
-        "hits": 489
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.3574662,
-          24.9528393
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "新店男孩：Don't Worry, Baby",
-        "id": 86,
-        "date": "4月",
-        "address": "239 新北市鶯歌區新北市美術館4A展覽室",
-        "city": "新北市",
-        "district": "鶯歌區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3288",
-        "hits": 565
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.3574662,
-          24.9528393
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "「往來／照見」典藏研究展",
-        "id": 87,
-        "date": "4月",
-        "address": "239 新北市鶯歌區新北市美術館 – 3A、3B、4B展覽室",
-        "city": "新北市",
-        "district": "鶯歌區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3274",
-        "hits": 311
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.3574662,
-          24.9528393
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "基進城市",
-        "id": 88,
-        "date": "4月",
-        "address": "239 新北市鶯歌區新北市美術館 – 6A、6B、8F展覽室",
-        "city": "新北市",
-        "district": "鶯歌區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3276",
-        "hits": 479
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.3574662,
-          24.9528393
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "再自然不過的事",
-        "id": 89,
-        "date": "4月",
-        "address": "239 新北市鶯歌區新北市美術館 – 探索基地、新美聚所",
-        "city": "新北市",
-        "district": "鶯歌區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3289",
-        "hits": 287
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.3574662,
-          24.9528393
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025新北市客家桐花祭｜桐遊鶯歌樂陶陶",
-        "id": 90,
-        "date": "4月",
-        "address": "239 新北市鶯歌區環河路169號(鶯歌市民農園)",
-        "city": "新北市",
-        "district": "鶯歌區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3292",
-        "hits": 260
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.343967318535,
-          24.9377944427081
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025新北市客家桐花祭｜三芝桐樂會",
-        "id": 91,
-        "date": "4月",
-        "address": "252 新北市三芝區橫山里賞桐藝文廣場",
-        "city": "新北市",
-        "district": "三芝區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3291",
-        "hits": 400
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.521895,
-          25.25858
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025新北市客家桐花祭｜桐在瑞芳，花見音樂",
-        "id": 92,
-        "date": "4月",
-        "address": "224 新北市瑞芳區瑞竹路91號(瑞芳區四腳亭吉安宮)",
-        "city": "新北市",
-        "district": "瑞芳區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3293",
-        "hits": 407
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.7637324,
-          25.1030895
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025府中醉夏趴",
-        "id": 93,
-        "date": "5月",
-        "address": "220 新北市板橋區府中廣場（府中捷運站2、3號出口）",
-        "city": "新北市",
-        "district": "板橋區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3331",
-        "hits": 4503
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4587887,
-          25.0092047
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "鶯揚陶瓷，歌頌藝術—臺灣陶瓷藝術展",
-        "id": 94,
-        "date": "5月",
-        "address": "239 新北市鶯歌區文化路200號(鶯歌陶瓷博物館 1F陽光特展室)",
-        "city": "新北市",
-        "district": "鶯歌區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3322",
-        "hits": 107
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.352032,
-          24.949251
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025探旅新北定向越野｜三芝場",
-        "id": 95,
-        "date": "5月",
-        "address": "252 新北市三芝區三芝遊客中心",
-        "city": "新北市",
-        "district": "三芝區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3268",
-        "hits": 373
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.5080421,
-          25.2490762
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025新北市客家桐花祭｜花見新店-輕軌賞桐趣",
-        "id": 96,
-        "date": "5月",
-        "address": "231 新北市新店區安泰路109號(安坑輕軌機廠都市農園平台)",
-        "city": "新北市",
-        "district": "新店區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3294",
-        "hits": 963
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.48657,
-          24.9433
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "態渡—鶯歌高職26屆師徒制暨畢業成果展",
-        "id": 97,
-        "date": "5月",
-        "address": "239 新北市鶯歌區文化路200號(鶯歌陶瓷博物館 B1陶藝長廊)",
-        "city": "新北市",
-        "district": "鶯歌區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3321",
-        "hits": 84
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.352032,
-          24.949251
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025林口母親節親子祈福健走",
-        "id": 98,
-        "date": "5月",
-        "address": "244 新北市林口區竹林路325號(竹林山觀音寺)",
-        "city": "新北市",
-        "district": "林口區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3278",
-        "hits": 714
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.3893262,
-          25.0836731
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025新北市客家桐花祭｜風露嘴五月雪石碇賞桐趣",
-        "id": 99,
-        "date": "5月",
-        "address": "223 新北市石碇區北宜路五段80號 (明緣小棧)",
-        "city": "新北市",
-        "district": "石碇區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3295",
-        "hits": 731
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.6462846,
-          24.9518094
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025新北河濱蝶戀季｜初夏奇境",
-        "id": 100,
-        "date": "5月",
-        "address": "220 新北市板橋區蝴蝶公園",
-        "city": "新北市",
-        "district": "板橋區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3318",
-        "hits": 2229
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.485195,
-          25.0254654
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025北海岸傳奇媽祖文化祭",
-        "id": 101,
-        "date": "5月",
-        "address": "208 新北市金山區金包里街16號",
-        "city": "新北市",
-        "district": "金山區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3186",
-        "hits": 1477
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.6401897,
-          25.220654
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025潮盛新莊",
-        "id": 102,
-        "date": "5月",
-        "address": "242 新北市新莊區",
-        "city": "新北市",
-        "district": "新莊區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3333",
-        "hits": 1971
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4178347,
-          25.0265985
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "島嶼織縷 - 古代南島衣飾特展",
-        "id": 103,
-        "date": "5月",
-        "address": "249 新北市八里區博物館路200號(新北市立十行博物館 第二特展廳)",
-        "city": "新北市",
-        "district": "八里區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3357",
-        "hits": 283
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4048561,
-          25.1568739
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "新北城市派對",
-        "id": 104,
-        "date": "5月",
-        "address": "220 新北市板橋區新北市市民廣場 & 環狀線板橋站南廣場",
-        "city": "新北市",
-        "district": "板橋區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3349",
-        "hits": 778
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.464972496033,
-          25.0132453608261
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025新北市國際考古論壇：考古視野中的競技與永續",
-        "id": 105,
-        "date": "5月",
-        "address": "249 新北市八里區十三行博物館演講廳",
-        "city": "新北市",
-        "district": "八里區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3332",
-        "hits": 182
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4048561,
-          25.1568739
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025新北考古生活節｜山海競技",
-        "id": 106,
-        "date": "5月",
-        "address": "249 新北市八里區新北市立十三行博物館、陽光廣場、新北考古公園",
-        "city": "新北市",
-        "district": "八里區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3337",
-        "hits": 134
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.404848098755,
-          25.1568803060704
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025福隆生活節",
-        "id": 107,
-        "date": "5月",
-        "address": "228 新北市貢寮區福隆沙灘及周邊",
-        "city": "新北市",
-        "district": "貢寮區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3365",
-        "hits": 290
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.9431583,
-          25.0219984
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025福隆國際沙雕藝術季｜迪士尼仲夏歡樂祭",
-        "id": 108,
-        "date": "5月",
-        "address": "228 新北市貢寮區福隆海水浴場",
-        "city": "新北市",
-        "district": "貢寮區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3338",
-        "hits": 747
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.9431583,
-          25.0219984
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025金蛇慶端陽",
-        "id": 109,
-        "date": "5月",
-        "address": "224 新北市瑞芳區金光路8號(新北市立黃金博物館)",
-        "city": "新北市",
-        "district": "瑞芳區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3354",
-        "hits": 308
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.8596365,
-          25.1061358
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "唱自己的歌 - 新北市民歌 50 特展",
-        "id": 110,
-        "date": "6月",
-        "address": "220 新北市板橋區新北市政府一樓大廳",
-        "city": "新北市",
-        "district": "板橋區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3369",
-        "hits": 29
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.465276192033,
-          25.0123543772145
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "無為─吳明儀陶藝之路特展",
-        "id": 111,
-        "date": "6月",
-        "address": "239 新北市鶯歌區文化路200號(鶯歌陶瓷博物館 1F陽光特展室)",
-        "city": "新北市",
-        "district": "鶯歌區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3348",
-        "hits": 64
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.352032,
-          24.949251
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025水返腳歡樂逗陣行",
-        "id": 112,
-        "date": "6月",
-        "address": "221 新北市汐止區星際遊戲場",
-        "city": "新北市",
-        "district": "汐止區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3350",
-        "hits": 354
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.66486,
-          25.078648
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "織‧府中 — 2025 新北永續風格日",
-        "id": 113,
-        "date": "6月",
-        "address": "220 新北市板橋區府中廣場 (近捷運府中站2、3號出口)",
-        "city": "新北市",
-        "district": "板橋區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3370",
-        "hits": 51
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4587887,
-          25.0092047
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "114春季新北好茶｜春萃",
-        "id": 114,
-        "date": "6月",
-        "address": "232 新北市坪林區坪林茶葉博物館旁廣場",
-        "city": "新北市",
-        "district": "坪林區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3339",
-        "hits": 838
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.7128281,
-          24.9344651
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025第5屆貢寮水T藝術節",
-        "id": 115,
-        "date": "6月",
-        "address": "228 新北市貢寮區雞母嶺",
-        "city": "新北市",
-        "district": "貢寮區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3367",
-        "hits": 231
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.891104,
-          25.070277
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "2025野柳石光夜訪女王",
-        "id": 116,
-        "date": "6月",
-        "address": "207 新北市萬里區野柳地質公園",
-        "city": "新北市",
-        "district": "萬里區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3366",
-        "hits": 53
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.69088858574,
-          25.2067378199711
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "耶誕快追!2025新北市耶誕馬拉松接力賽",
-        "id": 117,
-        "date": "12月",
-        "address": "220 新北市板橋區新北市政府市民廣場(新北歡樂耶誕城)",
-        "city": "新北市",
-        "district": "板橋區",
-        "url": "https://newtaipei.travel/zh-tw/calendar/detail/3359",
-        "hits": 84
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.464979,
-          25.0132388
-        ]
-      }
-    }
-  ]
+	"type": "FeatureCollection",
+	"crs": {
+		"type": "name",
+		"properties": {
+			"name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+		}
+	},
+	"features": [
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "臺灣史前動物特展",
+				"id": 2,
+				"date": "1月",
+				"address": "249 新北市八里區博物館路200號(新北市立十三行博物館)",
+				"city": "新北市",
+				"district": "八里區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3029",
+				"hits": 1484
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4048561,
+					25.1568739
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "《淡古聯萌》IP特展",
+				"id": 3,
+				"date": "2月",
+				"address": "251 新北市淡水區中正路259號(淡水海關碼頭園區)",
+				"city": "新北市",
+				"district": "淡水區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/2805",
+				"hits": 4304
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.431753,
+					25.174482
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Woo礦石色",
+				"id": 4,
+				"date": "4月",
+				"address": "224 新北市瑞芳區金光路8號(新北市立黃金博物館 煉金樓1樓特展室)",
+				"city": "新北市",
+				"district": "瑞芳區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/2806",
+				"hits": 2999
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.8596365,
+					25.1061358
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "RE ³布袋戲特展 (Recreate X Reimagine X Remake)",
+				"id": 5,
+				"date": "6月",
+				"address": "242 新北市新莊區中平路133號(新莊文藝中心)",
+				"city": "新北市",
+				"district": "新莊區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/2447",
+				"hits": 2929
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.444383859634,
+					25.0472210720829
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "新北市113年食農教育特展",
+				"id": 6,
+				"date": "6月",
+				"address": "249 新北市八里區觀海大道36號(新北市永續環境教育中心)",
+				"city": "新北市",
+				"district": "八里區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/2505",
+				"hits": 4140
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4303267,
+					25.1606311
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "「茶與王」特展",
+				"id": 7,
+				"date": "7月",
+				"address": "232 新北市坪林區水德里水聳淒坑19-1號(新北市坪林茶業博物館 展示館1F)",
+				"city": "新北市",
+				"district": "坪林區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/2608",
+				"hits": 3865
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.7127515,
+					24.934495
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "113年濕地故事館巡守隊特展｜即拾巡樂",
+				"id": 8,
+				"date": "9月",
+				"address": "220 新北市板橋區中正路435號(濕地故事館2樓)",
+				"city": "新北市",
+				"district": "板橋區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/2797",
+				"hits": 974
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4517761,
+					25.023619
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2024臺灣國際陶藝雙年展",
+				"id": 9,
+				"date": "10月",
+				"address": "239 新北市鶯歌區文化路200號(新北市立鶯歌陶瓷博物館 三樓特展室)",
+				"city": "新北市",
+				"district": "鶯歌區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/2740",
+				"hits": 2944
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.352032,
+					24.949251
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "「少年拍-Video Format of You」特展",
+				"id": 10,
+				"date": "10月",
+				"address": "220 新北市板橋區府中路15號(府中15 一樓直播室、三樓-五樓展覽室 )",
+				"city": "新北市",
+				"district": "板橋區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/2824",
+				"hits": 632
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.459579244256,
+					25.0094887418255
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "李亮一紀念展",
+				"id": 11,
+				"date": "11月",
+				"address": "239 新北市鶯歌區新北市立鶯歌陶瓷博物館",
+				"city": "新北市",
+				"district": "鶯歌區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/2930",
+				"hits": 437
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.352032,
+					24.949251
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2024新北歡樂耶誕城",
+				"id": 0,
+				"date": "11月",
+				"address": "220 新北市板橋區中山路一段161號(市民廣場)",
+				"city": "新北市",
+				"district": "板橋區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/2887",
+				"hits": 133924
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4655166,
+					25.0123132
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "「漫遊．藝宇宙」新北市國際藝術村成果展",
+				"id": 12,
+				"date": "11月",
+				"address": "251 新北市淡水區淡水區觀海路91號(滬水一方藝文空間5樓)",
+				"city": "新北市",
+				"district": "淡水區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3164",
+				"hits": 361
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4139304,
+					25.1823658
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "1拍3響—拍出我的主場｜府中15十三週年",
+				"id": 13,
+				"date": "12月",
+				"address": "220 新北市板橋區府中15",
+				"city": "新北市",
+				"district": "板橋區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/2996",
+				"hits": 220
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.459578573704,
+					25.0094887418255
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2024光映淡水—無垠之光",
+				"id": 14,
+				"date": "12月",
+				"address": "251 新北市淡水區海關碼頭",
+				"city": "新北市",
+				"district": "淡水區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/2972",
+				"hits": 1106
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.431753,
+					25.174482
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "稅關新人下班生存指南｜淡水稅關五十會特展",
+				"id": 15,
+				"date": "12月",
+				"address": "251 新北市淡水區中正路259號(淡水海關碼頭園區倉庫)",
+				"city": "新北市",
+				"district": "淡水區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3190",
+				"hits": 1879
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.431753,
+					25.174482
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "從保存到再造｜林主勵新秀創作個展",
+				"id": 16,
+				"date": "12月",
+				"address": "239 新北市鶯歌區新北市立鶯歌陶瓷博物館(B1陶藝長廊)",
+				"city": "新北市",
+				"district": "鶯歌區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3025",
+				"hits": 329
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.352032,
+					24.949251
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "巫登益美術館12月活動亮點：藝術交響曲｜藝術刮刮樂",
+				"id": 17,
+				"date": "12月",
+				"address": "251 新北市淡水區真理街(巫登益美術館)",
+				"city": "新北市",
+				"district": "淡水區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3031",
+				"hits": 329
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4358278,
+					25.1746997
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "114年新北市元旦升旗暨健走活動",
+				"id": 18,
+				"date": "1月",
+				"address": "231 新北市新店區碧潭東岸廣場",
+				"city": "新北市",
+				"district": "新店區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3028",
+				"hits": 2120
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.537067562171,
+					24.9601652594069
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "遷年流遇—新北客家山河紀",
+				"id": 19,
+				"date": "1月",
+				"address": "237 新北市三峽區新北市客家文化園區",
+				"city": "新北市",
+				"district": "三峽區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3163",
+				"hits": 1566
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.3598,
+					24.9417
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "114年新春揮毫贈春聯活動",
+				"id": 20,
+				"date": "1月",
+				"address": "244 新北市林口區",
+				"city": "新北市",
+				"district": "林口區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3038",
+				"hits": 2761
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.3881378,
+					25.0790108
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "新北市114年119消防節誌慶活動",
+				"id": 21,
+				"date": "1月",
+				"address": "220 新北市板橋區遠東香榭大道",
+				"city": "新北市",
+				"district": "板橋區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3061",
+				"hits": 2195
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4546376,
+					24.9984254
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "金蛇陶喜｜2025陶博館春節活動",
+				"id": 22,
+				"date": "1月",
+				"address": "239 新北市鶯歌區新北市立鶯歌陶瓷博物館",
+				"city": "新北市",
+				"district": "鶯歌區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3146",
+				"hits": 390
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.352032,
+					24.949251
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "感動蛇｜陶博聯展",
+				"id": 23,
+				"date": "1月",
+				"address": "239 新北市鶯歌區鶯歌陶瓷博物館",
+				"city": "新北市",
+				"district": "鶯歌區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3145",
+				"hits": 936
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.352032,
+					24.949251
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "運動競化論-古代生活與現代競技特展",
+				"id": 24,
+				"date": "1月",
+				"address": "249 新北市八里區十三行博物館第一特展廳",
+				"city": "新北市",
+				"district": "八里區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3067",
+				"hits": 1770
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.404853463173,
+					25.1568754504822
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "微笑山線成果發表會｜親近山林自然微笑：新北山林聚落的地景與日常",
+				"id": 25,
+				"date": "1月",
+				"address": "220 新北市板橋區府中路29-2號3樓(良師塾人文食飲)",
+				"city": "新北市",
+				"district": "板橋區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3088",
+				"hits": 274
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4583994,
+					25.0082526
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025 金蛇迎春：禮物製造所",
+				"id": 26,
+				"date": "1月",
+				"address": "220 新北市板橋區縣民大道二段275號(傑仕堡有氧園區)",
+				"city": "新北市",
+				"district": "板橋區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3072",
+				"hits": 796
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4694095,
+					25.0176523
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "蛇來蛇去~蛇到435訪春神！",
+				"id": 27,
+				"date": "1月",
+				"address": "220 新北市板橋區板橋435藝文特區",
+				"city": "新北市",
+				"district": "板橋區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3107",
+				"hits": 396
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4523308,
+					25.0241693
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025 「蛇麼都好運」春節活動",
+				"id": 28,
+				"date": "1月",
+				"address": "224 新北市瑞芳區新北市立黃金博物館",
+				"city": "新北市",
+				"district": "瑞芳區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3128",
+				"hits": 621
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.8596365,
+					25.1061358
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025汐止康誥坑溪文化櫻花季",
+				"id": 29,
+				"date": "1月",
+				"address": "221 新北市汐止區康誥坑溪櫻花大道",
+				"city": "新北市",
+				"district": "汐止區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3106",
+				"hits": 810
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.6535965,
+					25.0598368
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "穿山而過 Passing Through",
+				"id": 30,
+				"date": "1月",
+				"address": "239 新北市鶯歌區新北市美術館戶外園區",
+				"city": "新北市",
+				"district": "鶯歌區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3102",
+				"hits": 1052
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.3574662,
+					24.9528393
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025蛇來運轉迎新春｜國定古蹟林本源園邸",
+				"id": 31,
+				"date": "1月",
+				"address": "220 新北市板橋區國定古蹟林本源園邸 - 板橋林家花園",
+				"city": "新北市",
+				"district": "板橋區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3144",
+				"hits": 353
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4546023,
+					25.0110814
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "新北蒔花好綻｜2025花見櫻花季",
+				"id": 32,
+				"date": "1月",
+				"address": "251 新北市淡水區無極天元宮",
+				"city": "新北市",
+				"district": "淡水區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3142",
+				"hits": 389
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4847762,
+					25.1864699
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "不可回收的時尚｜高蓮秀陶藝展",
+				"id": 33,
+				"date": "1月",
+				"address": "239 新北市鶯歌區文化路200號(新北市立鶯歌陶瓷博物館 B1陶藝長廊)",
+				"city": "新北市",
+				"district": "鶯歌區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3187",
+				"hits": 184
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.352032,
+					24.949251
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025新北燈會",
+				"id": 34,
+				"date": "2月",
+				"address": "241 新北市三重區 新北大都會公園 幸福水漾園區",
+				"city": "新北市",
+				"district": "三重區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3087",
+				"hits": 2826
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.48175,
+					25.0515168
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "做自己的光  Be A Light Unto Yourself｜李潔如陶藝創作個展",
+				"id": 35,
+				"date": "2月",
+				"address": "241 新北市三重區正義南路68巷2號(空軍三重一村)",
+				"city": "新北市",
+				"district": "三重區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3206",
+				"hits": 580
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.499417424202,
+					25.057737539193
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "一村有年味｜2025百人搖元宵",
+				"id": 36,
+				"date": "2月",
+				"address": "241 新北市三重區空軍三重一村廣場",
+				"city": "新北市",
+				"district": "三重區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3147",
+				"hits": 381
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4994182,
+					25.057737
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025新北櫻花季｜石碇賞櫻趣",
+				"id": 37,
+				"date": "2月",
+				"address": "223 新北市石碇區二格公園",
+				"city": "新北市",
+				"district": "石碇區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3148",
+				"hits": 793
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.6240519,
+					24.9567629
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025新北市平溪天燈節",
+				"id": 38,
+				"date": "2月",
+				"address": "226 新北市平溪區",
+				"city": "新北市",
+				"district": "平溪區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3070",
+				"hits": 6971
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.7408654,
+					25.0248314
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025新北市樹林之美新春嘉年華燈會",
+				"id": 39,
+				"date": "2月",
+				"address": "238 新北市樹林區樹林車站",
+				"city": "新北市",
+				"district": "樹林區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3160",
+				"hits": 827
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4244296,
+					24.9913972
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025新北市宗教文化節｜野柳神明淨港文化祭活動",
+				"id": 40,
+				"date": "2月",
+				"address": "207 新北市萬里區野柳保安宮前廣場",
+				"city": "新北市",
+				"district": "萬里區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3159",
+				"hits": 406
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.6880603,
+					25.204369
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "《時代印記：老街與烏來橋影像展》",
+				"id": 41,
+				"date": "2月",
+				"address": "233 新北市烏來區烏來街12號(新北市烏來泰雅民族博物館 1樓)",
+				"city": "新北市",
+				"district": "烏來區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3189",
+				"hits": 1447
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5515073,
+					24.86409
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "「LOVE中．樂府中」府中雙城情人節系列活動｜府中戀舞宮 ",
+				"id": 42,
+				"date": "2月",
+				"address": "220 新北市板橋區府中廣場",
+				"city": "新北市",
+				"district": "板橋區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3161",
+				"hits": 407
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4587887,
+					25.0092047
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "114年新北市天穿日活動｜客式綠生活",
+				"id": 43,
+				"date": "2月",
+				"address": "237 新北市三峽區隆恩街239號(新北市客家文化園區)",
+				"city": "新北市",
+				"district": "三峽區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3188",
+				"hits": 266
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.3598,
+					24.9417
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025世界棒球經典賽資格賽｜直播派對",
+				"id": 44,
+				"date": "2月",
+				"address": "220 新北市板橋區新北市政府市民廣場",
+				"city": "新北市",
+				"district": "板橋區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3196",
+				"hits": 295
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.464979,
+					25.0132388
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025三芝櫻花季文創聯展",
+				"id": 45,
+				"date": "2月",
+				"address": "252 新北市三芝區田心子1-2號(三芝興華驛站二層-農業及藝術教育中心)",
+				"city": "新北市",
+				"district": "三芝區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3216",
+				"hits": 890
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5020786,
+					25.2036887
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Pokémon GO Tour：合眾地區-新北",
+				"id": 46,
+				"date": "2月",
+				"address": "241 新北市三重區水漾路一段(新北大都會公園)",
+				"city": "新北市",
+				"district": "三重區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/2982",
+				"hits": 2465
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4807459,
+					25.055464
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025中港大排光雕展｜光影中港 神幻秘境",
+				"id": 47,
+				"date": "2月",
+				"address": "242 新北市新莊區中港大排中港廣場",
+				"city": "新北市",
+				"district": "新莊區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3211",
+				"hits": 23506
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4539203,
+					25.0456096
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "蝶衣｜李存仁、汪弘玉陶藝聯展",
+				"id": 48,
+				"date": "2月",
+				"address": "239 新北市鶯歌區文化路200號(新北市立鶯歌陶瓷博物館  B1陶藝長廊)",
+				"city": "新北市",
+				"district": "鶯歌區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3203",
+				"hits": 821
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.352032,
+					24.949251
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025萬金杜鵑『38花花競走』",
+				"id": 49,
+				"date": "3月",
+				"address": "207 新北市萬里區萬里觀光公園",
+				"city": "新北市",
+				"district": "萬里區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3214",
+				"hits": 208
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.6832081,
+					25.1738655
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025新北蒔花好綻｜金山區賞櫻健行",
+				"id": 50,
+				"date": "3月",
+				"address": "208 新北市金山區中山溫泉公園",
+				"city": "新北市",
+				"district": "金山區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3219",
+				"hits": 303
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.6404309,
+					25.2215748
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "「LOVE中．樂府中」府中雙城情人節系列活動｜一府二路散散步",
+				"id": 51,
+				"date": "3月",
+				"address": "220 新北市板橋區府中商圈",
+				"city": "新北市",
+				"district": "板橋區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3232",
+				"hits": 259
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.459431052208,
+					25.0085492652785
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025新北市三芝區櫻花季",
+				"id": 52,
+				"date": "3月",
+				"address": "252 新北市三芝區三生步道",
+				"city": "新北市",
+				"district": "三芝區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3217",
+				"hits": 1927
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5105381,
+					25.2682175
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025雙溪春耕祈福插秧趣",
+				"id": 53,
+				"date": "3月",
+				"address": "227 新北市雙溪區內平林60-1號",
+				"city": "新北市",
+				"district": "雙溪區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3213",
+				"hits": 872
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.831472,
+					25.0281633
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "《點亮五彩繽紛的原子筆畫》林永祥個展",
+				"id": 54,
+				"date": "3月",
+				"address": "242 新北市新莊區中平路133號(新莊文化藝術中心藝術廳)",
+				"city": "新北市",
+				"district": "新莊區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3238",
+				"hits": 213
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4442445,
+					25.0472248
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "新北路跑運動博覽會",
+				"id": 55,
+				"date": "3月",
+				"address": "242 新北市新莊區中華路一段75號(新莊體育館)",
+				"city": "新北市",
+				"district": "新莊區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3244",
+				"hits": 236
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4518373,
+					25.0404627
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "《花火瞬影 – 臺藝金工創作聯展》",
+				"id": 56,
+				"date": "3月",
+				"address": "220 新北市板橋區莊敬路62號(新北市藝文中心 第一展覽室)",
+				"city": "新北市",
+				"district": "板橋區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3239",
+				"hits": 493
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4722599,
+					25.0260486
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "第四屆貢寮和禾水梯田｜插秧大賽暨森川里海市集",
+				"id": 57,
+				"date": "3月",
+				"address": "228 新北市貢寮區內寮街55號(和禾聚落)",
+				"city": "新北市",
+				"district": "貢寮區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3243",
+				"hits": 188
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.8875974,
+					24.9858113
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025茶山繚療",
+				"id": 58,
+				"date": "3月",
+				"address": "232 新北市坪林區水德里水聳淒坑19-1號(新北市坪林茶業博物館)",
+				"city": "新北市",
+				"district": "坪林區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3198",
+				"hits": 1141
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.7128281,
+					24.9344651
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025第五屆三峽綠茶季「H’O你有春 」",
+				"id": 59,
+				"date": "3月",
+				"address": "237 新北市三峽區國立臺北大學三峽校區 社會科學院後方心湖旁草坪",
+				"city": "新北市",
+				"district": "三峽區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3212",
+				"hits": 1149
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.369081278667,
+					24.9432353099132
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025淼渺書市集",
+				"id": 60,
+				"date": "3月",
+				"address": "235 新北市中和區中安街85號(國立臺灣圖書館中和門旁)",
+				"city": "新北市",
+				"district": "中和區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3241",
+				"hits": 520
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5127029,
+					25.0014294
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025新北情人節市集",
+				"id": 61,
+				"date": "3月",
+				"address": "220 新北市板橋區府中廣場",
+				"city": "新北市",
+				"district": "板橋區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3201",
+				"hits": 1686
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4587887,
+					25.0092047
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "〈偶書計畫——蜈蚣陣〉協作版工作坊",
+				"id": 62,
+				"date": "3月",
+				"address": "239 新北市鶯歌區新北市美術館",
+				"city": "新北市",
+				"district": "鶯歌區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3197",
+				"hits": 158
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.3574662,
+					24.9528393
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025文資新生活｜新店十四張歷史建築園區",
+				"id": 63,
+				"date": "3月",
+				"address": "231 新北市新店區央北二路206巷6號(新店十四張歷史建築園區)",
+				"city": "新北市",
+				"district": "新店區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3248",
+				"hits": 1210
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5274224,
+					24.9804644
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025萬金石馬拉松",
+				"id": 64,
+				"date": "3月",
+				"address": "207 新北市萬里區太平洋建設第二停車場",
+				"city": "新北市",
+				"district": "萬里區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/2858",
+				"hits": 1272
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.6831369,
+					25.1882788
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "「濕情話意–話漳和」特展",
+				"id": 65,
+				"date": "3月",
+				"address": "220 新北市板橋區中正路435號(新北勢濕地故事館2樓)",
+				"city": "新北市",
+				"district": "板橋區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3253",
+				"hits": 754
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4517761,
+					25.023619
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "《微視ˍ之間》臺北市立大學 視覺藝術學系｜「藝展新藝」2025新北市學校合作計畫",
+				"id": 66,
+				"date": "3月",
+				"address": "220 新北市板橋區莊敬路62號(新北藝文中心 第三展覽廳)",
+				"city": "新北市",
+				"district": "板橋區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3266",
+				"hits": 135
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4722599,
+					25.0260486
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "《不均勻-Jiaii&柏斯雙人聯展》",
+				"id": 67,
+				"date": "3月",
+				"address": "235 新北市中和區中和路390號2樓(新北市美麗永安藝文中心)",
+				"city": "新北市",
+				"district": "中和區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3264",
+				"hits": 201
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5110921,
+					25.0024385
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "LUCKY!幸運毛寶認養會",
+				"id": 68,
+				"date": "3月",
+				"address": "241 新北市三重區三信路1號(新北高中川堂)",
+				"city": "新北市",
+				"district": "三重區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3254",
+				"hits": 167
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.490696855776,
+					25.0869165998924
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025新北春紛節",
+				"id": 69,
+				"date": "3月",
+				"address": "241 新北市三重區新北大都會公園幸福水漾園區",
+				"city": "新北市",
+				"district": "三重區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3230",
+				"hits": 2165
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.48175,
+					25.0515168
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "交換日誌—輝文貞陶藝展",
+				"id": 70,
+				"date": "3月",
+				"address": "239 新北市鶯歌區新北市立鶯歌陶瓷博物館 1F陽光特展室",
+				"city": "新北市",
+				"district": "鶯歌區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3242",
+				"hits": 280
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.352032,
+					24.949251
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "寵物AI大健走｜新北認養萬金禮",
+				"id": 71,
+				"date": "3月",
+				"address": "251 新北市淡水區淡水金色水岸步道",
+				"city": "新北市",
+				"district": "淡水區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3255",
+				"hits": 309
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4414592,
+					25.1689094
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025礦山文化健走｜水湳洞縱走路線",
+				"id": 72,
+				"date": "3月",
+				"address": "224 新北市瑞芳區水湳洞縱走路線",
+				"city": "新北市",
+				"district": "瑞芳區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3240",
+				"hits": 561
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.860336,
+					25.122467
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "435藝啟童樂｜兒童節系列活動",
+				"id": 73,
+				"date": "4月",
+				"address": "220 新北市板橋區中正路435號(板橋435藝文特區)",
+				"city": "新北市",
+				"district": "板橋區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3247",
+				"hits": 598
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4523308,
+					25.0241693
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "礦山遊樂場｜黃金博物館兒童節系列活動",
+				"id": 74,
+				"date": "4月",
+				"address": "224 新北市瑞芳區金光路8號(黃金博物館 共學館2樓)",
+				"city": "新北市",
+				"district": "瑞芳區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3265",
+				"hits": 367
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.8596365,
+					25.1061358
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "聽見光的聲音—宋立陶藝個展",
+				"id": 75,
+				"date": "4月",
+				"address": "239 新北市鶯歌區文化路200號(新北市立鶯歌陶瓷博物館 B1陶藝長廊)",
+				"city": "新北市",
+				"district": "鶯歌區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3256",
+				"hits": 275
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.352032,
+					24.949251
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025春遊三鶯",
+				"id": 76,
+				"date": "4月",
+				"address": "239 新北市鶯歌區新北市立鶯歌陶瓷博物館",
+				"city": "新北市",
+				"district": "鶯歌區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3229",
+				"hits": 3360
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.352032,
+					24.949251
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025礦山講堂｜水金九礦山學",
+				"id": 77,
+				"date": "4月",
+				"address": "224 新北市瑞芳區黃金博物館共學館 2樓大研討室",
+				"city": "新北市",
+				"district": "瑞芳區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3273",
+				"hits": 580
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.8578751,
+					25.1088806
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025坪林螢光季",
+				"id": 78,
+				"date": "4月",
+				"address": "232 新北市坪林區坪林區公所、坪林老街、坪林親水吊橋等坪林區周邊街道",
+				"city": "新北市",
+				"district": "坪林區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3279",
+				"hits": 4517
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.711950302124,
+					24.9364324389255
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025新北市循環設計展",
+				"id": 79,
+				"date": "4月",
+				"address": "220 新北市板橋區府中路15號(府中15)",
+				"city": "新北市",
+				"district": "板橋區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3267",
+				"hits": 1044
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.459579244256,
+					25.0094814496678
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "相遇：臺灣陶瓷的美術風景",
+				"id": 80,
+				"date": "4月",
+				"address": "239 新北市鶯歌區文化路200號(新北市立鶯歌陶瓷博物館 3樓特展室)",
+				"city": "新北市",
+				"district": "鶯歌區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3302",
+				"hits": 529
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.352032,
+					24.949251
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025 MERRELL健行嘉年華 第17屆台灣IVV健行大會",
+				"id": 81,
+				"date": "4月",
+				"address": "231 新北市新店區新店路2號(新北市新店區新店國民小學)",
+				"city": "新北市",
+				"district": "新店區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3231",
+				"hits": 707
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5403764,
+					24.9530138
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025新北市客家桐花祭｜土城桐花祭",
+				"id": 82,
+				"date": "4月",
+				"address": "236 新北市土城區承天路141-2號旁",
+				"city": "新北市",
+				"district": "土城區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3290",
+				"hits": 4258
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4496027,
+					24.9489635
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025觀音觀鷹樂活行腳系列活動",
+				"id": 83,
+				"date": "4月",
+				"address": "248 新北市五股區凌雲路三段130號(觀音山遊客中心)",
+				"city": "新北市",
+				"district": "五股區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3304",
+				"hits": 1018
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4180256,
+					25.1295355
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025新北市鐵道馬拉松接力賽",
+				"id": 1,
+				"date": "4月",
+				"address": "228 新北市貢寮區福隆街41號(福容大飯店福隆彩虹橋前廣場)",
+				"city": "新北市",
+				"district": "貢寮區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/2925",
+				"hits": 22109
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.9439413,
+					25.0184044
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "世界露營總會第95屆世界露營大會",
+				"id": 84,
+				"date": "4月",
+				"address": "228 新北市貢寮區福隆里興隆街100號",
+				"city": "新北市",
+				"district": "貢寮區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3220",
+				"hits": 5907
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.938571,
+					25.0190264
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "光軸線「傾聽生機」｜新北市美術館開館活動",
+				"id": 85,
+				"date": "4月",
+				"address": "239 新北市鶯歌區館前路300號(新北市美術館戶外園區)",
+				"city": "新北市",
+				"district": "鶯歌區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3311",
+				"hits": 489
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.3574662,
+					24.9528393
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "新店男孩：Don't Worry, Baby",
+				"id": 86,
+				"date": "4月",
+				"address": "239 新北市鶯歌區新北市美術館4A展覽室",
+				"city": "新北市",
+				"district": "鶯歌區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3288",
+				"hits": 565
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.3574662,
+					24.9528393
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "「往來／照見」典藏研究展",
+				"id": 87,
+				"date": "4月",
+				"address": "239 新北市鶯歌區新北市美術館 – 3A、3B、4B展覽室",
+				"city": "新北市",
+				"district": "鶯歌區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3274",
+				"hits": 311
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.3574662,
+					24.9528393
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "基進城市",
+				"id": 88,
+				"date": "4月",
+				"address": "239 新北市鶯歌區新北市美術館 – 6A、6B、8F展覽室",
+				"city": "新北市",
+				"district": "鶯歌區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3276",
+				"hits": 479
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.3574662,
+					24.9528393
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "再自然不過的事",
+				"id": 89,
+				"date": "4月",
+				"address": "239 新北市鶯歌區新北市美術館 – 探索基地、新美聚所",
+				"city": "新北市",
+				"district": "鶯歌區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3289",
+				"hits": 287
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.3574662,
+					24.9528393
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025新北市客家桐花祭｜桐遊鶯歌樂陶陶",
+				"id": 90,
+				"date": "4月",
+				"address": "239 新北市鶯歌區環河路169號(鶯歌市民農園)",
+				"city": "新北市",
+				"district": "鶯歌區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3292",
+				"hits": 260
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.343967318535,
+					24.9377944427081
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025新北市客家桐花祭｜三芝桐樂會",
+				"id": 91,
+				"date": "4月",
+				"address": "252 新北市三芝區橫山里賞桐藝文廣場",
+				"city": "新北市",
+				"district": "三芝區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3291",
+				"hits": 400
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.521895,
+					25.25858
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025新北市客家桐花祭｜桐在瑞芳，花見音樂",
+				"id": 92,
+				"date": "4月",
+				"address": "224 新北市瑞芳區瑞竹路91號(瑞芳區四腳亭吉安宮)",
+				"city": "新北市",
+				"district": "瑞芳區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3293",
+				"hits": 407
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.7637324,
+					25.1030895
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025府中醉夏趴",
+				"id": 93,
+				"date": "5月",
+				"address": "220 新北市板橋區府中廣場（府中捷運站2、3號出口）",
+				"city": "新北市",
+				"district": "板橋區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3331",
+				"hits": 4503
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4587887,
+					25.0092047
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "鶯揚陶瓷，歌頌藝術—臺灣陶瓷藝術展",
+				"id": 94,
+				"date": "5月",
+				"address": "239 新北市鶯歌區文化路200號(鶯歌陶瓷博物館 1F陽光特展室)",
+				"city": "新北市",
+				"district": "鶯歌區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3322",
+				"hits": 107
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.352032,
+					24.949251
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025探旅新北定向越野｜三芝場",
+				"id": 95,
+				"date": "5月",
+				"address": "252 新北市三芝區三芝遊客中心",
+				"city": "新北市",
+				"district": "三芝區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3268",
+				"hits": 373
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5080421,
+					25.2490762
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025新北市客家桐花祭｜花見新店-輕軌賞桐趣",
+				"id": 96,
+				"date": "5月",
+				"address": "231 新北市新店區安泰路109號(安坑輕軌機廠都市農園平台)",
+				"city": "新北市",
+				"district": "新店區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3294",
+				"hits": 963
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.48657,
+					24.9433
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "態渡—鶯歌高職26屆師徒制暨畢業成果展",
+				"id": 97,
+				"date": "5月",
+				"address": "239 新北市鶯歌區文化路200號(鶯歌陶瓷博物館 B1陶藝長廊)",
+				"city": "新北市",
+				"district": "鶯歌區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3321",
+				"hits": 84
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.352032,
+					24.949251
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025林口母親節親子祈福健走",
+				"id": 98,
+				"date": "5月",
+				"address": "244 新北市林口區竹林路325號(竹林山觀音寺)",
+				"city": "新北市",
+				"district": "林口區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3278",
+				"hits": 714
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.3893262,
+					25.0836731
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025新北市客家桐花祭｜風露嘴五月雪石碇賞桐趣",
+				"id": 99,
+				"date": "5月",
+				"address": "223 新北市石碇區北宜路五段80號 (明緣小棧)",
+				"city": "新北市",
+				"district": "石碇區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3295",
+				"hits": 731
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.6462846,
+					24.9518094
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025新北河濱蝶戀季｜初夏奇境",
+				"id": 100,
+				"date": "5月",
+				"address": "220 新北市板橋區蝴蝶公園",
+				"city": "新北市",
+				"district": "板橋區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3318",
+				"hits": 2229
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.485195,
+					25.0254654
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025北海岸傳奇媽祖文化祭",
+				"id": 101,
+				"date": "5月",
+				"address": "208 新北市金山區金包里街16號",
+				"city": "新北市",
+				"district": "金山區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3186",
+				"hits": 1477
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.6401897,
+					25.220654
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025潮盛新莊",
+				"id": 102,
+				"date": "5月",
+				"address": "242 新北市新莊區",
+				"city": "新北市",
+				"district": "新莊區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3333",
+				"hits": 1971
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4178347,
+					25.0265985
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "島嶼織縷 - 古代南島衣飾特展",
+				"id": 103,
+				"date": "5月",
+				"address": "249 新北市八里區博物館路200號(新北市立十行博物館 第二特展廳)",
+				"city": "新北市",
+				"district": "八里區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3357",
+				"hits": 283
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4048561,
+					25.1568739
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "新北城市派對",
+				"id": 104,
+				"date": "5月",
+				"address": "220 新北市板橋區新北市市民廣場 & 環狀線板橋站南廣場",
+				"city": "新北市",
+				"district": "板橋區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3349",
+				"hits": 778
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.464972496033,
+					25.0132453608261
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025新北市國際考古論壇：考古視野中的競技與永續",
+				"id": 105,
+				"date": "5月",
+				"address": "249 新北市八里區十三行博物館演講廳",
+				"city": "新北市",
+				"district": "八里區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3332",
+				"hits": 182
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4048561,
+					25.1568739
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025新北考古生活節｜山海競技",
+				"id": 106,
+				"date": "5月",
+				"address": "249 新北市八里區新北市立十三行博物館、陽光廣場、新北考古公園",
+				"city": "新北市",
+				"district": "八里區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3337",
+				"hits": 134
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.404848098755,
+					25.1568803060704
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025福隆生活節",
+				"id": 107,
+				"date": "5月",
+				"address": "228 新北市貢寮區福隆沙灘及周邊",
+				"city": "新北市",
+				"district": "貢寮區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3365",
+				"hits": 290
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.9431583,
+					25.0219984
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025福隆國際沙雕藝術季｜迪士尼仲夏歡樂祭",
+				"id": 108,
+				"date": "5月",
+				"address": "228 新北市貢寮區福隆海水浴場",
+				"city": "新北市",
+				"district": "貢寮區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3338",
+				"hits": 747
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.9431583,
+					25.0219984
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025金蛇慶端陽",
+				"id": 109,
+				"date": "5月",
+				"address": "224 新北市瑞芳區金光路8號(新北市立黃金博物館)",
+				"city": "新北市",
+				"district": "瑞芳區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3354",
+				"hits": 308
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.8596365,
+					25.1061358
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "唱自己的歌 - 新北市民歌 50 特展",
+				"id": 110,
+				"date": "6月",
+				"address": "220 新北市板橋區新北市政府一樓大廳",
+				"city": "新北市",
+				"district": "板橋區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3369",
+				"hits": 29
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.465276192033,
+					25.0123543772145
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "無為─吳明儀陶藝之路特展",
+				"id": 111,
+				"date": "6月",
+				"address": "239 新北市鶯歌區文化路200號(鶯歌陶瓷博物館 1F陽光特展室)",
+				"city": "新北市",
+				"district": "鶯歌區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3348",
+				"hits": 64
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.352032,
+					24.949251
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025水返腳歡樂逗陣行",
+				"id": 112,
+				"date": "6月",
+				"address": "221 新北市汐止區星際遊戲場",
+				"city": "新北市",
+				"district": "汐止區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3350",
+				"hits": 354
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.66486,
+					25.078648
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "織‧府中 — 2025 新北永續風格日",
+				"id": 113,
+				"date": "6月",
+				"address": "220 新北市板橋區府中廣場 (近捷運府中站2、3號出口)",
+				"city": "新北市",
+				"district": "板橋區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3370",
+				"hits": 51
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4587887,
+					25.0092047
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "114春季新北好茶｜春萃",
+				"id": 114,
+				"date": "6月",
+				"address": "232 新北市坪林區坪林茶葉博物館旁廣場",
+				"city": "新北市",
+				"district": "坪林區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3339",
+				"hits": 838
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.7128281,
+					24.9344651
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025第5屆貢寮水T藝術節",
+				"id": 115,
+				"date": "6月",
+				"address": "228 新北市貢寮區雞母嶺",
+				"city": "新北市",
+				"district": "貢寮區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3367",
+				"hits": 231
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.891104,
+					25.070277
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025野柳石光夜訪女王",
+				"id": 116,
+				"date": "6月",
+				"address": "207 新北市萬里區野柳地質公園",
+				"city": "新北市",
+				"district": "萬里區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3366",
+				"hits": 53
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.69088858574,
+					25.2067378199711
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "耶誕快追!2025新北市耶誕馬拉松接力賽",
+				"id": 117,
+				"date": "12月",
+				"address": "220 新北市板橋區新北市政府市民廣場(新北歡樂耶誕城)",
+				"city": "新北市",
+				"district": "板橋區",
+				"url": "https://newtaipei.travel/zh-tw/calendar/detail/3359",
+				"hits": 84
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.464979,
+					25.0132388
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2024潮冬感謝慶",
+				"id": 0,
+				"date": "11月",
+				"address": "松山文創園區",
+				"city": "台北市",
+				"district": "信義區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/58075",
+				"hits": 3458
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5606383,
+					25.0438366
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2024繽紛耶誕玩台北",
+				"id": 1,
+				"date": "11月",
+				"address": "臺北市15大百貨體系",
+				"city": "台北市",
+				"district": "信義區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/56243",
+				"hits": 6221
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.565952301025,
+					25.0343221030817
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2024臺北耶誕愛無限",
+				"id": 2,
+				"date": "11月",
+				"address": "新生南路一段至三段、大安森林公園",
+				"city": "台北市",
+				"district": "大安區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/61957",
+				"hits": 38315
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5362867,
+					25.0296587
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "臺北最High新年城-2025跨年活動",
+				"id": 3,
+				"date": "12月",
+				"address": "臺北市政府府前廣場",
+				"city": "台北市",
+				"district": "信義區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/56249",
+				"hits": 7372
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.563331782818,
+					25.0372626430477
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025臺灣年味在臺北",
+				"id": 4,
+				"date": "1月",
+				"address": "迪化街商圈等10處商圈",
+				"city": "台北市",
+				"district": "大同區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/61980",
+				"hits": 1824
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5100372,
+					25.0551047
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025三層崎彩色浪花海",
+				"id": 5,
+				"date": "1月",
+				"address": "北投社三層崎公園",
+				"city": "台北市",
+				"district": "北投區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/63444",
+				"hits": 918
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4922747,
+					25.1448128
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025樂活夜櫻季",
+				"id": 6,
+				"date": "1月",
+				"address": "內湖樂活公園",
+				"city": "台北市",
+				"district": "內湖區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/63445",
+				"hits": 1299
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.6188867,
+					25.0682831
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025陽明山花季",
+				"id": 7,
+				"date": "1月",
+				"address": "陽明公園、前山公園、花卉試驗中心",
+				"city": "台北市",
+				"district": "北投區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/61981",
+				"hits": 2728
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5401001,
+					25.1592121
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025台北燈節",
+				"id": 8,
+				"date": "2月",
+				"address": "捷運西門站至北門站、中華路一段周邊",
+				"city": "台北市",
+				"district": "中正區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/61982",
+				"hits": 2769
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.508295536041,
+					25.0421957872992
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025士林官邸鬱金香展",
+				"id": 9,
+				"date": "2月",
+				"address": "士林官邸公園",
+				"city": "台北市",
+				"district": "士林區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/63446",
+				"hits": 895
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5291642,
+					25.0913793
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025台北杜鵑花季",
+				"id": 10,
+				"date": "3月",
+				"address": "大安森林公園",
+				"city": "台北市",
+				"district": "大安區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/63447",
+				"hits": 1267
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5362867,
+					25.0296587
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025竹子湖海芋季及繡球花季",
+				"id": 11,
+				"date": "3月",
+				"address": "竹子湖",
+				"city": "台北市",
+				"district": "北投區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/61986",
+				"hits": 3201
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.540224552155,
+					25.1671931392647
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025台北花伴野餐",
+				"id": 12,
+				"date": "3月",
+				"address": "大安森林公園",
+				"city": "台北市",
+				"district": "大安區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/61985",
+				"hits": 1870
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5362867,
+					25.0296587
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025保生文化祭",
+				"id": 13,
+				"date": "4月",
+				"address": "大龍峒保安宮",
+				"city": "台北市",
+				"district": "大同區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/61990",
+				"hits": 2213
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5155703,
+					25.0731088
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025 Eid-al-Fitr in Taipei開齋之約 相遇臺北",
+				"id": 14,
+				"date": "4月",
+				"address": "大安森林公園",
+				"city": "台北市",
+				"district": "大安區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/61991",
+				"hits": 6525
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5362867,
+					25.0296587
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "源源不絕!2025嘻哈大賞",
+				"id": 15,
+				"date": "4月",
+				"address": "公館水岸廣場  (中正區思源街1號)",
+				"city": "台北市",
+				"district": "中正區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/61994",
+				"hits": 789
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5284012,
+					25.0112512
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025臺北傳統市場節",
+				"id": 16,
+				"date": "5月",
+				"address": "花博公園長廊廣場及本市各公有市場",
+				"city": "台北市",
+				"district": "中山區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/61995",
+				"hits": 2104
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5221637,
+					25.0716662
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025台北羽球公開賽",
+				"id": 17,
+				"date": "5月",
+				"address": "臺北小巨蛋",
+				"city": "台北市",
+				"district": "松山區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/65027",
+				"hits": 689
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5501199,
+					25.0506849
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025雙北世界壯年運動會",
+				"id": 18,
+				"date": "5月",
+				"address": "南京東路四段10號",
+				"city": "台北市",
+				"district": "松山區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/61997",
+				"hits": 1607
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5520772,
+					25.0512955
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025北投夏日祭り",
+				"id": 19,
+				"date": "5月",
+				"address": "北投公園、七星公園、七虎公園、北投捷運站、地熱谷",
+				"city": "台北市",
+				"district": "北投區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62015",
+				"hits": 1151
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5029144,
+					25.1364364
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025台北霞海城隍文化節",
+				"id": 20,
+				"date": "5月",
+				"address": "台北霞海城隍廟",
+				"city": "台北市",
+				"district": "大同區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62012",
+				"hits": 1370
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5101441,
+					25.0556493
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025臺北國際龍舟錦標賽",
+				"id": 21,
+				"date": "5月",
+				"address": "大佳河濱公園",
+				"city": "台北市",
+				"district": "中山區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62013",
+				"hits": 1685
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5411006,
+					25.07469
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025第26屆臺北兒童藝術節",
+				"id": 22,
+				"date": "6月",
+				"address": "臺北表演藝術中心、大安森林公園(露天音樂臺、捷運站陽光大廳)、剝皮寮歷史街區、牯嶺街小劇場、中山堂光復廳、龍山文創基地展演廳B2、中研區民活動中心2樓、西湖區民活動中心7樓、戲曲學院表藝館(木柵校區)、民生社區中心集會堂4樓、永豐金控中崙大樓會議廳3樓、大同區行政中心大禮堂6樓、士林官邸露天音樂臺、臺北大巨蛋515空間B2、北投會館綜合會議廳B1、臺北市客家音樂戲劇中心2樓等",
+				"city": "台北市",
+				"district": "士林區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62014",
+				"hits": 1568
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5243691,
+					25.0851242
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025臺北親水節",
+				"id": 23,
+				"date": "6月",
+				"address": "臺北自來水園區",
+				"city": "台北市",
+				"district": "中正區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/65030",
+				"hits": 660
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5303215,
+					25.013284
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025臺北夜市打牙祭",
+				"id": 24,
+				"date": "7月",
+				"address": "本市十大夜市",
+				"city": "台北市",
+				"district": "松山區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62019",
+				"hits": 1064
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.577475070953,
+					25.0508854148872
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025天母啤酒節",
+				"id": 25,
+				"date": "7月",
+				"address": "天母運動公園",
+				"city": "台北市",
+				"district": "士林區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62016",
+				"hits": 968
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5342422,
+					25.1148777
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "光華數位新天地17週年慶活動",
+				"id": 26,
+				"date": "7月",
+				"address": "光華數位新天地商場",
+				"city": "台北市",
+				"district": "中正區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62018",
+				"hits": 556
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5319628,
+					25.0451499
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025年第44屆威廉瓊斯盃國際籃球邀請賽",
+				"id": 27,
+				"date": "7月",
+				"address": "臺北和平籃球館",
+				"city": "台北市",
+				"district": "大安區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/65201",
+				"hits": 39
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5453433,
+					25.0215212
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025心中山南段開幕主題市集活動",
+				"id": 28,
+				"date": "7月",
+				"address": "心中山",
+				"city": "台北市",
+				"district": "中山區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62237",
+				"hits": 1884
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.520613,
+					25.0558902
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025大稻埕夏日節",
+				"id": 29,
+				"date": "8月",
+				"address": "臺北延平河濱公園3號至5號水門",
+				"city": "台北市",
+				"district": "大同區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62021",
+				"hits": 2684
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.507081,
+					25.054116
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025臺北藝穗節",
+				"id": 30,
+				"date": "8月",
+				"address": "臺北市各展演空間",
+				"city": "台北市",
+				"district": "士林區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62023",
+				"hits": 1372
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.524367332459,
+					25.0851324877218
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025潮臺北",
+				"id": 31,
+				"date": "8月",
+				"address": "双融域AMBI SPACE ONE、臺北市立文獻館、臺北當代藝術館、松山文創園區、台北國際藝術村、新北投車站、臺北流行音樂中心、臺北表演藝術中心、臺北小巨蛋等",
+				"city": "台北市",
+				"district": "南港區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62031",
+				"hits": 1061
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5644535,
+					25.0340048
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025台北國際美食節-漢堡嘉年華",
+				"id": 32,
+				"date": "8月",
+				"address": "圓山花博花海廣場",
+				"city": "台北市",
+				"district": "中山區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/65310",
+				"hits": 30
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.520541,
+					25.0703841
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025第27屆臺北藝術節",
+				"id": 33,
+				"date": "9月",
+				"address": "臺北市各展演空間",
+				"city": "台北市",
+				"district": "士林區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62024",
+				"hits": 989
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.524367332459,
+					25.0851324877218
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025台北水舞嘉年華",
+				"id": 34,
+				"date": "9月",
+				"address": "錫口碼頭彩虹橋",
+				"city": "台北市",
+				"district": "松山區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/61989",
+				"hits": 1119
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5766634,
+					25.0522212
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025關渡國際自然藝術季",
+				"id": 35,
+				"date": "9月",
+				"address": "關渡自然公園",
+				"city": "台北市",
+				"district": "北投區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62032",
+				"hits": 89
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4708333,
+					25.1188889
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025臺北國際牛肉麵節",
+				"id": 36,
+				"date": "10月",
+				"address": "花博公園長廊廣場",
+				"city": "台北市",
+				"district": "中山區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62042",
+				"hits": 1330
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5221637,
+					25.0716662
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025第3屆心中山萬聖節",
+				"id": 37,
+				"date": "10月",
+				"address": "心中山線形公園",
+				"city": "台北市",
+				"district": "中山區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62238",
+				"hits": 611
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.520613,
+					25.0558902
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "商圈嘉年華-台北生活祭",
+				"id": 38,
+				"date": "10月",
+				"address": "花博公園長廊廣場",
+				"city": "台北市",
+				"district": "中山區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62036",
+				"hits": 457
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5221637,
+					25.0716662
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025八德3C哈樂Day",
+				"id": 39,
+				"date": "10月",
+				"address": "八德資訊商圈",
+				"city": "台北市",
+				"district": "中正區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62037",
+				"hits": 309
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5317018,
+					25.0441761
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "永樂布業商場41週年慶活動",
+				"id": 40,
+				"date": "10月",
+				"address": "永樂2、3樓布業商場",
+				"city": "台北市",
+				"district": "大同區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62040",
+				"hits": 372
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.510452032089,
+					25.0548898234122
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025秋OUT音樂節",
+				"id": 41,
+				"date": "10月",
+				"address": "思源街及汀州路口、自來水園區、公館水岸廣場、古亭河濱公園",
+				"city": "台北市",
+				"district": "中正區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62034",
+				"hits": 958
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5284012,
+					25.0112512
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025臺北爵士音樂節",
+				"id": 42,
+				"date": "10月",
+				"address": "河岸留言西門紅樓展演館、Oldie Goodie、BLUE NOTE及Rev-Now等臺北市Live House和大安森林公園主舞台",
+				"city": "台北市",
+				"district": "萬華區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62026",
+				"hits": 1326
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5061323,
+					25.0421875
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025臺北客家義民嘉年華",
+				"id": 43,
+				"date": "10月",
+				"address": "暫定中正紀念堂兩廳院藝文廣場",
+				"city": "台北市",
+				"district": "中正區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62045",
+				"hits": 684
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5193364,
+					25.0371269
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025繽紛耶誕玩台北",
+				"id": 44,
+				"date": "11月",
+				"address": "臺北市15大百貨體系",
+				"city": "台北市",
+				"district": "信義區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62052",
+				"hits": 577
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.567325592041,
+					25.0366162163394
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025臺北溫泉季",
+				"id": 45,
+				"date": "11月",
+				"address": "新北投捷運站周邊",
+				"city": "台北市",
+				"district": "北投區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/63448",
+				"hits": 514
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5022901,
+					25.1369406
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025士林官邸菊展",
+				"id": 46,
+				"date": "11月",
+				"address": "士林官邸公園",
+				"city": "台北市",
+				"district": "士林區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62050",
+				"hits": 1279
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5291642,
+					25.0913793
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "艋舺青山宮暗訪暨遶境",
+				"id": 47,
+				"date": "12月",
+				"address": "艋舺青山宮",
+				"city": "台北市",
+				"district": "萬華區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62054",
+				"hits": 874
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.4995485,
+					25.0399142
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "2025臺北馬拉松",
+				"id": 48,
+				"date": "12月",
+				"address": "臺北市政府市民廣場 臺北田徑場",
+				"city": "台北市",
+				"district": "信義區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62055",
+				"hits": 3140
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5628798,
+					25.0367502
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "臺北最High新年城-2026跨年活動",
+				"id": 49,
+				"date": "12月",
+				"address": "臺北市政府府前廣場",
+				"city": "台北市",
+				"district": "信義區",
+				"url": "https://www.travel.taipei/zh-tw/event-calendar/details/62053",
+				"hits": 1361
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					121.5630113,
+					25.0359834
+				]
+			}
+		}
+	]
 }
