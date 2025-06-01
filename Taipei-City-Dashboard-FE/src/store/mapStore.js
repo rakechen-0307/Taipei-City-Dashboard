@@ -71,6 +71,9 @@ export const useMapStore = defineStore("map", {
 		userLocation: { latitude: null, longitude: null },
 		// Store source count for commercial parking connections
 		srcCount: 0,
+
+		taipei_commercial_parking_data: null,
+		newtaipei_commercial_parking_data: null,
 	}),
 	actions: {
 		/* Initialize Mapbox */
@@ -355,8 +358,19 @@ export const useMapStore = defineStore("map", {
 				this.AddVoronoiMapLayer(map_config, data);
 			} else if (map_config.type === "isoline") {
 				this.AddIsolineMapLayer(map_config, data);
-			} else if (map_config.type === "commercial-parking") {
+			} else if (data.features[0].properties.category !== null) {
+				console.log('data:', data);
+				console.log('map_config:', map_config);
+				if (map_config.index === "commercial_traffic_taipei") {
+					this.taipei_commercial_parking_data = data;
+					console.log('just set taipei_commercial_parking_data:', this.taipei_commercial_parking_data);
+				} else {
+					this.newtaipei_commercial_parking_data = data;
+					console.log('just set newtaipei_commercial_parking_data:', this.newtaipei_commercial_parking_data);
+				}
 				this.AddCommercialParkingMapLayer(map_config, data);
+				console.log('taipei_commercial_parking_data:', this.taipei_commercial_parking_data);
+				console.log('newtaipei_commercial_parking_data:', this.newtaipei_commercial_parking_data);
 			} else {
 				this.addMapLayer(map_config);
 			}
@@ -794,29 +808,29 @@ export const useMapStore = defineStore("map", {
 			this.addMapLayer(new_map_config);
 		},
 		AddCommercialParkingMapLayer(map_config, data) {
-			this.loadingLayers.push("rendering");
+			// this.loadingLayers.push("rendering");
 			
 			console.log('AddCommercialParkingMapLayer called');
-			console.log('map_config:', map_config);
-			
-			this.map.addSource(`${map_config.layerId}-source`, {
-				type: "geojson",
-				data: {
-					type: "FeatureCollection",
-					features: data.features
-				}
-			});
 
 			const layerId = `${map_config.layerId}`;
 			const baseLayerId = `${map_config.layerId}-base`;
-			
+
 			console.log('layerId:', layerId);
 			console.log('baseLayerId:', baseLayerId);
+
+			console.log(data);
+
+			this.map.addSource(`${map_config.layerId}-base-source`, {
+				type: "geojson",
+				data: { ...data }
+			});
+
+			console.log(this.map.getSource(`${map_config.layerId}-base-source`));
 
 			this.map.addLayer({
 				id: baseLayerId,
 				type: "symbol",
-				source: `${map_config.layerId}-source`,
+				source: `${map_config.layerId}-base-source`,
 				layout: {
 					...maplayerCommonLayout["symbol-commercial_parking"]
 				},
@@ -824,99 +838,15 @@ export const useMapStore = defineStore("map", {
 					...maplayerCommonPaint["symbol-commercial_parking"]
 				}
 			}, 'metrotaipei_village_label');
+
+			console.log(this.map.getLayer(baseLayerId));
 			
 			this.currentLayers.push(baseLayerId);
 			this.mapConfigs[baseLayerId] = map_config;
 			this.currentVisibleLayers.push(baseLayerId);
 
-			const hideConnections = () => {
-				return new Promise((resolve) => {
-					try {
-						if (this.map.getLayer(`${map_config.layerId}-connections`)) {
-							this.map.removeLayer(`${map_config.layerId}-connections`);
-							this.currentLayers = this.currentLayers.filter(layer => layer !== `${map_config.layerId}-connections`);
-							this.currentVisibleLayers = this.currentVisibleLayers.filter(layer => layer !== `${map_config.layerId}-connections`);
-							if (this.map.getSource(`${map_config.layerId}-connections-source`)) {
-								// this.map.removeSource(`${map_config.layerId}-connections-source`);
-							}
-						}
-					} catch (error) {
-						console.error('Error hiding connections:', error);
-					}
-					resolve();
-				});
-			};
-			
-			this.map.on('click', layerId, async (e) => {
-				console.log('click event triggered');
-				console.log('layerId:', layerId);
-				console.log('e:', e);
-				
-				const clickedFeature = e.features[0];
-				console.log('clickedFeature:', clickedFeature);
-				
-				const clickedCoords = clickedFeature.geometry.coordinates;
-				console.log('clickedCoords:', clickedCoords);
-				
-				if(clickedFeature.properties.category === "commercial") {
-					this.srcCount++;
-					const parkingLots = data.features.filter(feature => feature.properties.category === "traffic");
-					console.log('parkingLots:', JSON.stringify(parkingLots));
-					
-					const nearbyParkingLots = parkingLots.filter(parking => {
-						const distance = calculateHaversineDistance(
-							{ latitude: clickedCoords[1], longitude: clickedCoords[0] },
-							{ latitude: parking.geometry.coordinates[1], longitude: parking.geometry.coordinates[0] }
-						);
-						return distance <= .5;
-					});
-					console.log('nearbyParkingLots:', JSON.stringify(nearbyParkingLots));
-					
-					// add source for connection lines
-					const sourceId = `${map_config.layerId}-connections-source-${this.srcCount}`;
-					this.map.addSource(sourceId, {
-						type: "geojson",
-						data: {
-							type: "FeatureCollection",
-							features: parkingLots.map(parking => ({
-								type: "Feature",
-								geometry: {
-									type: "LineString",
-									coordinates: [
-										clickedCoords,
-										parking.geometry.coordinates
-									]
-								},
-								properties: {
-									distance: calculateHaversineDistance(
-										{ latitude: clickedCoords[1], longitude: clickedCoords[0] },
-										{ latitude: parking.geometry.coordinates[1], longitude: parking.geometry.coordinates[0] }
-									)
-								}
-							}))
-						}
-					});
-					
-					const source = this.map.getSource(sourceId);
-					console.log('source data:', JSON.stringify(source.serialize()));
-					
-					// add layer for connection lines
-					this.map.addLayer({
-						id: `${map_config.layerId}-connections`,
-						type: "line",
-						source: sourceId,
-						layout: {
-							"line-join": "round",
-							"line-cap": "round"
-						},
-						paint: {
-							"line-color": "#FFD700",
-							"line-width": 2,
-							"line-dasharray": [2, 2]
-						}
-					});
-				}
-			});
+			console.log(this.currentLayers.match(baseLayerId));
+
 		},
 		//  5. Turn on the visibility for a exisiting map layer
 		turnOnMapLayerVisibility(mapLayerId) {
@@ -999,6 +929,68 @@ export const useMapStore = defineStore("map", {
 				parsedPopupContent.push(feature);
 			}
 			// Create a new mapbox popup
+
+			for (let i = 0; i < clickFeatureDatas.length; i++) {
+				console.log(`${clickFeatureDatas[i].layer.id}`);
+			}
+			console.log(this.taipei_commercial_parking_data.type);
+			console.log(this.newtaipei_commercial_parking_data.data);
+
+			// find the point in taipei_commercial_parking_data + newtaipei_commercial_parking_data
+			const both_data = [...this.taipei_commercial_parking_data.features, ...this.newtaipei_commercial_parking_data.features];
+			const point = both_data.features.filter(feature => feature.geometry.coordinates[0] === event.lngLat.lng && feature.geometry.coordinates[1] === event.lngLat.lat);
+			console.log(point);
+			const parkingLots = both_data.features.filter(feature => feature.properties.category === "traffic");
+			const nearbyParkingLots = parkingLots.filter(parking => {
+				const distance = calculateHaversineDistance(
+					{ latitude: event.lngLat.lat, longitude: event.lngLat.lng },
+					{ latitude: parking.geometry.coordinates[1], longitude: parking.geometry.coordinates[0] }
+				);
+				return distance <= .5;
+			});
+
+			// if point has category "commercial"
+			if(point && point.properties.category === "commercial") {
+				this.srcCount++;
+
+				if(this.map.getLayer(`ppppp-connections`)) {
+					// delete all layers with id ppppp-connections
+					this.map.removeLayer(`ppppp-connections`);
+					this.currentLayers = this.currentLayers.filter(layer => layer !== `ppppp-connections`);
+					this.currentVisibleLayers = this.currentVisibleLayers.filter(layer => layer !== `ppppp-connections`);
+				}
+
+				// add a source for connection lines
+				const sourceId = `ppppp-connections-source-${this.srcCount}`;
+				this.map.addSource(sourceId, {
+					type: "geojson",
+					data: {
+						type: "FeatureCollection",
+						features: parkingLots.map(parking => ({
+							type: "Feature",
+							geometry: {
+								type: "LineString",
+								coordinates: [event.lngLat, parking.geometry.coordinates]
+							}
+						}))
+					}
+				});
+				this.map.addLayer({
+					id: `ppppp-connections`,
+					type: "line",
+					source: sourceId,
+					layout: {
+						"line-join": "round",
+						"line-cap": "round"
+					},
+					paint: {
+						"line-color": "#FFD700",
+						"line-width": 2,
+						"line-dasharray": [2, 2]
+					}
+				});
+			}
+			
 			this.popup = new mapboxGl.Popup()
 				.setLngLat(event.lngLat)
 				.setHTML('<div id="vue-popup-content"></div>')
