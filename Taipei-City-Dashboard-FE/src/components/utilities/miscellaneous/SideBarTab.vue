@@ -6,6 +6,7 @@
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 import { usePersonStore } from "../../../store/personStore";
+import { usePersonStore } from "../../../store/personStore";
 
 const route = useRoute();
 
@@ -20,26 +21,14 @@ const props = defineProps({
 const personStore = usePersonStore();
 
 const tabLink = computed(() => {
-<<<<<<< HEAD
-<<<<<<< HEAD
 	const isAdminPath = authStore.currentPath === "admin";
 	const cityParam = props.city ? `${isAdminPath ? "?" : "&"}city=${props.city}` : "";
 	return isAdminPath
 		? `/admin/${props.index}${cityParam}`
 		: `${route.path}?index=${props.index}${cityParam}`;
-=======
-=======
->>>>>>> main
-	if (personStore.currentPath === "admin") {
-		return `/admin/${props.index}`;
-	}
-	return `${route.path}?index=${props.index}`;
->>>>>>> main
 });
 
 const linkActiveOrNot = computed(() => {
-<<<<<<< HEAD
-<<<<<<< HEAD
 	const isAdminPath = authStore.currentPath === "admin";
 	const isPathMatch = isAdminPath
 		? route.path === `/admin/${props.index}`
@@ -49,14 +38,6 @@ const linkActiveOrNot = computed(() => {
 		: true;
 
 	return isPathMatch && isCityMatch;
-=======
-=======
->>>>>>> main
-	if (personStore.currentPath === "admin") {
-		return route.path === `/admin/${props.index}` ? true : false;
-	}
-	return route.query.index === props.index ? true : false;
->>>>>>> main
 });
 </script>
 

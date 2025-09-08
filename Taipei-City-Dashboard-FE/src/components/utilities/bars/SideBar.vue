@@ -80,8 +80,6 @@ onMounted(() => {
       'hide-if-mobile': true,
     }"
   >
-<<<<<<< HEAD
-<<<<<<< HEAD
     <div
       class="sidebar-collapse-btnContainer"
       :class="{ notExpanded: !isExpanded }"
@@ -97,7 +95,7 @@ onMounted(() => {
         }}</span>
       </button>
     </div>
-    <template v-if="authStore.token">
+    <template v-if="personStore.token">
       <h1 @click="toggleCollapse(['favorites', 'personal'])">
         {{ isExpanded ? `私人儀表板 ` : `私人` }}
       </h1>
@@ -114,18 +112,6 @@ onMounted(() => {
           />
         </template>
       </transition>
-=======
-=======
->>>>>>> main
-    <div v-if="personStore.token">
-      <h2>{{ isExpanded ? `我的最愛` : `最愛` }}</h2>
-      <SideBarTab
-        icon="favorite"
-        title="收藏組件"
-        :expanded="isExpanded"
-        :index="contentStore.favorites?.index"
-      />
->>>>>>> main
       <div class="sidebar-sub-add">
         <h2 @click="toggleCollapse('personal')">
           {{ isExpanded ? `個人儀表板 ` : `個人` }}

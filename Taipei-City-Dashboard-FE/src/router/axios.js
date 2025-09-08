@@ -4,7 +4,7 @@
 // This file centrally handles all axios requests made in the application.
 
 import axios from "axios";
-import { usePersonStore } from "../store/personStore.js";
+import { usePersonStore } from "../store/personStore";
 import { useDialogStore } from "../store/dialogStore";
 import { useContentStore } from "../store/contentStore";
 import { DataManager } from "../assets/utilityFunctions/dataManager.js";
