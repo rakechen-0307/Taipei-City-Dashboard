@@ -132,7 +132,12 @@ export const useMapStore = defineStore("map", {
 			const personStore = usePersonStore();
 			if (!this.map) return;
 			// metroTaipei District Labels
-			fetch(`/mapData/metrotaipei_town.geojson`)
+			fetch(`/mapData/metrotaipei_town.geojson`,{
+				method: 'GET',
+				headers: {
+					'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
+				}
+			})
 				.then((response) => response.json())
 				.then((data) => {
 					this.map
@@ -143,7 +148,12 @@ export const useMapStore = defineStore("map", {
 						.addLayer(metroTaipeiTown);
 				});
 			// metroTaipei Village Labels
-			fetch(`/mapData/metrotaipei_village.geojson`)
+			fetch(`/mapData/metrotaipei_village.geojson`,{
+				method: 'GET',
+				headers: {
+					'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
+				}
+			})
 				.then((response) => response.json())
 				.then((data) => {
 					this.map
